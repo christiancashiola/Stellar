@@ -10,26 +10,26 @@ class User < ApplicationRecord
 
   attr_reader :password
 
-  has_many :followings,
-    dependent: :destroy
+  # has_many :followings,
+  #   dependent: :destroy
 
-  has_many :followed_users,
-    through: :followings
+  # has_many :followed_users,
+  #   through: :followings
 
-  has_many :followers,
-    through: :followers,
-    source: :user
+  # has_many :followers,
+  #   through: :followers,
+  #   source: :user
 
-  has_many :posts,
-    dependent: :destroy
+  # has_many :posts,
+  #   dependent: :destroy
 
-  has_many :liked_posts,
-    foreign_key: :user_id,
-    class_name: :Likes,
-    dependent: :destroy
+  # has_many :liked_posts,
+  #   foreign_key: :user_id,
+  #   class_name: :Likes,
+  #   dependent: :destroy
 
-  def self.find_by_credentials(password, username)
-    user = User.find_by(username: username)
+  def self.find_by_credentials(email, password)
+    user = User.find_by(email: email)
     user && user.is_password?(password) ? user : nil
   end
 
