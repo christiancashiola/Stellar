@@ -36,3 +36,4 @@ bundle.js
 
 # Misc
 .DS_Store
+/.vscode
