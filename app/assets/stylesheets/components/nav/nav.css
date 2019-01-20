@@ -4,7 +4,7 @@
   justify-content: space-between;
   position: fixed;
   z-index: 5;
-  width: 98%;
+  width: 97%;
   padding-right: 50px;
   background-color: transparent;
 }
@@ -12,4 +12,26 @@
 .splash-nav-btns {
   position: absolute;
   right: 10%;
+}
+
+.nav-link {
+  width: 45px;
+  height: 35px;
+  font-size: 24px;
+  color: #9AA2AE;
+  background-color: transparent;
+  border: 0px solid transparent;
+  border-radius: 2px;
+  margin: 5px 0 5px 20px;
+}
+
+.create-post {
+  width: 45px;
+  height: 35px;
+  font-size: 22px;
+  color: #36455D;
+  background-color:  #559DCC;
+  border: 0px solid #559DCC;
+  border-radius: 2px;
+  margin: 5px 0 5px 20px;
 }

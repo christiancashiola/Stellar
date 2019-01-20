@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
-const Nav = ({ currentUser }) => {
+const Nav = ({ currentUser, logout }) => {
   let display = (
     <div className="spash-nav-btns">
       <NavLink activeClassName="hidden" to="/login">
@@ -16,7 +16,22 @@ const Nav = ({ currentUser }) => {
 
   if (currentUser) {
     display = (
-      <div>Hello {currentUser.username}</div>
+      <div className="dash-nav-btns">
+        <Link to="#">
+          <button className="nav-link"><i className="fas fa-home"></i></button>
+        </Link>
+        <Link to="#">
+          <button className="nav-link"><i className="far fa-compass"></i></button>
+        </Link>
+
+        <button 
+          onClick={logout}
+          className="nav-link"><i className="fas fa-user"></i>
+        </button>
+        <button 
+          className="create-post"><i className="fas fa-pencil-alt"></i>
+        </button>
+      </div>
     );
   }
 
