@@ -1,0 +1,108 @@
+.splash {
+  position: relative;
+  height: 100vh;
+  background: linear-gradient(#F49938, #A77DBF);
+  /* background: url('/assets/stars3.jpeg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 8  0%; */
+}
+
+.splash-nav {
+  padding: 5px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  color: #fff;
+  background-color: transparent;
+  border: 0px solid transparent;
+  font-size: 36px;
+  font-weight: 500;
+  font-family: 'Lobster', cursive;
+  margin: 5px;
+}
+
+.logo i {
+  letter-spacing: -25px;
+  transform: rotate(-1deg);
+  font-size: 34px;
+}
+
+.login-sm {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 0px solid rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  color: #fff;
+  width: 75px;
+  height: 30px;
+  font-size: 14px;
+  margin: 5px;
+  font-weight: 500;
+}
+
+.sign-up {
+  background-color: #fff;
+  color: #555;
+  border: 0px solid #fff;
+  border-radius: 2px;
+  width: 75px;
+  height: 30px;
+  font-size: 14px;
+  margin: 5px;
+  font-weight: 500;
+}
+
+.mid-content {
+  margin-top: 10%;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  text-align: center;
+}
+
+.mid-content p {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 300;
+  margin: 0 0 15px;
+  line-height: 20px;
+  letter-spacing: 0.7px;
+}
+
+.head-logo {
+  font-size: 6em;
+}
+
+.head-logo i {
+  font-size: 1.1em;
+  letter-spacing: -80px;
+  transform: rotate(-2deg);
+}
+
+.get-started {
+  display: block;
+  background-color: #559DCC;
+  color: #fff;
+  border: 0px solid #559DCC;
+  border-radius: 2px;
+  width: 300px;
+  height: 45px;
+  font-size: 16px;
+  margin: 10px;
+  font-weight: 600;
+}
+
+.login-lg {
+  display: block;
+  background-color: #fff;
+  color: #444444;
+  border: 0px solid #fff;
+  border-radius: 2px;
+  width: 300px;
+  height: 45px;
+  font-size: 16px;
+  margin: 5px;
+  font-weight: 600;
+}

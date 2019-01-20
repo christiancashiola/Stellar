@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+ /* GENERAL STYLES */
+ body {
+  margin: 0;
+  font-family: 'Sarabun', sans-serif;
+}
+
+button:focus {
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
