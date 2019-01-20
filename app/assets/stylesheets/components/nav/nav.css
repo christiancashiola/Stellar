@@ -1,0 +1,15 @@
+.nav {
+  padding: 5px 20px;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 5;
+  width: 98%;
+  padding-right: 50px;
+  background-color: transparent;
+}
+
+.splash-nav-btns {
+  position: absolute;
+  right: 10%;
+}

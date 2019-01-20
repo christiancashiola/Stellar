@@ -16,13 +16,15 @@ class SessionForm extends Component {
   handleSubmit(e) {
     e.preventDefault(e);
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    this.props.processForm(user)
+    .then(() => this.props.history.push('/dashboard'));
   }
 
   update(field) {
     return e => this.setState({ [field]: e.target.value});
   }
 
+  // TODO: fix error display to refresh on locatoin change
   displayErrors() {
     let errors = this.props.sessionErrors.join('. ');
     if (errors.length) {
@@ -33,23 +35,6 @@ class SessionForm extends Component {
       return <div className="error-box">{errors}</div>
     }
   }
-
-  // displayErrors() {
-  //   let errors = this.props.sessionErrors.join('. ');
-  //   const oldErrors = document.querySelector('.error-box');
-  
-  //   if (errors.length) {
-  //     if (errors[errors.length - 1] !== '.') {
-  //       errors += '.';
-  //     }
-      
-  //     if (oldErrors && oldErrors.innerText === errors) {
-  //       return null;
-  //     }
-  
-  //     return <div className="error-box">{errors}</div>
-  //   }
-  // }
   
   render() {
     const { usernameField, formType } = this.props
@@ -63,17 +48,13 @@ class SessionForm extends Component {
               type="text" 
               placeholder="Email"
               id="email"/>
-          
-
-          <label htmlFor="password"></label>
-            <input
-            onChange={this.update('password')}
-            type="password"
-            placeholder="Password"
-            id="password"/>
-          
-
-          {usernameField ? usernameField(this.update) : null}
+            <label htmlFor="password"></label>
+              <input
+              onChange={this.update('password')}
+              type="password"
+              placeholder="Password"
+              id="password"/> 
+            {usernameField ? usernameField(this.update) : null}
         </div>
 
         {this.displayErrors()}

@@ -26,21 +26,6 @@ const Splash = (props) => {
 
   return (
     <section className="splash">
-      <nav className="splash-nav">
-        <Link className="logo-link" to="/">
-          <button className="logo"><i className="far fa-star-half"></i>S</button>
-        </Link>
-
-        <div className="spash-nav-btns">
-          <NavLink activeClassName="hidden" to="/login">
-            <button className="login-sm">Log In</button>
-          </NavLink>
-          <NavLink activeClassName="hidden" to="/register">
-            <button className="sign-up">Sign Up</button>
-          </NavLink>
-        </div>
-      </nav>
-
       <div className="mid-content">
         <h1 className="head-logo logo"><i className="far fa-star-half"></i>stellar</h1>
         <p>
