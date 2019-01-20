@@ -1,34 +1,60 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink, Route } from 'react-router-dom';
+import SignUpFormContainer from '../session_form/signup_form_container';
+import LoginFormContainer from '../session_form/login_form_container';
 
-const Splash = props => {
+
+const Splash = (props) => {
+  
+  let getStartedBtn = (
+    <Link to="/register">
+      <button className="lg-blue-btn">Get Started</button>
+    </Link>
+  );
+  
+  let loginBtn = (
+    <Link to="/login">
+      <button className="login-lg">Log In</button>
+    </Link>
+  );
+
+  const pathname = props.location.pathname
+  if (pathname === '/register' || pathname === '/login') {
+    getStartedBtn = null;
+    loginBtn = null;
+  }
 
   return (
     <section className="splash">
       <nav className="splash-nav">
         <Link className="logo-link" to="/">
-          <button class="logo"><i class="far fa-star-half"></i>S</button>
+          <button className="logo"><i className="far fa-star-half"></i>S</button>
         </Link>
 
         <div className="spash-nav-btns">
-          <Link to="/login"><button className="login-sm">Log In</button></Link>
-          <Link to="/signup"><button className="sign-up">Sign Up</button></Link>
+          <NavLink activeClassName="hidden" to="/login">
+            <button className="login-sm">Log In</button>
+          </NavLink>
+          <NavLink activeClassName="hidden" to="/register">
+            <button className="sign-up">Sign Up</button>
+          </NavLink>
         </div>
       </nav>
 
       <div className="mid-content">
-        <h1 className="head-logo logo"><i class="far fa-star-half"></i>stellar</h1>
+        <h1 className="head-logo logo"><i className="far fa-star-half"></i>stellar</h1>
         <p>
-          Discover treasures<br/>amongst the stars.
+          Discover yourself<br/>amongst the stars.
         </p>
+
+        <Route path="/register" component={SignUpFormContainer} />
+        <Route path='/login' component={LoginFormContainer} />
         
-        <Link to="/signup"><button class="get-started">Get Started</button></Link>
-        <Link to="/signup"><button class="login-lg">Log In</button></Link>
+        {getStartedBtn}
+        {loginBtn}
+
       </div>
-
     </section>
-
-
   );
 };
 

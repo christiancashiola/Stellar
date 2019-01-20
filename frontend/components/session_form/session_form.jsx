@@ -9,8 +9,8 @@ class SessionForm extends Component {
       password: '',
       username: '',
     };
-    this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.update = this.update.bind(this);
   }
 
   handleSubmit(e) {
@@ -20,39 +20,66 @@ class SessionForm extends Component {
   }
 
   update(field) {
-    return e => this.setState({
-      [field]: e.target.value
-    });
+    return e => this.setState({ [field]: e.target.value});
   }
 
-  render() {
-    const { formType, navLink } = this.props;
-    let usernameInput = '';
-
-    if (formType === 'signup') {
-      usernameInput = (
-        <>
-          <label htmlFor="username">Username: </label>
-          <input onChange={this.update('username')} type="text" id="username"/>
-        </>
-      )
+  displayErrors() {
+    let errors = this.props.sessionErrors.join('. ');
+    if (errors.length) {
+      if (errors[errors.length - 1] !== '.') {
+        errors += '.';
+      }
+      
+      return <div className="error-box">{errors}</div>
     }
+  }
+
+  // displayErrors() {
+  //   let errors = this.props.sessionErrors.join('. ');
+  //   const oldErrors = document.querySelector('.error-box');
+  
+  //   if (errors.length) {
+  //     if (errors[errors.length - 1] !== '.') {
+  //       errors += '.';
+  //     }
+      
+  //     if (oldErrors && oldErrors.innerText === errors) {
+  //       return null;
+  //     }
+  
+  //     return <div className="error-box">{errors}</div>
+  //   }
+  // }
+  
+  render() {
+    const { usernameField, formType } = this.props
     
     return (
-      <>
-        <h3>{formType}</h3>
-        <h4>{navLink}</h4>
-        
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="email">Email: </label>
-          <input onChange={this.update('email')} type="text" id="email"/>
-          <label htmlFor="password">Password: </label>
-          <input onChange={this.update('password')} type="password" id="password"/>
-          {usernameInput}
+      <form className="session-form" onSubmit={this.handleSubmit}>
+        <div className="input-wrapper">
+          <label htmlFor="email"></label>
+            <input
+              onChange={this.update('email')}
+              type="text" 
+              placeholder="Email"
+              id="email"/>
+          
 
-          <button>Submit</button>
-        </form>
-      </>
+          <label htmlFor="password"></label>
+            <input
+            onChange={this.update('password')}
+            type="password"
+            placeholder="Password"
+            id="password"/>
+          
+
+          {usernameField ? usernameField(this.update) : null}
+        </div>
+
+        {this.displayErrors()}
+
+        <button className="lg-blue-btn">{formType}</button>
+      </form>
     );
   }
 }

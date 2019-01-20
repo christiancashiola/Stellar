@@ -24,10 +24,18 @@ button:focus {
   outline: none;
 }
 
+input:focus {
+  outline: none;
+}
+
 button {
   cursor: pointer;
 }
 
 a {
   text-decoration: none;
+}
+
+.hidden {
+  display: none;
 }

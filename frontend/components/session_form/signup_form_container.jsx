@@ -1,13 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { signup } from '../../actions/session_actions';
-import { Link } from 'react-router-dom';
 import SessionForm from './session_form';
 
 const mapStateToProps = ({ errors }) => ({
-  errors: errors.session,
-  formType: 'signup',
-  navLink: <Link to='/login'>Or Log In</Link>,
+  sessionErrors: errors.session,
+  formType: 'Sign up',
+  usernameField: (changeHandler) => (    
+    <>
+      <label htmlFor="username"></label>
+      <input
+      onChange={changeHandler('username')}
+      type="text"
+      placeholder="Username"
+      id="username"/>
+    </>
+  )
 });
 
 const mapDispatchToProps = dispatch => ({
