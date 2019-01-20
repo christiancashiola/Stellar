@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Splash from './splash/splash';
 import Dashboard from './dashboard/dashboard_container';
 import Nav from './nav/nav_container';
@@ -9,8 +10,8 @@ const App = () => {
     <>
       <Route path='/' component={Nav} />
       <Switch>
-        <Route path='/dashboard' component={Dashboard} />
-        <Route path='/' component={Splash} />
+        <ProtectedRoute path='/dashboard' component={Dashboard} />
+        <AuthRoute path='/' component={Splash} />
       </Switch>
     </>
   )
