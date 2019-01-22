@@ -23,8 +23,17 @@ const Splash = (props) => {
     loginBtn = null;
   }
 
+  const splashStyle = {
+    position: 'relative',
+    height: '100vh',
+    background: `url( ${window.splashUrl })`,
+    backgroundRepeat: 'no-repeat',
+    backgroundAttachment: 'fixed',
+    backgroundSize: 'cover',
+  };
+  
   return (
-    <section className="splash">
+    <section style={splashStyle}>
       <div className="mid-content">
         <h1 className="head-logo logo"><i className="far fa-star-half"></i>stellar</h1>
         <p>
@@ -44,7 +53,7 @@ const Splash = (props) => {
       
       <div className="footer">
         <a className="git-link" href="https://github.com/christiancashiola">
-        <img className="git-img" src="/assets/git_logo.png" alt="github logo"/>
+        <img className="git-img" src={window.gitLogo}/>
           GitHub
         </a>
       </div>
