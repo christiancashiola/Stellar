@@ -27,16 +27,6 @@ class SessionForm extends Component {
   update(field) {
     return e => this.setState({ [field]: e.target.value});
   }
-
-  // displayErrors() {
-  //   let errors = this.props.sessionErrors.join('. ');
-  //   if (errors.length) {
-  //     errors += '.';
-      
-  //     console.log(errors);
-  //     return <div className="error-box">{errors}</div>
-  //   }
-  // }
   
   render() {
     const { usernameField, formType, sessionErrors } = this.props;

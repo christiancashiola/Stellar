@@ -37,6 +37,10 @@ const Splash = (props) => {
         
         {getStartedBtn}
         {loginBtn}
+        <button 
+          onClick={props.demoLogin}
+          className="demo-login">Demo Login
+        </button>
 
       </div>
     </section>

@@ -1,11 +1,11 @@
 .splash {
   position: relative;
   height: 100vh;
-  background: linear-gradient(#F49938, #A77DBF);
-  /* background: url('/assets/stars3.jpeg');
+  /* background: linear-gradient(#F49938, #A77DBF); */
+  background: url('/assets/stars4.jpeg');
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: 50% 8  0%; */
+  background-size: cover;
 }
 
 .logo {
@@ -60,10 +60,11 @@
 .mid-content p {
   color: #fff;
   font-size: 1.1rem;
-  font-weight: 300;
+  font-weight: 100;
   margin: 0 0 15px;
   line-height: 20px;
   letter-spacing: 0.7px;
+  text-shadow: 1px 1px 1px #000;
 }
 
 .head-logo {
@@ -99,5 +100,18 @@
   height: 45px;
   font-size: 16px;
   margin: 5px;
+  font-weight: 600;
+}
+
+.demo-login {
+  display: block;
+  background-color: #333;
+  color: #fff;
+  border: 0px solid #333;
+  border-radius: 2px;
+  width: 300px;
+  height: 45px;
+  font-size: 16px;
+  margin-top: 60px;
   font-weight: 600;
 }

@@ -43,6 +43,10 @@ input:-webkit-autofill {
   margin: 5px auto;
 }
 
+.session-form > .lg-blue-btn {
+  margin: 15px;
+}
+
 .error-box {
   background-color: rgba(0, 0, 0, 0.2);
   border: 0px solid rgba(0, 0, 0, 0.2);
