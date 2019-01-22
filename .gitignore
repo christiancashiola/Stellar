@@ -33,6 +33,7 @@
 # React
 node_modules
 bundle.js
+bundle.js*
 
 # Misc
 .DS_Store
