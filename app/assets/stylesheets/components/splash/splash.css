@@ -115,3 +115,27 @@
   margin-top: 60px;
   font-weight: 600;
 }
+
+.footer {
+  position: absolute;
+  bottom: 1%;
+  padding-left: 10px;
+}
+
+.git-img {
+  width: 25px;
+  height: auto;
+  margin-right: 5px;
+}
+
+.git-link {
+  text-decoration: none;
+  color: #aaa;
+  display: flex;
+  align-items: center;
+  transition: 0.1s;
+}
+
+.git-link:hover {
+  color: #fff;
+}

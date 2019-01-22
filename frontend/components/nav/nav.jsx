@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import DashNavLinks from './dash_nav_links';
 
-const Nav = ({ currentUser, logout }) => {
+const Nav = ({ currentUser }) => {
+// TODO: refactor currentUser if unnecessary
   let display = (
     <div className="spash-nav-btns">
       <NavLink activeClassName="hidden" to="/login">
@@ -15,27 +17,9 @@ const Nav = ({ currentUser, logout }) => {
   );
 
   if (currentUser) {
-    display = (
-      <div className="dash-nav-btns">
-        <Link to="#">
-          <button className="nav-link"><i className="fas fa-home"></i></button>
-        </Link>
-        <Link to="#">
-          <button className="nav-link"><i className="far fa-compass"></i></button>
-        </Link>
-
-        <button 
-          onClick={logout}
-          className="nav-link"><i className="fas fa-user"></i>
-        </button>
-        <button 
-          className="create-post"><i className="fas fa-pencil-alt"></i>
-        </button>
-      </div>
-    );
+    display = <DashNavLinks currentUser={currentUser} />
   }
 
-  
   return (
     <nav className="nav">
       <div className="logo-wrapper">

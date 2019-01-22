@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link, NavLink, Route } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import SignUpFormContainer from '../session_form/signup_form_container';
 import LoginFormContainer from '../session_form/login_form_container';
-
 
 const Splash = (props) => {
   
@@ -41,7 +40,13 @@ const Splash = (props) => {
           onClick={props.demoLogin}
           className="demo-login">Demo Login
         </button>
-
+      </div>
+      
+      <div className="footer">
+        <a className="git-link" href="https://github.com/christiancashiola">
+        <img className="git-img" src="/assets/git_logo.png" alt="github logo"/>
+          GitHub
+        </a>
       </div>
     </section>
   );

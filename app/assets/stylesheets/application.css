@@ -34,8 +34,14 @@ button {
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 .hidden {
   display: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
 }
