@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   validates_presence_of :username, :email, :session_token, :password_digest
   validates_format_of :email, with: URI::MailTo::EMAIL_REGEXP
-  validates_length_of :password, in: 6..40, allow_nil: true
+  validates_length_of :password, in: 8..40, allow_nil: true
 
   after_initialize :ensure_session_token
 

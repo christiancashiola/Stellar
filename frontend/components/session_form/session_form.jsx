@@ -13,6 +13,10 @@ class SessionForm extends Component {
     this.update = this.update.bind(this);
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
   handleSubmit(e) {
     e.preventDefault(e);
     const user = Object.assign({}, this.state);
@@ -24,20 +28,18 @@ class SessionForm extends Component {
     return e => this.setState({ [field]: e.target.value});
   }
 
-  // TODO: fix error display to refresh on locatoin change
-  displayErrors() {
-    let errors = this.props.sessionErrors.join('. ');
-    if (errors.length) {
-      if (errors[errors.length - 1] !== '.') {
-        errors += '.';
-      }
+  // displayErrors() {
+  //   let errors = this.props.sessionErrors.join('. ');
+  //   if (errors.length) {
+  //     errors += '.';
       
-      return <div className="error-box">{errors}</div>
-    }
-  }
+  //     console.log(errors);
+  //     return <div className="error-box">{errors}</div>
+  //   }
+  // }
   
   render() {
-    const { usernameField, formType } = this.props
+    const { usernameField, formType, sessionErrors } = this.props;
     
     return (
       <form className="session-form" onSubmit={this.handleSubmit}>
@@ -57,7 +59,7 @@ class SessionForm extends Component {
             {usernameField ? usernameField(this.update) : null}
         </div>
 
-        {this.displayErrors()}
+        {sessionErrors.length ? <div className="error-box">{sessionErrors}</div> : null}
 
         <button className="lg-blue-btn">{formType}</button>
       </form>
