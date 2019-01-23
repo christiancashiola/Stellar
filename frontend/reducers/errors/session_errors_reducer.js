@@ -1,8 +1,8 @@
-import { 
-  RECEIVE_ERRORS, 
-  RECEIVE_CURRENT_USER,
-  CLEAR_ERRORS,
-} from "../actions/session_actions";
+import { RECEIVE_CURRENT_USER } from "../../actions/session_actions";
+import {
+  CLEAR_ERRORS, 
+  RECEIVE_ERRORS
+} from "../../actions/error_actions";
 
 const sessionErrorsReducer = (state = [], action) => {
   Object.freeze(state);

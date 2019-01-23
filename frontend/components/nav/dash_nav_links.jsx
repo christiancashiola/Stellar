@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AccountInfo from './account_info_container';
+import AccountInfo from './account_info/account_info_container';
 import { Link } from 'react-router-dom';
 
 class DashNavLinks extends Component {

@@ -15,9 +15,14 @@
  */
 
  /* GENERAL STYLES */
- body {
-  margin: 0;
+ html {
+   height: 100%;
+ }
+
+body {
+  margin: 0 0;
   font-family: 'Sarabun', sans-serif;
+  min-height: 100%;
 }
 
 button:focus {
@@ -44,4 +49,9 @@ a {
 ul {
   list-style: none;
   padding: 0;
+}
+
+.sm-gray-text {
+  color: #333;
+  font-weight: 200;
 }

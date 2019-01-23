@@ -1,21 +1,23 @@
 class Api::PostsController < ApplicationController
   
   def index
-    criterion = Tag.find_by(subject: request.url.split('/')[-1]).id
-    
-    if params.include?(:dashboard)
+    criterion = request.url.split('/')[-1]
+    if criterion == 'dashboard'
       # TODO: query all followed users and
       # display their most recent posts
+      @posts = Post.all
     else
-      
+      tag_id = Tag.find_by(subject: criterion).id      
       @posts = Post.where(tag_id: criterion)
-      render 'api/posts/show'
     end
+      
+    render 'api/posts/index'
   end
 
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+    @post.tag_id = 5
 
     if @post.save
       render 'api/posts/show'

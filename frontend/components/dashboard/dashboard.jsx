@@ -1,14 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Route } from 'react-router-dom';
+import CreateForm from './post_form/create_form_container';
+import EditForm from './post_form/edit_form_container';
+import DashPosts from '../posts/dash_posts/dash_posts_container';
+import DashLinks from './dash_links';
 
-class Dashboard extends Component {
+const Dashboard = props => {
 
-  render() {
-    return (
-      <section className="dashboard">
+  return (
+    <section className="dashboard">
 
-      </section>
-    )
-  }
+      <Route exact path='/dashboard' component={DashLinks} />
+      {/* <DashPosts /> */}
+      <Route path='/dashboard/new' component={CreateForm} />
+      <Route path='/dashboard/edit' component={EditForm} />
+    </section>
+  );
 }
 
 export default Dashboard;
