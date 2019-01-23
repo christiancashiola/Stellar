@@ -1,0 +1,53 @@
+.post-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 75px auto;
+  grid-gap: 20px;
+  border-radius: 3px;
+}
+
+.post {
+  box-sizing: border-box;
+  background-color: #fff;
+  width: 100%;
+  border-radius: 5px;
+  padding: 20px;
+  position: relative;
+}
+
+.post h3 {
+  font-size: 30px;
+  font-weight: 500;
+  margin: 0 0 10px;
+}
+
+.post-settings-icon {
+  float: right;
+  border: none;
+  font-size: 20px;
+  color: #444;
+}
+
+.post-settings {
+  display: flex;
+  flex-flow: column;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: inset 0 0 1px 0 rgba(0, 0, 0, 0.7);
+  position: absolute;
+  bottom: -45px;
+  right: -15px;
+  z-index: 3;
+  padding: 6px 0;
+}
+
+.post-setting-link {
+  padding: 3px 10px 0;
+  box-sizing: border-box;
+  width: 120px;
+  height: 30px;
+}
+
+.post-setting-link:hover {
+  background-color: rgba(127, 178, 245, 0.4);
+}

@@ -39,7 +39,7 @@ class Api::PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id]).where(user_id: current_user.id)
+    @post = Post.where(user_id: current_user.id).find(params[:id])
     if @post
       @post.destroy!
       render 'api/posts/show'

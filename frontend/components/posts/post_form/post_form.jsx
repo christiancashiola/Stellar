@@ -10,7 +10,9 @@ class PostForm extends Component {
   
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createPost(this.state);
+    this.props.processForm(this.state)
+    .then(this.setState({ body: '', title: '', tag: '' }))
+    .then(this.props.history.push('/'));
   }
 
   update(field) {

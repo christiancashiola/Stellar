@@ -26,7 +26,7 @@ const Splash = (props) => {
   const splashStyle = {
     position: 'relative',
     height: '100vh',
-    background: `url( ${window.splashUrl })`,
+    background: `url( ${ window.splashUrl })`,
     backgroundRepeat: 'no-repeat',
     backgroundAttachment: 'fixed',
     backgroundSize: 'cover',

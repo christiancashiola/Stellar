@@ -2,7 +2,7 @@
   padding-top: 100px;
   height: 100vh;
   width: 100%;
-  /* background: linear-gradient(#35465C, #53BC8D); */
+  /* background: linear-gradient(#35465C,#A77DBF,#F49938); */
   background-color: #35465C;
   display: flex;
   justify-content: center;
@@ -11,7 +11,7 @@
 .current-user-dock {
   height: 100px;
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 75px auto;
   grid-gap: 20px;
 }
 

@@ -5,7 +5,7 @@ const DashLinks = () => {
   return (
     <section className="dash-links">
       <div className="icon-wrapper">
-        <Link to="/dashboard/new" className="text pop-up">Aa</Link>
+        <Link to="/dashboard/new/text" className="text pop-up">Aa</Link>
         <span className="sm-gray-text">Text</span>
       </div>
       

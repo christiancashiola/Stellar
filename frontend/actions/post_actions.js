@@ -39,7 +39,7 @@ export const receivePosts = posts => ({
 });
 
 export const receivePost = post => ({
-  type: RECEIVE_POSTS,
+  type: RECEIVE_POST,
   post
 });
 
