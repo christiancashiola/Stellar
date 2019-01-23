@@ -8,14 +8,15 @@
   justify-content: center;
 }
 
-.dash-links {
+.current-user-dock {
   height: 100px;
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 20px;
 }
 
-.icon-container {
+.dash-links {
+  width: 500px;
   display: flex;
   justify-content: space-between;
   background-color: #fff;
@@ -32,13 +33,23 @@
 }
 
 .dash-links :nth-child(7) {
+  padding-top: 15px;
+}
+
+.dash-links :nth-child(5) {
   padding-top: 12.5px;
+}
+
+
+.dash-links :first-child {
+  padding-top: 0;
+  padding-bottom: 3px;
 }
 
 .vert-line {
   width: 1px;
   height: 70px;
-  margin: 10px 1px 0;
+  margin: 10px 1px;
   background: linear-gradient(#fff, #eee, #ddd, #eee, #fff)
 }
 
@@ -47,7 +58,7 @@
   border: 0px solid transparent;
   font-size: 36px;
   font-weight: 500;
-  margin: 5px 10px 0;
+  margin: 5px 8px 0;
   transition: 0.3s;
 }
 
@@ -68,13 +79,14 @@
 
 .quote {
   color: #F1A344;
+  padding-top: 9px;
 }
 
 .link > .circle {
   color: #fff;
   background-color: #6CC595;
   font-size: 24px;
-  padding: 5px;
+  padding: 5px 7px;
   border-radius: 50%;
   margin: 0px;
 }

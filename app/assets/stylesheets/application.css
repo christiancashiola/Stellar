@@ -25,11 +25,7 @@ body {
   min-height: 100%;
 }
 
-button:focus {
-  outline: none;
-}
-
-input:focus {
+input:focus, button:focus, textarea:focus {
   outline: none;
 }
 
@@ -54,4 +50,21 @@ ul {
 .sm-gray-text {
   color: #333;
   font-weight: 200;
+}
+
+.sm-btn {
+  width: 70px;
+  height: 26px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: inset 0 0 0px 9999px #fff;
+}
+
+textarea {
+  resize: none;
 }

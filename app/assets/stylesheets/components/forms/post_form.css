@@ -1,0 +1,53 @@
+.post-form {
+  box-sizing: border-box;
+  padding-top: 100px; 
+  background-color: #fff;
+  width: 500px;
+  height: 260px;
+  padding: 20px 0;
+  border-radius: 3px;
+}
+
+.post-form input, textarea {
+  margin: 0 20px 5px;
+  width: 450px;
+  border: none;
+  padding: 5px;
+}
+
+.title-input {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.post-form textarea {
+  font-size: 18px;
+  height: 75px;
+}
+
+.post-form label {
+  height: 0;
+}
+
+.tag-input {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.form-btns-wrapper {
+  padding: 20px 20px 0;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+}
+
+.close-btn {
+  background-color: #aaadb5;
+  color: #fff;
+}
+
+.post-btn {
+  background-color: #559DCC;
+  color: #fff;
+}
