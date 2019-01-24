@@ -14,10 +14,6 @@ class DashPosts extends Component {
     this.props.fetchPosts(this.state.criterion);
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    debugger
-  }
-
   render() {
     const { deletePost, updatePost } = this.props;
 

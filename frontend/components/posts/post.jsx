@@ -11,18 +11,24 @@ const Post = ({ post, deletePost, updatePost }) => {
     settingsVisble = true;
     document.querySelector('.post-settings').classList.toggle('hidden');
     if (settingsVisble) {
-      document.addEventListener('mousedown', addClickEvent.bind(this));
+      document.addEventListener('mousedown', toggleClickEvent.bind(this), false);
     }
   };
 
-  const addClickEvent = (e) => {
+  const toggleClickEvent = (e) => {
     if (!e.target.className.includes('post-setting')) {
       toggleSettings();
-      removeEventListener('mousedown', addClickEvent.bind(this));
+      document.removeEventListener('mousedown', toggleClickEvent.bind(this));
       settingsVisble = false;
     }
   };
 
+  const handleDelete = (postId) => {
+    document.removeEventListener('mousedown', toggleClickEvent.bind(this));
+    settingsVisble = false;
+    deletePost(postId);
+  };
+  
   return (
     <div className="post-container">
       <img id="profile-pic" src="https://via.placeholder.com/75" alt=""/>
@@ -37,7 +43,7 @@ const Post = ({ post, deletePost, updatePost }) => {
           <Link
             className="post-setting-link"
             to="/dashboard"
-            onClick={() => deletePost(post.id)}>Delete
+            onClick={() => handleDelete(post.id)}>Delete
           </Link>
           <Link 
             className="post-setting-link" 

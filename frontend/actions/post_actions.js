@@ -28,7 +28,7 @@ export const updatePost = post => dispatch => (
 
 export const deletePost = id => dispatch => (
   APIUtil.deletePost(id).then(
-    post => dispatch(removePost(post.id)),
+    post => dispatch(removePost([Object.keys(post)[0]])),
     errors => dispatch(receiveErrors(errors))
   )
 );
@@ -45,5 +45,5 @@ export const receivePost = post => ({
 
 export const removePost = id => ({
   type: REMOVE_POST,
-  id
+  id,
 });
