@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-class PostForm extends Component {
+class TextForm extends Component {
 
   constructor(props) {
     super(props);
@@ -20,8 +21,11 @@ class PostForm extends Component {
   }
 
   render() {
+    const { currentUser } = this.props;
+
     return (
       <form className="post-form" onSubmit={this.handleSubmit}>
+        <h3 className="current-username">{currentUser.username}</h3>
         <label htmlFor="title"></label>
         <input
           className="title-input"
@@ -49,7 +53,9 @@ class PostForm extends Component {
           placeholder="#tags"/>
 
         <div className="form-btns-wrapper">
-          <button className="sm-btn close-btn">Close</button>
+          <Link to="/dashboard" className="sm-btn close-btn">
+            <span id="close-btn-span">Close</span>
+          </Link>
           <button className="sm-btn post-btn">Post</button>
         </div>
       </form>
@@ -57,4 +63,4 @@ class PostForm extends Component {
   }
 }
 
-export default PostForm;
+export default TextForm;

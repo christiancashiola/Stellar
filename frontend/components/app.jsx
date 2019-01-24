@@ -4,10 +4,12 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Splash from './splash/splash_container';
 import Dashboard from './dashboard/dashboard';
 import Nav from './nav/nav_container';
+import Modal from './modals/modal_container';
 
 const App = () => {
   return (
     <>
+      <Modal />
       <Route path='/' component={Nav} />
       <Switch>
         <ProtectedRoute path='/dashboard' component={Dashboard} />

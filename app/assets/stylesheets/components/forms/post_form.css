@@ -1,10 +1,9 @@
 .post-form {
   box-sizing: border-box;
-  padding-top: 100px; 
   background-color: #fff;
-  width: 500px;
+  width: 510px;
   height: 260px;
-  padding: 20px 0;
+  padding: 10px 0 20px;
   border-radius: 3px;
 }
 
@@ -23,7 +22,7 @@
 
 .post-form textarea {
   font-size: 18px;
-  height: 75px;
+  height: 60px;
 }
 
 .post-form label {
@@ -43,8 +42,16 @@
 }
 
 .close-btn {
+  position: relative;
   background-color: #aaadb5;
   color: #fff;
+}
+
+#close-btn-span {
+  font-weight: 600;
+  position: absolute;
+  top: 10%;
+  left: 28%;
 }
 
 .post-btn {

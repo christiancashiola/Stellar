@@ -3,3 +3,10 @@
   width: 75px;
   height: 75px;
 }
+
+.current-username {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -1px;
+  margin: 0 0 10px 20px;
+}

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import DashNavLinks from './dash_nav_links';
 
-const Nav = ({ currentUser }) => {
+const Nav = ({ currentUser, openModal }) => {
 // TODO: refactor currentUser if unnecessary
   let display = (
     <div className="spash-nav-btns">
@@ -17,7 +17,7 @@ const Nav = ({ currentUser }) => {
   );
 
   if (currentUser) {
-    display = <DashNavLinks currentUser={currentUser} />
+    display = <DashNavLinks openModal={openModal} currentUser={currentUser} />
   }
 
   return (

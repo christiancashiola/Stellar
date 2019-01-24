@@ -17,7 +17,7 @@ class Api::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.tag_id = 5
+    @post.tag_id = Tag.find_by(subject: 'anime').id
 
     if @post.save
       render 'api/posts/show'

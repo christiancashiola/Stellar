@@ -61,3 +61,46 @@
 .post-setting-link:hover {
   background-color: rgba(127, 178, 245, 0.4);
 }
+
+.delete-post-confirmation {
+  background-color: #fff;
+  border-radius: 3px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.delete-post-confirmation h3 {
+  margin-top: 0;
+}
+
+.delete-post-confirmation > .btn-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.yes-delete {
+  display: block;
+  background-color: #559DCC;
+  color: #fff;
+  border: 0px solid #333;
+  border-radius: 2px;
+  width: 175px;
+  height: 45px;
+  font-size: 16px;
+  font-weight: 400;
+  margin-right: 20px;
+}
+
+.no-delete {
+  display: block;
+  background-color: #333;
+  color: #fff;
+  border: 0px solid #333;
+  border-radius: 2px;
+  width: 175px;
+  height: 45px;
+  font-size: 16px;
+  font-weight: 400;
+}

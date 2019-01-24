@@ -20,9 +20,10 @@ class DashNavLinks extends Component {
   }
   
   render() {
+    const { openModal } = this.props;
     return (
       <div className="dash-nav-btns">
-        <Link to="#">
+        <Link to="/dashboard">
           <button className="nav-link"><i className="fas fa-home"></i></button>
         </Link>
         <Link to="#">
@@ -34,6 +35,7 @@ class DashNavLinks extends Component {
           className="nav-link"><i className="fas fa-user"></i>
         </button>
         <button 
+          onClick={() => openModal('create post')}
           className="create-post"><i className="fas fa-pencil-alt"></i>
         </button>
 

@@ -11,7 +11,7 @@ const DashLinks = () => {
       
       <div className="vert-line"></div>
       <div className="icon-wrapper">
-        <Link to="/dashboard/new" className="photo pop-up">
+        <Link to="/dashboard/new/photo" className="photo pop-up">
           <i className="fas fa-camera-retro"></i>
         </Link>
         <span className="sm-gray-text">Photo</span>

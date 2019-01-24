@@ -1,7 +1,7 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
-import CreateForm from '../posts/post_form/create_form_container';
-import EditForm from '../posts/post_form/edit_form_container';
+import { Route, Switch } from 'react-router-dom';
+import TextForm from '../posts/post_form/create_text_container';
+import MediaForm from '../posts/post_form/media_form';
 import DashLinks from './dash_links';
 import PostIndex from '../posts/post_index_container';
 
@@ -14,9 +14,10 @@ const Dashboard = props => {
           src="https://images.unsplash.com/photo-1481819613568-3701cbc70156?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=80"
           alt="profile-pic"/>
         <Route exact path='/dashboard' component={DashLinks} />
-        {/* <DashPosts /> */}
-        <Route path='/dashboard/new/text' component={CreateForm} />
-        <Route path='/dashboard/edit' component={EditForm} />
+        <Switch>
+          <Route path='/dashboard/new/text' component={TextForm} />
+          <Route path='/dashboard/new' component={MediaForm} />
+        </Switch>
 
         <PostIndex />
       </div>

@@ -1,0 +1,59 @@
+.media-form {
+  box-sizing: border-box;
+  background-color: #fff;
+  width: 510px;
+  height: 260px;
+  padding: 10px 0 20px;
+  border-radius: 3px;
+  position: relative;
+}
+
+.media-form input[type='file'] {
+  width: 100%;
+}
+
+#media-input {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+  z-index: -1;
+}
+
+
+.media-form > #media-input, #media-label {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  width: 100%;
+  height: 150px;
+  font-weight: 700;
+  color: #777;
+  background-color: #eee;
+  display: inline-block;
+  border-bottom: 2px dashed #ccc;
+}
+
+.media-form > #media-input:hover, #media-label:hover {
+  cursor: pointer;
+}
+
+.media-form #media-label {
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.media-icon-wrapper :first-child {
+  font-size: 20px;
+  position: absolute;
+  top: 28%;
+  left: 41%;
+}
+
+#media-label :last-child {
+  font-size: 50px;
+}
+

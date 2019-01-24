@@ -15,7 +15,7 @@ class DashPosts extends Component {
   }
 
   render() {
-    const { deletePost, updatePost } = this.props;
+    const { deletePost, updatePost, openModal } = this.props;
 
     const posts = this.props.posts.map(post => {
       return (
@@ -23,7 +23,8 @@ class DashPosts extends Component {
           key={post.id} 
           deletePost={deletePost}
           updatePost={updatePost}
-          post={post} />
+          post={post}
+          openModal={openModal} />
       );
     });
     
