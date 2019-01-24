@@ -11,7 +11,7 @@ class TextForm extends Component {
   
   handleSubmit(e) {
     e.preventDefault();
-    this.props.processForm(this.state)
+    this.props.processForm({ post: this.state })
     .then(this.setState({ body: '', title: '', tag: '' }))
     .then(this.props.history.push('/'));
   }
@@ -22,7 +22,7 @@ class TextForm extends Component {
 
   render() {
     const { currentUser } = this.props;
-
+    // TODO: Dry up forms
     return (
       <form className="post-form" onSubmit={this.handleSubmit}>
         <h3 className="current-username">{currentUser.username}</h3>

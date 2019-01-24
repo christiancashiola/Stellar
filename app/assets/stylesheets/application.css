@@ -23,6 +23,7 @@ body {
   margin: 0 0;
   font-family: 'Sarabun', sans-serif;
   min-height: 100%;
+  background-color: #35465C;
 }
 
 input:focus, button:focus, textarea:focus {

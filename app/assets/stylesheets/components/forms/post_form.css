@@ -58,3 +58,15 @@
   background-color: #559DCC;
   color: #fff;
 }
+
+.media-form input, textarea {
+  margin: 0 20px 5px;
+  width: 450px;
+  border: none;
+  padding: 5px;
+}
+
+.media-form textarea {
+  font-size: 18px;
+  height: 60px;
+}

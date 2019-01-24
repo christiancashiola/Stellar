@@ -18,11 +18,10 @@ class Api::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     @post.tag_id = Tag.find_by(subject: 'anime').id
-
     if @post.save
       render 'api/posts/show'
     else
-      render json: @post.errors.full_messages, status: 422
+        render json: @post.errors.full_messages, status: 422
     end
   end
 
@@ -51,6 +50,6 @@ class Api::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:body, :title, :tag_id)
+    params.require(:post).permit(:body, :title, :tag_id, :media)
   end
 end

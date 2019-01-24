@@ -5,13 +5,22 @@ export const fetchPosts = (criterion) => (
   })
 );
 
-export const createPost = post => (
-  $.ajax({
+export const createPost = post => {
+  const request = {
     method: 'POST',
     url: 'api/posts',
-    data: {post},
-  })
-);
+    data: post,
+    contentType: false,
+    processData: false,
+  };
+  
+  if (post.post) {
+    delete request.contentType;
+    delete request.processData;
+  }
+  
+  return $.ajax(request);
+};
 
 export const updatePost = post => (
   $.ajax({
