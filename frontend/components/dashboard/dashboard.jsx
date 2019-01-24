@@ -1,8 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import CreateForm from '../posts/post_form/create_form_container';
-import EditForm from './post_form/edit_form_container';
-import DashPosts from '../posts/dash_posts/dash_posts_container';
+import EditForm from '../posts/post_form/edit_form_container';
 import DashLinks from './dash_links';
 import PostIndex from '../posts/post_index_container';
 
