@@ -2,6 +2,7 @@ import React from 'react';
 import PostSettings from '../posts/post_settings';
 import PostMedium from '../posts/post_medium';
 import EditTextForm from '../posts/post_form/edit_text_form';
+import MediaForm from '../posts/post_form/media_form_container';
 
 const Modal = ({modal, info, closeModal}) => {
   if (!modal) {
@@ -18,6 +19,9 @@ const Modal = ({modal, info, closeModal}) => {
       break;
     case 'edit text':
       component = <EditTextForm post={info} />;
+      break;
+    case 'edit media':
+      component = <MediaForm post={info} />;
       break;
     default:
       return null;

@@ -1,19 +1,12 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { createPost } from '../../../actions/post_actions';
+import { Link, withRouter } from 'react-router-dom';
 import Media from './media';
 
 class MediaForm extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      mediaFile: null,
-      fileUrl: null,
-      body: '',
-      tag: '',
-    };
+    this.state = props.post;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this);
   }
@@ -28,9 +21,9 @@ class MediaForm extends Component {
     formData.append('post[media]', this.state.mediaFile);
     formData.append('post[body]', this.state.body);
     formData.append('post[tag]', this.state.tag);
-
     this.props.processForm(formData)
-      .then(this.props.history.push('/dashboard'));
+    .then(this.props.history.push('/dashboard'));
+    this.props.closeModal();
   }
 
   handleFile(e) {
@@ -45,35 +38,35 @@ class MediaForm extends Component {
   }
   
   render() {
-    const { currentUser } = this.props;
-
+    const type = this.state.media_type || this.props.location.pathname
     let fileInput = <>
-      <Media type={this.props.location.pathname} />
+      <Media type={type} />
       <input onChange={this.handleFile} id="media-input" type="file"/>
     </>
 
     let preview = null;
     let bodyInput = null;
-    if (this.state.fileUrl) {
+    let media = this.state.fileUrl || this.state.media;
+    if (media) {
       fileInput = null;
-      const mediaType = this.state.fileUrl.slice(5, 10);
+      const mediaType = this.state.media_type || media.slice(5, 10);
 
       switch (mediaType) {
         case 'image':
           preview = (
-          <img className="post-media" src={this.state.fileUrl} 
+          <img className="post-media" src={media} 
             alt="file preview"/>
           );
           break;
         case 'video':
           preview = (
             <video className="post-media" controls width="510px">
-              <source src={this.state.fileUrl} type="video/mp4"/>
+              <source src={media} type="video/mp4"/>
             </video> 
           );
           break;
         case 'audio':
-          preview = <audio controls src={this.state.fileUrl}></audio>
+          preview = <audio controls src={media}></audio>
     }
       
       bodyInput = <>
@@ -98,7 +91,7 @@ class MediaForm extends Component {
 
     return (
       <form className="media-form" onSubmit={this.handleSubmit}>
-        <h3 className="current-username">{currentUser.username}</h3>
+        <h3 className="current-username">{this.props.username}</h3>
         <figure className="post-media-wrapper">
           {preview}
         </figure>
@@ -106,7 +99,9 @@ class MediaForm extends Component {
         {bodyInput}
         
         <div className="form-btns-wrapper">
-          <Link to="/dashboard" className="sm-btn close-btn">
+          <Link onClick={this.props.closeModal}
+            to="/dashboard" 
+            className="sm-btn close-btn">
             <span id="close-btn-span">Close</span>
           </Link>
           <button className="sm-btn post-btn">Post</button>
@@ -116,16 +111,4 @@ class MediaForm extends Component {
   }
 }
 
-const mapStateToProps = ({ entities, session }) => {
-  const currentUserID = session[Object.keys(session)[0]];
-  const currentUser = entities.users[currentUserID];
-
-  return { currentUser };
-};
-
-const mapDispatchToProps = dispatch => ({
-  processForm: post => dispatch(createPost(post)),
-});
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(MediaForm);
+export default withRouter(MediaForm);

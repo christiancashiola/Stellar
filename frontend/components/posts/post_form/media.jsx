@@ -2,7 +2,8 @@ import React from 'react';
 
 const Media = ({ type }) => {
   let media;
-  if (type.includes('photo')) {
+
+  if (type.includes('photo') || type.includes('image')) {
     media = (
       <>
         <label id="media-label" htmlFor="media-input">
