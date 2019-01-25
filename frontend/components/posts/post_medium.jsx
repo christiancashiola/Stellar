@@ -21,7 +21,7 @@ const PostMedium = props => {
         </div>
       </Link>
     
-      <Link to="/dashboard/new" onClick={handleClick} className="medium">
+      <Link to="/dashboard/new/photo" onClick={handleClick} className="medium">
         <div className="bg-circle red">
           <i className="fas fa-camera-retro"></i>
         </div>
@@ -45,11 +45,11 @@ const PostMedium = props => {
         </div>
       </button>
 
-      <button className="medium">
+      <Link to="/dashboard/new/video" onClick={handleClick} className="medium">
         <div className="bg-circle gray">
           <i className="fas fa-video"></i>
         </div>
-      </button>
+      </Link>
     </div>
   );
 };

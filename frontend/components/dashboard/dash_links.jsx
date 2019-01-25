@@ -43,9 +43,9 @@ const DashLinks = () => {
 
       <div className="vert-line"></div>
       <div className="icon-wrapper">
-        <button className="video pop-up">
+        <Link to="/dashboard/new/video" className="video pop-up">
           <i className="fas fa-video"></i>
-        </button>
+        </Link>
         <span className="sm-gray-text">Video</span>
       </div>
     </section>

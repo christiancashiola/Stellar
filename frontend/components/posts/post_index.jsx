@@ -16,7 +16,7 @@ class DashPosts extends Component {
 
   render() {
     const posts = this.props.posts.map(post => {
-      return <Post key={post.id} />
+      return <Post key={post.id} post={post} />
     });
     
     return (

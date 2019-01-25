@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { createPost } from '../../../actions/post_actions';
+import Media from './media';
 
 class MediaForm extends Component {
 
@@ -47,14 +48,7 @@ class MediaForm extends Component {
     const { currentUser } = this.props;
 
     let fileInput = <>
-      <label id="media-label" htmlFor="media-input">
-        <div className="media-icon-wrapper">
-          <i className="fas fa-plus"></i>
-          <i className="fas fa-camera-retro"></i>
-        </div>
-        Upload photos
-        :)  
-      </label>
+      <Media type={this.props.location.pathname} />
       <input onChange={this.handleFile} id="media-input" type="file"/>
     </>
 
