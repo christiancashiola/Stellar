@@ -18,11 +18,15 @@ export const DeletePost = ({ postId, closeModal, deletePost }) => {
         <button 
           onClick={handleDelete}
           className="yes-delete">
-          Definitely</button>
+          Edit</button>
+        <button 
+          onClick={handleDelete}
+          className="yes-delete">
+          Delete</button>
         <button
           onClick={closeModal}
           className="no-delete">
-          Changed my mind</button>
+          Nevermind</button>
       </div>
     </div>
   );

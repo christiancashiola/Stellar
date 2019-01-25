@@ -16,6 +16,7 @@ const Dashboard = props => {
         <Route exact path='/dashboard' component={DashLinks} />
         <Switch>
           <Route path='/dashboard/new/text' component={TextForm} />
+          <Route path='/dashboard/new/quote' component={TextForm} />
           <Route path='/dashboard/new' component={MediaForm} />
         </Switch>
 

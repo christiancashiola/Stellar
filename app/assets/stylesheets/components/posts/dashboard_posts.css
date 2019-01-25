@@ -1,7 +1,6 @@
 .dashboard-posts {
   width: 605px;
   box-sizing: border-box;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-row-gap: 20px;
+  display: flex;
+  flex-flow: column-reverse;
 }

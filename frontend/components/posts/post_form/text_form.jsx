@@ -7,6 +7,8 @@ class TextForm extends Component {
     super(props);
     this.state = { body: '', title: '', tag: '' };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.update = this.update.bind(this);
+    this.location = this.props.location.pathname;
   }
   
   handleSubmit(e) {
@@ -21,6 +23,17 @@ class TextForm extends Component {
   }
 
   render() {
+    let titlePlaceholder = "Title";
+    let quoteStyle = '';
+    if (this.location.includes('quote')) {
+      titlePlaceholder = '"Quote"';
+      quoteStyle = 'quote-font';
+    }
+    let bodyPlaceholder = "Reach for the stars...";
+    if (this.location.includes('quote')) {
+      bodyPlaceholder = "- Source";
+    }
+    
     const { currentUser } = this.props;
     // TODO: Dry up forms
     return (
@@ -28,19 +41,19 @@ class TextForm extends Component {
         <h3 className="current-username">{currentUser.username}</h3>
         <label htmlFor="title"></label>
         <input
-          className="title-input"
+          className={`title-input ${quoteStyle}`}
           onChange={this.update('title')}
           value={this.state.title}
           id="body" 
           type="text"
-          placeholder="Title"/>
+          placeholder={titlePlaceholder}/>
           
         <label htmlFor="body"></label>
         <textarea 
           onChange={this.update('body')}
           value={this.state.body}
           id="body"
-          placeholder="Reach for the stars...">
+          placeholder={bodyPlaceholder}>
         </textarea>
 
         <label htmlFor="tag"></label>

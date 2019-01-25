@@ -19,9 +19,9 @@ const DashLinks = () => {
 
       <div className="vert-line"></div>
       <div className="icon-wrapper">
-        <button className="quote pop-up">
+        <Link to="/dashboard/new/quote" className="quote pop-up">
           <i className="fas fa-quote-left"></i>
-        </button>
+        </Link>
         <span className="sm-gray-text">Quote</span>
       </div>
 
@@ -35,9 +35,9 @@ const DashLinks = () => {
 
       <div className="vert-line"></div>
       <div className="icon-wrapper">
-        <button className="audio pop-up">
+        <Link to="/dashboard/new/audio" className="audio pop-up">
           <i className="fas fa-headphones-alt"></i>
-        </button>
+        </Link>
         <span className="sm-gray-text">Audio</span>
       </div>
 

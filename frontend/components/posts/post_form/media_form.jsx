@@ -56,12 +56,26 @@ class MediaForm extends Component {
     let bodyInput = null;
     if (this.state.fileUrl) {
       fileInput = null;
+      const mediaType = this.state.fileUrl.slice(5, 10);
 
-      preview = <img 
-        className="img-preview" 
-        src={this.state.fileUrl} 
-        alt="file preview"/>
-
+      switch (mediaType) {
+        case 'image':
+          preview = (
+          <img className="post-media" src={this.state.fileUrl} 
+            alt="file preview"/>
+          );
+          break;
+        case 'video':
+          preview = (
+            <video className="post-media" controls width="510px">
+              <source src={this.state.fileUrl} type="video/mp4"/>
+            </video> 
+          );
+          break;
+        case 'audio':
+          preview = <audio controls src={this.state.fileUrl}></audio>
+    }
+      
       bodyInput = <>
         <label htmlFor="body"></label>
         <textarea 
@@ -85,7 +99,9 @@ class MediaForm extends Component {
     return (
       <form className="media-form" onSubmit={this.handleSubmit}>
         <h3 className="current-username">{currentUser.username}</h3>
-        {preview}
+        <figure className="post-media-wrapper">
+          {preview}
+        </figure>
         {fileInput}
         {bodyInput}
         

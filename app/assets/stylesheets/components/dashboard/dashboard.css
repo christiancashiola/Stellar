@@ -37,7 +37,6 @@
   padding-top: 12.5px;
 }
 
-
 .dash-links :first-child {
   padding-top: 0;
   padding-bottom: 3px;
@@ -55,7 +54,7 @@
   border: 0px solid transparent;
   font-size: 36px;
   font-weight: 500;
-  margin: 5px 8px 0;
+  margin: 5px 6px 0;
   transition: 0.3s;
 }
 
