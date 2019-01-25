@@ -21,7 +21,7 @@ const Nav = ({ currentUser, openModal }) => {
   }
 
   return (
-    <nav className="nav">
+    <nav className="nav" id="top">
       <div className="logo-wrapper">
         <Link className="logo-link" to="/">
           <button className="logo"><i className="far fa-star-half"></i>S</button>

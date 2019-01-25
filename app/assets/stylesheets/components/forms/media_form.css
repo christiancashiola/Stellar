@@ -34,7 +34,8 @@
   color: #777;
   background-color: #eee;
   display: inline-block;
-  border-bottom: 2px dashed #ccc;
+  border-top: 3px dashed #cdcdcd;
+  border-bottom: 3px dashed #ccc;
 }
 
 .media-form > #media-input:hover, #media-label:hover {

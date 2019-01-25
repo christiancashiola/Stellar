@@ -14,6 +14,11 @@ class Api::PostsController < ApplicationController
     render 'api/posts/index'
   end
 
+  def show
+    @post = Post.find(params[:id])
+    render 'api/posts/show'
+  end
+
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
@@ -26,9 +31,9 @@ class Api::PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id]).where(user_id: current_user.id)
+    @post = Post.find(params[:id])
     
-    if @post && @post.update(post_params)
+    if @post.user_id == current_user.id && @post.update(post_params)
       render 'api/posts/show'
     else
       errors = @post.errors.full_messages if @post.errors

@@ -1,8 +1,10 @@
 import React from 'react';
 
 const Media = ({ type }) => {
-  if (type.includes('photo')) {
-    return (
+  let media;
+
+  if (type.includes('photo') || type.includes('image')) {
+    media = (
       <>
         <label id="media-label" htmlFor="media-input">
         <div className="media-icon-wrapper">
@@ -14,19 +16,35 @@ const Media = ({ type }) => {
         </label>
       </>
     );
+  } else if (type.includes('audio')) {
+    media = (
+      <>
+        <label id="media-label" htmlFor="media-input">
+        <div className="media-icon-wrapper">
+          <i className="fas fa-plus"></i>
+          <i className="fas fa-headphones-alt"></i>
+        </div>
+        Upload audio
+        :) 
+        </label>
+      </>
+    );
+  } else {
+    media = (
+      <>
+        <label id="media-label" htmlFor="media-input">
+        <div className="media-icon-wrapper">
+          <i className="fas fa-plus"></i>
+          <i className="fas fa-video"></i>
+        </div>
+        Upload a video
+        :) 
+        </label>
+      </>
+    );
   }
-  return (
-    <>
-      <label id="media-label" htmlFor="media-input">
-      <div className="media-icon-wrapper">
-        <i className="fas fa-plus"></i>
-        <i class="fas fa-video"></i>
-      </div>
-      Upload a video
-      :) 
-      </label>
-    </>
-  );
+
+  return media;
 };
 
 export default Media;

@@ -13,13 +13,14 @@
 }
 
 .dash-links {
-  width: 500px;
+  box-sizing: border-box;
+  width: 510px;
   display: flex;
   justify-content: space-between;
   background-color: #fff;
   border-radius: 3px;
   height: 100px;
-  padding: 0 5px;
+  padding: 0 10px;
 }
 
 .icon-wrapper {
@@ -36,7 +37,6 @@
 .dash-links :nth-child(5) {
   padding-top: 12.5px;
 }
-
 
 .dash-links :first-child {
   padding-top: 0;
@@ -55,7 +55,7 @@
   border: 0px solid transparent;
   font-size: 36px;
   font-weight: 500;
-  margin: 5px 8px 0;
+  margin: 5px 0 0;
   transition: 0.3s;
 }
 

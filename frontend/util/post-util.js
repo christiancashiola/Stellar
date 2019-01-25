@@ -1,7 +1,14 @@
-export const fetchPosts = (criterion) => (
+export const fetchPosts = criterion => (
   $.ajax({
     method: 'GET',
     url: `api/posts/${criterion}`,
+  })
+);
+
+export const fetchPost = id => (
+  $.ajax({
+    method: 'GET',
+    url: `api/post/${id}`,
   })
 );
 

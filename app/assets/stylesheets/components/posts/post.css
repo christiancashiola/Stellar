@@ -1,28 +1,46 @@
 .post-container {
-  width: 100%;
+  margin-bottom: 20px;
+  width: 510px;
   display: grid;
   grid-template-columns: 75px auto;
   grid-gap: 20px;
   border-radius: 3px;
+  box-sizing: border-box;
 }
 
 .post {
-  box-sizing: border-box;
+  min-width: 510px;
+  max-width: 510px;
   background-color: #fff;
-  width: 100%;
   border-radius: 5px;
-  padding: 20px;
+  padding: 0;
   position: relative;
+  padding: 10px 0;
 }
 
 .post-content {
   display: flex;
   flex-flow: column;
+  padding: 0 20px;
+}
+
+.post-content p {
+  margin: 0;
+}
+
+.post-media-wrapper {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .post-media {
-  max-height: 400px;
-  max-width: 400px;
+  align-self: center;
+  height: auto;
+  width: auto;
+  max-width: 500px;
 }
 
 .post h3 {
@@ -35,6 +53,7 @@
   float: right;
   border: none;
   font-size: 20px;
+  padding-right: 10px;
   color: #444;
 }
 
@@ -80,7 +99,7 @@
   justify-content: space-around;
 }
 
-.yes-delete {
+.edit-post {
   display: block;
   background-color: #559DCC;
   color: #fff;
@@ -89,11 +108,11 @@
   width: 175px;
   height: 45px;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 600;
   margin-right: 20px;
 }
 
-.no-delete {
+.delete-post {
   display: block;
   background-color: #333;
   color: #fff;
@@ -102,5 +121,27 @@
   width: 175px;
   height: 45px;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 600;
+  margin-right: 20px;
+}
+
+.nevermind {
+  display: block;
+  background-color: #aaadb5;;
+  color: #fff;
+  border: 0px solid #aaadb5;
+  border-radius: 2px;
+  width: 175px;
+  height: 45px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.quote-font {
+  font-family: 'Noto Serif SC', serif;
+}
+
+.link-style {
+  text-decoration: underline;
+  font-style: italic;
 }

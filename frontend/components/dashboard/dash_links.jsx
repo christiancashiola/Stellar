@@ -19,25 +19,25 @@ const DashLinks = () => {
 
       <div className="vert-line"></div>
       <div className="icon-wrapper">
-        <button className="quote pop-up">
+        <Link to="/dashboard/new/quote" className="quote pop-up">
           <i className="fas fa-quote-left"></i>
-        </button>
+        </Link>
         <span className="sm-gray-text">Quote</span>
       </div>
 
       <div className="vert-line"></div>
       <div className="icon-wrapper">
-        <button className="link pop-up">
+        <Link to="/dashboard/new/link" className="link pop-up">
           <div className="circle"><i className="fas fa-link"></i></div>
-        </button>
+        </Link>
         <span className="sm-gray-text">Link</span>
       </div>
 
       <div className="vert-line"></div>
       <div className="icon-wrapper">
-        <button className="audio pop-up">
+        <Link to="/dashboard/new/audio" className="audio pop-up">
           <i className="fas fa-headphones-alt"></i>
-        </button>
+        </Link>
         <span className="sm-gray-text">Audio</span>
       </div>
 
