@@ -32,7 +32,7 @@ const Post = ({ post, openModal }) => {
     case 'audio':
       media = <audio  controls src={post.media}></audio>
   }
-
+  
   return (
     <div className="post-container">
       <img id="profile-pic" src="https://via.placeholder.com/75" alt=""/>
@@ -45,20 +45,9 @@ const Post = ({ post, openModal }) => {
           <h3>{post.title}</h3>
           <p>{post.body}</p>
         </div>
-        <button onClick={() => openModal('post settings', post.id)} className="post-settings-icon">
+        <button onClick={() => openModal('post settings', post)} className="post-settings-icon">
           <i className="fas fa-cog"></i>
         </button>
-
-        <div className="post-settings hidden">
-          <Link
-            className="post-setting-link"
-            to="/dashboard"
-            onClick={() => handleDelete(post.id)}>Delete
-          </Link>
-          <Link 
-            className="post-setting-link" 
-            to={`edit/${post.id}`}>Edit</Link>
-        </div>
       </div>
     </div>
   );

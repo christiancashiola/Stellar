@@ -18,13 +18,18 @@ class DashNavLinks extends Component {
       });
     }
   }
+
+  handleClick() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
   
   render() {
     const { openModal } = this.props;
     return (
       <div className="dash-nav-btns">
         <Link to="/dashboard">
-          <button className="nav-link"><i className="fas fa-home"></i></button>
+          <button onClick={this.handleClick} className="nav-link"><i className="fas fa-home"></i></button>
         </Link>
         <Link to="#">
           <button className="nav-link"><i className="far fa-compass"></i></button>

@@ -1,33 +1,30 @@
 import React from 'react';
-import DeletePost from '../posts/delete_post';
+import PostSettings from '../posts/post_settings';
 import PostMedium from '../posts/post_medium';
+import EditTextForm from '../posts/post_form/edit_text_form';
 
 const Modal = ({modal, info, closeModal}) => {
   if (!modal) {
     return null;
   }
-
+  
   let component = null;
-  let clickAction;
-
   switch (modal) {
     case 'post settings':
-      clickAction = () => {
-        document.querySelector('.post-settings').classList.add('hidden');
-        closeModal();
-      };
-      component = <DeletePost postId={info} />
+      component = <PostSettings post={info} />
       break;
     case 'create post':
       component = <PostMedium />;
-      clickAction = () => closeModal();
+      break;
+    case 'edit text':
+      component = <EditTextForm post={info} />;
       break;
     default:
       return null;
   }
 
   return (
-    <div className="modal" onClick={clickAction}>
+    <div className="modal" onClick={closeModal}>
       <div className="modal-child" onClick={e => e.stopPropagation()}>
         { component }
       </div>

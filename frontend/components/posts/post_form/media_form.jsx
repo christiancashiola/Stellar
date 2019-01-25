@@ -30,7 +30,7 @@ class MediaForm extends Component {
     formData.append('post[tag]', this.state.tag);
 
     this.props.processForm(formData)
-      .then(this.props.history.push('/'));
+      .then(this.props.history.push('/dashboard'));
   }
 
   handleFile(e) {

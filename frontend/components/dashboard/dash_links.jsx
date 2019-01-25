@@ -27,9 +27,9 @@ const DashLinks = () => {
 
       <div className="vert-line"></div>
       <div className="icon-wrapper">
-        <button className="link pop-up">
+        <Link to="/dashboard/new/link" className="link pop-up">
           <div className="circle"><i className="fas fa-link"></i></div>
-        </button>
+        </Link>
         <span className="sm-gray-text">Link</span>
       </div>
 

@@ -7,15 +7,13 @@ class TextForm extends Component {
     super(props);
     this.state = { body: '', title: '', tag: '' };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.update = this.update.bind(this);
-    this.location = this.props.location.pathname;
   }
   
   handleSubmit(e) {
     e.preventDefault();
     this.props.processForm({ post: this.state })
     .then(this.setState({ body: '', title: '', tag: '' }))
-    .then(this.props.history.push('/'));
+    .then(this.props.history.push('/dashboard'));
   }
 
   update(field) {
@@ -23,15 +21,19 @@ class TextForm extends Component {
   }
 
   render() {
-    let titlePlaceholder = "Title";
+    const location = this.props.location.pathname;
+
+    let titlePlaceholder = 'Title';
     let quoteStyle = '';
-    if (this.location.includes('quote')) {
+    if (location.includes('quote')) {
       titlePlaceholder = '"Quote"';
       quoteStyle = 'quote-font';
     }
-    let bodyPlaceholder = "Reach for the stars...";
-    if (this.location.includes('quote')) {
-      bodyPlaceholder = "- Source";
+    let bodyPlaceholder = 'Reach for the stars...';
+    if (location.includes('quote')) {
+      bodyPlaceholder = '- Source';
+    } else if (location.includes('link')) {
+      bodyPlaceholder = ''
     }
     
     const { currentUser } = this.props;
@@ -44,7 +46,7 @@ class TextForm extends Component {
           className={`title-input ${quoteStyle}`}
           onChange={this.update('title')}
           value={this.state.title}
-          id="body" 
+          id="title" 
           type="text"
           placeholder={titlePlaceholder}/>
           

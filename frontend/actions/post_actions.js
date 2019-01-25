@@ -12,6 +12,13 @@ export const fetchPosts = (criterion) => dispatch => (
   )
 );
 
+export const fetchPost = id => dispatch => (
+  APIUtil.fetchPost(id).then(
+    post => dispatch(receivePost(post)),
+    errors => dispatch(receiveErrors(errors))
+  )
+);
+
 export const createPost = post => dispatch => (
   APIUtil.createPost(post).then(
     post => dispatch(receivePost(post)),
