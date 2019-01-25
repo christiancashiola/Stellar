@@ -140,3 +140,8 @@
 .quote-font {
   font-family: 'Noto Serif SC', serif;
 }
+
+.link-style {
+  text-decoration: underline;
+  font-style: italic;
+}
