@@ -15,24 +15,14 @@ class DashPosts extends Component {
   }
 
   render() {
-    const { deletePost, updatePost, openModal } = this.props;
-
     const posts = this.props.posts.map(post => {
-      return (
-        <Post 
-          key={post.id} 
-          deletePost={deletePost}
-          updatePost={updatePost}
-          post={post}
-          openModal={openModal} />
-      );
+      return <Post key={post.id} />
     });
     
     return (
       <section className={`${this.state.criterion}-posts`}>
         {posts}
       </section>
-        
     );
   }
 }

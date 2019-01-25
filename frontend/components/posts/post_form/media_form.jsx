@@ -16,7 +16,7 @@ class MediaForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this);
   }
-
+  
   update(field) {
     return e => this.setState({ [field]: e.target.value });
   }
