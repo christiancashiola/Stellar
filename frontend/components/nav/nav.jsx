@@ -23,7 +23,7 @@ const Nav = ({ currentUser, openModal }) => {
   return (
     <nav className="nav" id="top">
       <div className="logo-wrapper">
-        <Link className="logo-link" to="/">
+        <Link className="logo-link" to={currentUser ? '/dashboard' : '/'}>
           <button className="logo"><i className="far fa-star-half"></i>S</button>
         </Link>
       </div>
