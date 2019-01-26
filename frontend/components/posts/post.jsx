@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { updatePost, deletePost } from '../../actions/post_actions';
+import { updatePost } from '../../actions/post_actions';
 import { openModal } from '../../actions/ui_actions';
 
 const mapStateToProps = ({ entities: { users }}) => ({
@@ -9,13 +9,11 @@ const mapStateToProps = ({ entities: { users }}) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  deletePost: id => dispatch(deletePost(id)),
   updatePost: post => dispatch(updatePost(post)),
   openModal: (modal, info) => dispatch(openModal(modal, info)),
 });
 
 const Post = ({ post, openModal }) => {
-  // TODO: do you need deletePost??
 
   let media = null;
   switch (post.media_type) {
@@ -35,7 +33,7 @@ const Post = ({ post, openModal }) => {
   
   return (
     <div className="post-container">
-      <img id="profile-pic" src="https://via.placeholder.com/75" alt=""/>
+      <img className="post-profile-pic" src="https://via.placeholder.com/75" alt=""/>
       <div className="post">
         <span className="post-username">{post.username}</span>
         <figure className="post-media-wrapper">
