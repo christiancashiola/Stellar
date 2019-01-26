@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { updatePost } from '../../actions/post_actions';
 import { openModal } from '../../actions/ui_actions';
+import { linkify } from '../../util/parse_util';
 
 const mapStateToProps = ({ entities: { users }}) => ({
   users,
@@ -30,7 +31,12 @@ const Post = ({ post, openModal }) => {
     case 'audio':
       media = <audio  controls src={post.media}></audio>
   }
-  
+
+  let link;
+  if (post.title && post.title.slice(0, 6) === '!link!') {
+    link = linkify(post.title.slice(6));
+  }
+
   return (
     <div className="post-container">
       <img className="post-profile-pic" src="https://via.placeholder.com/75" alt=""/>
@@ -40,7 +46,7 @@ const Post = ({ post, openModal }) => {
           {media}
         </figure>
         <div className="post-content">
-          <h3>{post.title}</h3>
+          {link ? link : <h3>{post.title}</h3>}
           <p>{post.body}</p>
         </div>
         <button onClick={() => openModal('post settings', post)} className="post-settings-icon">

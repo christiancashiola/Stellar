@@ -11,6 +11,7 @@ const App = () => {
     <>
       <Modal />
       <Route path='/' component={Nav} />
+      
       <ProtectedRoute path='/dashboard' component={Dashboard} />
       <AuthRoute exact path='/' component={Splash} />
     </>

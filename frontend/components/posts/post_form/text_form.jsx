@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { linkify } from '../../../util/parse_util';
+import { merge } from 'lodash';
 
 class TextForm extends Component {
 
@@ -13,7 +13,11 @@ class TextForm extends Component {
   
   handleSubmit(e) {
     e.preventDefault();
-    this.props.processForm({ post: this.state })
+    let post = merge({}, this.state);
+    if (this.path === 'link') {
+        post.title = '!link!' + post.title;
+    }
+    this.props.processForm({ post })
     .then(this.setState({ body: '', title: '', tag: '' }))
     .then(this.props.history.push('/dashboard'));
   }

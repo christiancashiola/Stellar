@@ -144,4 +144,9 @@
 .link-style {
   text-decoration: underline;
   font-style: italic;
+  color: #6CC595;
+}
+
+a.link-style {
+  font-size: 24px;
 }
