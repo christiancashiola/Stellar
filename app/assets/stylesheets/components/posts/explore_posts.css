@@ -1,14 +1,19 @@
-.post-explore-container {
+.explore-posts {
+  margin: auto;
+  width: 85%;
   padding-top: 80px;
-  grid-template-columns: 75px auto;
-  grid-gap: 20px;
-  border-radius: 3px;
-  box-sizing: border-box;
+  column-count: 4;
+  column-gap: 20px;
 }
 
-.dashboard-posts {
-  width: 605px;
-  box-sizing: border-box;
-  display: flex;
-  flex-flow: column-reverse;
+.explore-post {
+  max-width: 300px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 0;
+  position: relative;
+  padding: 10px 0 0;
+  display: inline-block;
+  margin: 0 0 1em;
+  width: 100%;
 }

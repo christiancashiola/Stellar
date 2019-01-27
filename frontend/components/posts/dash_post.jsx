@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { updatePost } from '../../actions/post_actions';
 import { openModal } from '../../actions/ui_actions';
-import { linkify } from '../../util/parse_util';
+import { linkify, getMedia } from '../../util/parse_util';
 
 const mapStateToProps = ({ entities: { users }}) => ({
   users,
@@ -13,24 +13,9 @@ const mapDispatchToProps = dispatch => ({
   openModal: (modal, info) => dispatch(openModal(modal, info)),
 });
 
-const Post = ({ post, openModal }) => {
+const DashPost = ({ post, openModal }) => {
 
-  let media = null;
-  switch (post.media_type) {
-    case 'image':
-      media = <img className="post-media" src={post.media} alt="media"/>
-      break;
-    case 'video':
-      media = (
-        <video className="post-media" controls width="500">
-          <source src={post.media} type="video/mp4"/>
-        </video>
-        );
-        break;
-    case 'audio':
-      media = <audio  controls src={post.media}></audio>
-  }
-
+  const media = getMedia(post.media_type);
   let link;
   if (post.title && post.title.slice(0, 6) === '!link!') {
     link = linkify(post.title.slice(6));
@@ -44,7 +29,7 @@ const Post = ({ post, openModal }) => {
   return (
     <div className="post-container">
       <img className="post-profile-pic" src="https://via.placeholder.com/75" alt=""/>
-      <div className="post">
+      <div className="dash-post">
         <span className="post-username">{post.username}</span>
         <figure className="post-media-wrapper">
           {media}
@@ -67,4 +52,4 @@ const Post = ({ post, openModal }) => {
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Post);
+export default connect(mapStateToProps, mapDispatchToProps)(DashPost);

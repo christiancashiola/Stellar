@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DashPost from './dash_post';
+import ExplorePost from './explore_post';
 
 class PostsIndex extends Component {
 

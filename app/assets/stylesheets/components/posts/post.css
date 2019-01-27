@@ -1,6 +1,5 @@
 .post-container {
   margin-bottom: 20px;
-  width: 510px;
   display: grid;
   grid-template-columns: 75px auto;
   grid-gap: 20px;
@@ -8,7 +7,7 @@
   box-sizing: border-box;
 }
 
-.post {
+.dash-post {
   min-width: 510px;
   max-width: 510px;
   background-color: #fff;
@@ -43,7 +42,7 @@
   max-width: 500px;
 }
 
-.post h3 {
+.dash-post h3 {
   font-size: 30px;
   font-weight: 500;
   margin: 5px 0 10px;
