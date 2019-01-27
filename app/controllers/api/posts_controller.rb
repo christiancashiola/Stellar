@@ -1,15 +1,18 @@
 class Api::PostsController < ApplicationController
   
   def index
-    criterion = request.url.split('/')[-1]
-    if criterion == 'dashboard'
-      # TODO: query all followed users and
-      # display their most recent posts
-      @posts = Post.all
-    else
-      tag_id = Tag.find_by(subject: criterion).id      
-      @posts = Post.where(tag_id: criterion)
-    end
+    criterion = params[:criterion]
+    @posts = Post.all.page(params[:page]).per(5)
+    # if criterion == 'dashboard'
+    #   # TODO: query all followed users and
+    #   # display their most recent posts
+    #   @posts = Post.all
+    # elsif criterion == 'trending'
+    #   @posts = Post.all
+    # else
+    #   tag_id = Tag.find_by(subject: criterion).id      
+    #   @posts = Post.where(tag_id: criterion)
+    # end
       
     render 'api/posts/index'
   end

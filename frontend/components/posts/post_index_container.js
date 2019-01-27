@@ -9,7 +9,7 @@ const mapStateToProps = ({ entities }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchPosts: criterion => dispatch(fetchPosts(criterion)),
+  fetchPosts: (criterion, id) => dispatch(fetchPosts(criterion, id)),
 });
 
 export default withRouter(

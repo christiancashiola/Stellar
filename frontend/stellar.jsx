@@ -21,9 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const store = configureStore(preloadedState);
-  
-  window.dispatch = store.dispatch;
-  window.fetchPosts = fetchPosts;
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);

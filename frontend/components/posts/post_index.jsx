@@ -8,11 +8,18 @@ class PostsIndex extends Component {
     super(props);
     this.state = {
       criterion: this.props.location.pathname.split('/')[1],
+      page: 1,
     };
+    this.getPosts = this.getPosts.bind(this);
+  }
+
+  getPosts() {
+    this.props.fetchPosts(this.state.criterion, this.state.page);
+    this.setState = ({ page: this.state.page += 1 });
   }
 
   componentDidMount() {
-    this.props.fetchPosts(this.state.criterion);
+    this.getPosts();
   }
 
   render() {
@@ -29,6 +36,7 @@ class PostsIndex extends Component {
     return (
       <section className={`${criterion}-posts`}>
         {posts}
+        <button onClick={this.getPosts}>Get Posts</button>
       </section>
     );
   }

@@ -5,8 +5,8 @@ export const RECEIVE_POSTS = 'RECEIVE_POSTS';
 export const RECEIVE_POST = 'RECEIVE_POST';
 export const REMOVE_POST = 'REMOVE_POST';
 
-export const fetchPosts = (criterion) => dispatch => (
-  APIUtil.fetchPosts(criterion).then(
+export const fetchPosts = (criterion, page) => dispatch => (
+  APIUtil.fetchPosts(criterion, page).then(
     posts => dispatch(receivePosts(posts)),
     errors => dispatch(receiveErrors(errors))
   )
