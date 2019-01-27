@@ -15,7 +15,7 @@ const mapDispatchToProps = dispatch => ({
 
 const DashPost = ({ post, openModal }) => {
 
-  const media = getMedia(post.media_type);
+  const media = getMedia(post);
   let link;
   if (post.title && post.title.slice(0, 6) === '!link!') {
     link = linkify(post.title.slice(6));
