@@ -22,7 +22,6 @@ class Api::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-
     if params[:post][:tags]
       tags = ready_tags(params[:post][:tags])
       @post.tags = tags

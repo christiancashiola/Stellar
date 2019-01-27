@@ -11,7 +11,7 @@ const mapStateToProps = ({ entities, session }, ownProps) => {
     mediaFile: null,
     fileUrl: null,
     body: '',
-    tag: '',
+    tags: '',
   };
   let post = ownProps.post || defaultPost;
 

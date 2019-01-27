@@ -35,6 +35,6 @@ class ApplicationController < ActionController::Base
   private
 
   def parse_tags(tags)
-    tags.map { |tag| tag[0] == '#' ? tag : '#' + tag }
+    tags.split.map { |tag| tag[0] == '#' ? tag : '#' + tag }
   end
 end

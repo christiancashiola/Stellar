@@ -20,7 +20,7 @@ class MediaForm extends Component {
     const formData = new FormData();
     formData.append('post[media]', this.state.mediaFile);
     formData.append('post[body]', this.state.body);
-    formData.append('post[tag]', this.state.tag);
+    formData.append('post[tags]', this.state.tags);
     this.props.processForm(formData)
     .then(this.props.history.push('/dashboard'));
     this.props.closeModal();
@@ -81,8 +81,8 @@ class MediaForm extends Component {
         <label htmlFor="tag"></label>
         <input
           className="tag-input"
-          onChange={this.update('tag')}
-          value={this.state.tag}
+          onChange={this.update('tags')}
+          value={this.state.tags}
           id="tag" 
           type="text"
           placeholder="#tags"/>

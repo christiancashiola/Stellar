@@ -13,12 +13,10 @@ class TextForm extends Component {
   
   handleSubmit(e) {
     e.preventDefault();
-    let post = merge({}, this.state);
-    post.tags = post.tags.split(' ');
     if (this.path === 'link') {
         post.title = '!link!' + post.title;
     }
-    this.props.processForm({ post })
+    this.props.processForm(this.state)
     .then(this.setState({ body: '', title: '', tags: '' }))
     .then(this.props.history.push('/dashboard'));
   }
