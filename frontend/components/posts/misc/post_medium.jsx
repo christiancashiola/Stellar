@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { closeModal } from '../../actions/ui_actions';
+import { closeModal } from '../../../actions/ui_actions';
 import { Link } from 'react-router-dom';
 
 const mapDispatchToProps = dispatch => ({

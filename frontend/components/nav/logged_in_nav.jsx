@@ -44,7 +44,7 @@ class LoggedInNav extends Component {
           <Link to="/dashboard">
             <button onClick={this.handleClick} className="nav-link"><i className="fas fa-home"></i></button>
           </Link>
-          <Link to="#">
+          <Link to="/explore/trending">
             <button className="nav-link"><i className="far fa-compass"></i></button>
           </Link>
 

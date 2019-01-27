@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { deletePost } from '../../actions/post_actions';
-import { closeModal, openModal } from '../../actions/ui_actions';
+import { deletePost } from '../../../actions/post_actions';
+import { closeModal, openModal } from '../../../actions/ui_actions';
 
 export const PostSettings = (props) => {
 

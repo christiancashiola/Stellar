@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Post from './post';
+import DashPost from './dash_post';
 
-class DashPosts extends Component {
+class PostsIndex extends Component {
 
   constructor(props) {
     super(props);
@@ -15,16 +15,22 @@ class DashPosts extends Component {
   }
 
   render() {
+    const criterion = this.state.criterion;
+
     const posts = this.props.posts.map(post => {
-      return <Post key={post.id} post={post} />
+      if (criterion === 'dashboard') {
+        return <DashPost key={post.id} post={post} />
+      } else {
+        return <ExplorePost key={post.id} post={post} />
+      }
     });
     
     return (
-      <section className={`${this.state.criterion}-posts`}>
+      <section className={`${criterion}-posts`}>
         {posts}
       </section>
     );
   }
 }
 
-export default DashPosts;
+export default PostsIndex;

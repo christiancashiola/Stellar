@@ -1,0 +1,14 @@
+.post-explore-container {
+  padding-top: 80px;
+  grid-template-columns: 75px auto;
+  grid-gap: 20px;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+.dashboard-posts {
+  width: 605px;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column-reverse;
+}

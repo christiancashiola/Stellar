@@ -1,6 +1,6 @@
 import React from 'react';
-import PostSettings from '../posts/post_settings';
-import PostMedium from '../posts/post_medium';
+import PostSettings from '../posts/misc/post_settings';
+import PostMedium from '../posts/misc/post_medium';
 import EditTextForm from '../posts/post_form/edit_text_form';
 import MediaForm from '../posts/post_form/media_form_container';
 
