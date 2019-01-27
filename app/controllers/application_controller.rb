@@ -17,4 +17,24 @@ class ApplicationController < ActionController::Base
     @current_user = nil
     session[:session_token] = nil
   end
+
+  def ready_tags(tags)
+    tags = parse_tags(tags)
+    ready_tags = []
+    tags.each do |tag|
+      existing_tag = Tag.find_by(subject: tag)
+      if existing_tag 
+        ready_tags << existing_tag
+      else
+        ready_tags << Tag.create!({ subject: tag })
+      end
+    end
+    ready_tags
+  end
+
+  private
+
+  def parse_tags(tags)
+    tags.map { |tag| tag[0] == '#' ? tag : '#' + tag }
+  end
 end

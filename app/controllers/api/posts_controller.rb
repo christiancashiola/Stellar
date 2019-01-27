@@ -22,7 +22,10 @@ class Api::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.tag_id = Tag.find_by(subject: 'anime').id
+
+    tags = ready_tags(params[:post][:tags])
+    @post.tags = tags
+
     if @post.save
       render 'api/posts/show'
     else
@@ -55,6 +58,6 @@ class Api::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:body, :title, :tag_id, :media)
+    params.require(:post).permit(:body, :title, :media)
   end
 end

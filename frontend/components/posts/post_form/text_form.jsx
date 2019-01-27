@@ -6,7 +6,7 @@ class TextForm extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { body: '', title: '', tag: '' };
+    this.state = { body: '', title: '', tags: '' };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.path = this.props.location.pathname.split('/')[3];
   }
@@ -14,11 +14,12 @@ class TextForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     let post = merge({}, this.state);
+    post.tags = post.tags.split(' ');
     if (this.path === 'link') {
         post.title = '!link!' + post.title;
     }
     this.props.processForm({ post })
-    .then(this.setState({ body: '', title: '', tag: '' }))
+    .then(this.setState({ body: '', title: '', tags: '' }))
     .then(this.props.history.push('/dashboard'));
   }
 
@@ -71,8 +72,8 @@ class TextForm extends Component {
         <label htmlFor="tag"></label>
         <input
           className="tag-input"
-          onChange={this.update('tag')}
-          value={this.state.tag}
+          onChange={this.update('tags')}
+          value={this.state.tags}
           id="tag" 
           type="text"
           placeholder="#tags"/>
