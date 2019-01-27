@@ -24,9 +24,9 @@
       </script>
     <% end %>
 
-
-    <script>
-      window.splashUrl = "<%= image_url('stars4.jpg') %>";
+    <% img = image_url("bg#{(rand(5) + 1).to_s}.jpg") %>
+    <script>      
+      window.splashUrl = "<%= img %>";
       window.gitLogo = "<%= image_url('git_logo.png') %>";
     </script>
     
