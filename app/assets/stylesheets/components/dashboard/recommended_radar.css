@@ -1,0 +1,87 @@
+.recommended-radar-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 20px;
+  color: hsla(0, 0%, 100%, .3);
+}
+
+.recommended-radar-header {
+  font-size: 14px;
+  padding: 0 10px 10px;
+  margin: 0;
+  border-bottom: 2px solid hsla(0, 0%, 100%, .07);
+}
+
+.recommended-radar {
+  width: 300px;
+  box-sizing: border-box;
+}
+
+.sm-username {
+  font-size: 14px;
+  margin: 0;
+  color: #ccc;
+}
+
+.recommended-user {
+  border-bottom: 1px solid hsla(0, 0%, 100%, .07);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+
+}
+
+.recommended-user:hover {
+  background-color: hsla(0, 0%, 100%, .07);
+}
+
+.user-description {
+  font-size: 14px;
+  font-weight: 200;
+}
+
+#dummy-photo {
+  width: 35px;
+  height: 35px;
+  background-color: #ccc;
+  margin-right: 10px;
+  border-radius: 2px;
+}
+
+.user-info-wrapper {
+  display: flex;
+  height: 35px;
+}
+
+.user-info {
+  display: flex;
+  flex-flow: column;
+}
+
+.radar-photo {
+  max-width: 300px;
+  height: auto;
+  border-radius: 3px;
+}
+
+.radar {
+  border: none;
+  margin-bottom: -20px;
+}
+
+.plus {
+  width: 25px;
+  height: 25px;
+  color: #36455D;
+  background-color:  rgb(157, 166, 179, 0.5);
+  border: 0px solid rgb(157, 166, 179, 0.5);
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 2px;
+  margin: 5px;
+}
+
+.plus:hover {
+  background-color: #559DCC;
+  color: #fff;
+}

@@ -42,7 +42,7 @@ class TextForm extends Component {
         bodyPlaceholder = '- Source';
         break;
       case 'link':
-        titlePlaceholder = 'https://stellar-aa.herokuapp.com/';
+        titlePlaceholder = "website-name (we'll do the parsing)";
         specialStyle = 'link-style';
         bodyPlaceholder = 'What about this link?';
     }

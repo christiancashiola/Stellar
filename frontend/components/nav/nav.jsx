@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import DashNavLinks from './dash_nav_links';
+import LoggedInNav from './logged_in_nav';
 
 const Nav = ({ currentUser, openModal }) => {
 // TODO: refactor currentUser if unnecessary
@@ -17,7 +17,7 @@ const Nav = ({ currentUser, openModal }) => {
   );
 
   if (currentUser) {
-    display = <DashNavLinks openModal={openModal} currentUser={currentUser} />
+    display = <LoggedInNav openModal={openModal} currentUser={currentUser} />
   }
 
   return (
