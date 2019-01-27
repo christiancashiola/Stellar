@@ -23,8 +23,10 @@ class Api::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
 
-    tags = ready_tags(params[:post][:tags])
-    @post.tags = tags
+    if params[:post][:tags]
+      tags = ready_tags(params[:post][:tags])
+      @post.tags = tags
+    end
 
     if @post.save
       render 'api/posts/show'
