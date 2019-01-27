@@ -40,7 +40,7 @@
 
 .mid-content {
   position: relative;
-  top: 30%;
+  top: 25%;
   display: flex;
   align-items: center;
   flex-flow: column;
@@ -49,7 +49,7 @@
 
 .mid-content p {
   color: #fff;
-  font-size: 1.1rem;
+  font-size: 20px;
   font-weight: 100;
   margin: 0 0 15px;
   line-height: 20px;

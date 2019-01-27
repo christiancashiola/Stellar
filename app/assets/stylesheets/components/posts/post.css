@@ -15,7 +15,7 @@
   border-radius: 5px;
   padding: 0;
   position: relative;
-  padding: 10px 0;
+  padding: 10px 0 0;
 }
 
 .post-content {
@@ -149,4 +149,24 @@
 
 a.link-style {
   font-size: 24px;
+}
+
+.tags-settings {
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-tags {
+  padding-left: 20px;
+  display: flex;
+  list-style: none;
+  color: #777;
+  font-weight: 400;
+}
+
+.post-tag {
+  color: inherit;
+  font-size: 14px;
+  margin-right: 10px;
 }
