@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
 
   def show
-    @user = user.find(params[:id])
+    @user = User.find(params[:id])
     render 'api/users/show'
   end
 
@@ -19,7 +19,6 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.profile_pic.delete
     if @user.update(user_params)
       render 'api/users/show'
     else

@@ -27,6 +27,7 @@
     <% img = image_url("bg#{(rand(5) + 1).to_s}.jpg") %>
     <script>      
       window.splashUrl = "<%= img %>";
+      window.defaultProfilePic = "<%= image_url('default_profile_pic.png') %>"
       window.gitLogo = "<%= image_url('git_logo.png') %>";
     </script>
     
