@@ -4,7 +4,7 @@ class Api::PostsController < ApplicationController
     criterion = params[:criterion]
 
     # Production
-    @posts = Post.order(created_at: :desc).page(params[:page]).per(30)
+    @posts = Post.order(created_at: :desc).page(params[:page]).per(5)
 
     # Development
       # @posts = Post.all.page(params[:page]).per(5)

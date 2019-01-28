@@ -9,6 +9,9 @@ bodies = [b1, b2, b3]
 
 u1 = User.create!({ email: 'demo@demo.com', password: '12345678', username: 'demo_user19' })
 Post.create!({ title: 'Test Post1', body: b1, user_id: u1.id })
-100.times do |i|
+20.times do |i|
   Post.create!({ title: "Test Post #{i + 1}", body: bodies[i % 3], user_id: u1.id })
 end
+
+
+# Check posts controller pagination for dev
