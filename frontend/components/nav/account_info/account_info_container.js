@@ -3,8 +3,7 @@ import { logout } from '../../../actions/session_actions';
 import AccountInfo from './account_info';
 
 const mapStateToProps = ({ session, entities }) => {
-  const currentUserID = session[Object.keys(session)[0]];
-  const currentUser = entities.users[currentUserID];
+  const currentUser = entities.users[session.currentUserId];
 
   return { currentUser };
 };

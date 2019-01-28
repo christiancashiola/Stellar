@@ -4,8 +4,8 @@ import { updatePost } from '../../actions/post_actions';
 import { openModal } from '../../actions/ui_actions';
 import { linkify, getMedia } from '../../util/parse_util';
 
-const mapStateToProps = ({ entities: { users }}) => ({
-  users,
+const mapStateToProps = state => ({
+  currentUserId: state.session.currentUserId,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -13,7 +13,7 @@ const mapDispatchToProps = dispatch => ({
   openModal: (modal, info) => dispatch(openModal(modal, info)),
 });
 
-const DashPost = ({ post, openModal }) => {
+const DashPost = ({ post, openModal, currentUserId }) => {
 
   const media = getMedia(post);
   let link;
@@ -24,6 +24,14 @@ const DashPost = ({ post, openModal }) => {
   const tags = post.tags.map(tag => {
      return <li key={tag.id} className="post-tag">{tag.subject}</li>
   });
+
+  const postSettings = (
+    <button 
+      onClick={() => openModal('post settings', post)} 
+      className="post-settings-icon">
+      <i className="fas fa-cog"></i>
+    </button>
+  );
   
   // TODO: Make tags links that go to: search/:tag
   return (
@@ -39,13 +47,9 @@ const DashPost = ({ post, openModal }) => {
           <p>{post.body}</p>
         </div>
 
-        <div className="tags-settings">
+        <div className="post-features">
           <ul className="post-tags">{tags}</ul>
-          <button 
-            onClick={() => openModal('post settings', post)} 
-            className="post-settings-icon">
-            <i className="fas fa-cog"></i>
-          </button>
+          { currentUserId === post.user_id ? postSettings : null }
         </div>
       </div>
     </div>
