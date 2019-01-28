@@ -48,7 +48,7 @@
   margin: 5px 0 10px;
 }
 
-.post-settings-icon {
+.post-feature-icon {
   float: right;
   border: none;
   font-size: 20px;
@@ -168,4 +168,8 @@ a.link-style {
   color: inherit;
   font-size: 14px;
   margin-right: 10px;
+}
+
+.red-heart{
+  color: #c23a3a;
 }

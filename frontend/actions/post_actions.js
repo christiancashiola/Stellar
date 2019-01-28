@@ -10,35 +10,35 @@ export const fetchPosts = (criterion, page) => dispatch => {
   dispatch(startLoadingPosts());
   APIUtil.fetchPosts(criterion, page).then(
     posts => dispatch(receivePosts(posts)),
-    errors => dispatch(receiveErrors(errors))
+    errors => dispatch(receiveErrors(errors.responseJSON))
   );
 };
 
 export const fetchPost = id => dispatch => (
   APIUtil.fetchPost(id).then(
     post => dispatch(receivePost(post)),
-    errors => dispatch(receiveErrors(errors))
+    errors => dispatch(receiveErrors(errors.responseJSON))
   )
 );
 
 export const createPost = post => dispatch => (
   APIUtil.createPost(post).then(
     post => dispatch(receivePost(post)),
-    errors => dispatch(receiveErrors(errors))
+    errors => dispatch(receiveErrors(errors.responseJSON))
   )
 );
 
 export const updatePost = post => dispatch => (
   APIUtil.updatePost(post).then(
     post => dispatch(receivePost(post)),
-    errors => dispatch(receiveErrors(errors))
+    errors => dispatch(receiveErrors(errors.responseJSON))
   )
 );
 
 export const deletePost = id => dispatch => (
   APIUtil.deletePost(id).then(
     post => dispatch(removePost([Object.keys(post)[0]])),
-    errors => dispatch(receiveErrors(errors))
+    errors => dispatch(receiveErrors(errors.responseJSON))
   )
 );
 
