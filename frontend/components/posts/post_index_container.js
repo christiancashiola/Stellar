@@ -3,9 +3,10 @@ import { withRouter } from 'react-router-dom';
 import { fetchPosts } from '../../actions/post_actions';
 import PostIndex from './post_index';
 
-const mapStateToProps = ({ entities }) => ({
+const mapStateToProps = state => ({
   // TODO: fetch friends' posts
-  posts: Object.values(entities.posts) || [],
+  posts: Object.values(state.entities.posts) || [],
+  loading: state.ui.loaders.postsLoading,
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -26,6 +26,7 @@ class PostsIndex extends Component {
 
   render() {
     const criterion = this.state.criterion;
+    const { loading } = this.props;
 
     const posts = this.props.posts.map(post => {
       if (criterion === 'dashboard') {
@@ -38,6 +39,7 @@ class PostsIndex extends Component {
     return (
       <section className={`${criterion}-posts`}>
         {posts}
+        {loading ? <div className="loader"></div> : null}
         <Waypoint onEnter={this.getPosts} />
       </section>
     );

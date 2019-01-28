@@ -1,16 +1,18 @@
 import * as APIUtil from '../util/post-util';
 import { receiveErrors } from './error_actions';
+import { startLoadingPosts } from './ui_actions';
 
 export const RECEIVE_POSTS = 'RECEIVE_POSTS';
 export const RECEIVE_POST = 'RECEIVE_POST';
 export const REMOVE_POST = 'REMOVE_POST';
 
-export const fetchPosts = (criterion, page) => dispatch => (
+export const fetchPosts = (criterion, page) => dispatch => {
+  dispatch(startLoadingPosts());
   APIUtil.fetchPosts(criterion, page).then(
     posts => dispatch(receivePosts(posts)),
     errors => dispatch(receiveErrors(errors))
-  )
-);
+  );
+};
 
 export const fetchPost = id => dispatch => (
   APIUtil.fetchPost(id).then(
