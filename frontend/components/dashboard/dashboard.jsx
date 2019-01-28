@@ -5,14 +5,24 @@ import MediaForm from '../posts/post_form/media_form_container';
 import DashLinks from './dash_links';
 import PostIndex from '../posts/post_index_container';
 import RecommendedRadar from './recommended_radar';
+import { openModal } from '../../actions/ui_actions';
+import { connect } from 'react-redux';
 
-const Dashboard = props => {
+const mapStateToProps = state => ({
+  currentUser: state.entities.users[state.session.currentUserId],
+});
 
+const mapDispatchToProps = dispatch => ({
+  openModal: modal => dispatch(openModal(modal)),
+});
+
+const Dashboard = ({ currentUser, openModal }) => {
   return (
     <section className="dashboard">
       <div className="current-user-dock">
-        <img className="pofile-pic" id="profile-pic"
-          src="https://images.unsplash.com/photo-1481819613568-3701cbc70156?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=80"
+
+        <img onClick={() => openModal('profile pic')} id="profile-pic"
+          src={currentUser.profile_pic}
           alt="profile-pic"/>
           
         <Route exact path='/dashboard' component={DashLinks} />
@@ -30,4 +40,4 @@ const Dashboard = props => {
   );
 }
 
-export default Dashboard;
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

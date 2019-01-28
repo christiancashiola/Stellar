@@ -29,6 +29,8 @@ class User < ApplicationRecord
   has_many :liked_posts,
     through: :likes,
     source: :post
+
+  has_one_attached :profile_pic
   
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

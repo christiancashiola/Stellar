@@ -29,6 +29,19 @@ const Media = ({ type }) => {
         </label>
       </>
     );
+  } else if ( type.includes('profile')) {
+    media = (
+      <>
+        <label id="media-label" htmlFor="media-input">
+        <div className="media-icon-wrapper">
+          <i id="profile-icon" className="fas fa-plus"></i>
+          <i className="fas fa-user-astronaut"></i>
+        </div>
+        Upload a profile photo
+        :) 
+        </label>
+      </>
+    );
   } else {
     media = (
       <>
