@@ -2,5 +2,5 @@
   width: 605px;
   box-sizing: border-box;
   display: flex;
-  flex-flow: column-reverse;
+  flex-flow: column;
 }

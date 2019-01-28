@@ -2,7 +2,14 @@ class Api::PostsController < ApplicationController
   
   def index
     criterion = params[:criterion]
-    @posts = Post.all.page(params[:page]).per(5)
+
+    # Production
+    # @posts = Post.all.page(params[:page]).per(20)
+
+    # Development
+      @posts = Post.all.page(params[:page]).per(5)
+
+      
     # if criterion == 'dashboard'
     #   # TODO: query all followed users and
     #   # display their most recent posts

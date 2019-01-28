@@ -6,7 +6,7 @@ const mapStateToProps = ({ entities: { users }}) => ({
   users,
 });
 
-const ExplorePost = ({ post, openModal }) => {
+const ExplorePost = ({ post }) => {
 
   const media = getMedia(post);
   let link;
@@ -32,11 +32,6 @@ const ExplorePost = ({ post, openModal }) => {
 
       <div className="tags-settings">
         <ul className="post-tags">{tags}</ul>
-        <button 
-          onClick={() => openModal('post settings', post)} 
-          className="post-settings-icon">
-          <i className="fas fa-cog"></i>
-        </button>
       </div>
     </div>
   );

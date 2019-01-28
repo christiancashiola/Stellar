@@ -1,8 +1,6 @@
 .explore-posts {
   margin: auto;
-  width: 85%;
   padding-top: 80px;
-  column-count: 4;
   column-gap: 20px;
 }
 
@@ -16,4 +14,33 @@
   display: inline-block;
   margin: 0 0 1em;
   width: 100%;
+}
+
+@media (min-width: 1281px) {
+  .explore-posts {
+    width: 75%;
+    column-count: 5;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .explore-posts {
+    width: 85%;
+    column-count: 4;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .explore-posts {
+    width: 90%;
+    column-count: 3;
+  }
+}
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .explore-posts {
+    width: 95%;
+    column-count: 1;
+  }
 }

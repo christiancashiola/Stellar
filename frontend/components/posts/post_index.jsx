@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DashPost from './dash_post';
 import ExplorePost from './explore_post';
+import Waypoint from 'react-waypoint';
 
 class PostsIndex extends Component {
 
@@ -8,11 +9,12 @@ class PostsIndex extends Component {
     super(props);
     this.state = {
       criterion: this.props.location.pathname.split('/')[1],
-      page: 1,
+      page: 0,
     };
     this.getPosts = this.getPosts.bind(this);
   }
 
+  // why doesn't this work without += ?
   getPosts() {
     this.props.fetchPosts(this.state.criterion, this.state.page);
     this.setState = ({ page: this.state.page += 1 });
@@ -36,7 +38,7 @@ class PostsIndex extends Component {
     return (
       <section className={`${criterion}-posts`}>
         {posts}
-        <button onClick={this.getPosts}>Get Posts</button>
+        <Waypoint onEnter={this.getPosts} />
       </section>
     );
   }
