@@ -40,7 +40,7 @@ class PostsIndex extends Component {
       <section className={`${criterion}-posts`}>
         {posts}
         {loading ? <div className="loader"></div> : null}
-        <Waypoint bottomOffset="-50%" onEnter={this.getPosts} />
+        <Waypoint bottomOffset="-30%" onEnter={this.getPosts} />
       </section>
     );
   }

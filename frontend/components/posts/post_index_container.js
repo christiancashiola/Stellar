@@ -5,7 +5,7 @@ import PostIndex from './post_index';
 
 const mapStateToProps = state => ({
   // TODO: fetch friends' posts
-  posts: Object.values(state.entities.posts) || [],
+  posts: Object.values(state.entities.posts).reverse() || [],
   loading: state.ui.loaders.postsLoading,
 });
 
