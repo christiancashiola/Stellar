@@ -4,10 +4,10 @@ class Api::PostsController < ApplicationController
     criterion = params[:criterion]
 
     # Production
-    # @posts = Post.all.page(params[:page]).per(20)
+    @posts = Post.all.page(params[:page]).per(20)
 
     # Development
-      @posts = Post.all.page(params[:page]).per(5)
+      # @posts = Post.all.page(params[:page]).per(5)
 
       
     # if criterion == 'dashboard'
