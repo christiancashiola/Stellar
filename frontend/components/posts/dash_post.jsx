@@ -78,7 +78,11 @@ class DashPost extends Component {
     
     let img = <div style={{ width: '75px' }}></div>;
     if (this.state.user && this.state.user.profile_pic) {
-      img = <img className="post-profile-pic" src={this.state.user.profile_pic} alt="profile photo"/>
+      img = (
+        <img className="post-profile-pic" 
+        src={this.state.user.profile_pic}
+        alt="profile photo"/>
+      );
     }
   // TODO: Make tags links that go to: search/:tag
     return (

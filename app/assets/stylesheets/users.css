@@ -13,6 +13,14 @@
   top: 70px;
 }
 
+.explore-profile-pic {
+  width: 30px;
+  height: 30px;
+  top: 5px;
+  left: 5px;
+  position: relative;
+}
+
 .current-username {
   font-size: 16px;
   font-weight: 500;
@@ -36,7 +44,7 @@
   font-size: 20px;
   position: absolute;
   top: 25%;
-  left: 38%;
+  left: 37%;
 }
 
 .profile-media {
@@ -44,4 +52,15 @@
   height: auto;
   width: auto;
   max-width: 300px;
+}
+
+#null-profile-pic {
+  box-sizing: border-box;
+  border-radius: 5px;
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
+  background-color: #ccc;
+  text-align: center;
+  padding: 4px 2px 0;
 }

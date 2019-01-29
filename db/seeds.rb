@@ -8,10 +8,11 @@ b3 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mattis, arcu 
 bodies = [b1, b2, b3]
 
 u1 = User.create!({ email: 'demo@demo.com', password: '12345678', username: 'demo_user19' })
+u1.profile_pic.attach(io: File.open("/Users/Cashiola/Desktop/default_profile_pic copy.png"), filename: "default_profile_pic.png")
 Post.create!({ title: 'Test Post1', body: b1, user_id: u1.id })
-20.times do |i|
-  Post.create!({ title: "Test Post #{i + 1}", body: bodies[i % 3], user_id: u1.id })
-end
+# 20.times do |i|
+#   Post.create!({ title: "Test Post #{i + 1}", body: bodies[i % 3], user_id: u1.id })
+# end
 
 
 # Check posts controller pagination for dev

@@ -18,18 +18,26 @@ const mapDispatchToProps = dispatch => ({
 
 const Dashboard = ({ currentUser, openModal }) => {
 
-  let imgSrc = currentUser.profile_pic;
-  if (!imgSrc) {
-    imgSrc = window.defaultProfilePic;
+  let img;
+  if (currentUser.profile_pic) {
+    img = (
+      <img onClick={() => openModal('profile pic')}
+      id="profile-pic"
+      src={currentUser.profile_pic}
+      alt="profile-pic"/>
+    );
+  } else {
+    img = (
+      <div onClick={() => openModal('profile pic')} 
+      id="null-profile-pic">Add profile photo</div>
+    );
   }
   
   return (
     <section className="dashboard">
       <div className="current-user-dock">
 
-        <img onClick={() => openModal('profile pic')} id="profile-pic"
-          src={imgSrc}
-          alt="profile-pic"/>
+        {img}
           
         <Route exact path='/dashboard' component={DashLinks} />
         <Switch>

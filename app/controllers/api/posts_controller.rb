@@ -9,7 +9,7 @@ class Api::PostsController < ApplicationController
     # Development
       # @posts = Post.all.page(params[:page]).per(5)
 
-      
+    # TODO: Edit results based off of location - dash, explore, or search
     # if criterion == 'dashboard'
     #   # TODO: query all followed users and
     #   # display their most recent posts
