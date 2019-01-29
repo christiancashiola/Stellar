@@ -53,7 +53,10 @@ class ExplorePost extends Component {
 
     let followBtn;
     const postUserId = post.user_id;
-    if (currentUser.follow_ids && currentUser.follow_ids.includes(postUserId)) {
+    if (currentUserId === postUserId) {
+      followBtn = null;
+    } else if (currentUser.follow_ids 
+      && currentUser.follow_ids.includes(postUserId)) {
       followBtn = (
         <button 
           onClick={() => unfollow(postUserId)}

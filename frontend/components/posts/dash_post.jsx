@@ -51,8 +51,10 @@ class DashPost extends Component {
     }
 
     let followBtn;
-    const postUserId = post.user_id;
-    if (currentUser.follow_ids && currentUser.follow_ids.includes(postUserId)) {
+    const postUserId = post.user_id;    
+    if (currentUserId === postUserId) {
+      followBtn = null;
+    } else if (currentUser.follow_ids && currentUser.follow_ids.includes(postUserId)) {
       followBtn = (
         <button 
           onClick={() => unfollow(postUserId)}
