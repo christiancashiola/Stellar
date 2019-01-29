@@ -9,7 +9,7 @@ class Api::FollowsController < ApplicationController
     if follow.save
       render 'api/users/show'
     else
-      render json: follow.errors.full_messages
+      render json: follow.errors.full_messages, status: 422
     end
   end
 
@@ -22,7 +22,7 @@ class Api::FollowsController < ApplicationController
       @user = current_user
       render 'api/users/show'
     else
-      render json: ['Oops. Something went wrong'], status: 422
+      render json: ['Oops. Something went wrong'], status: 404
     end
   end
 end
