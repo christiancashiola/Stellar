@@ -14,3 +14,10 @@ export const updateUser = (userId, profile_pic) => (
     processData: false,
   })
 );
+
+export const fetchRecommendedUsers = () => (
+  $.ajax({
+    method: 'GET',
+    url: 'api/users',
+  })
+);

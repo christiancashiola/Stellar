@@ -4,7 +4,7 @@ import TextForm from '../posts/post_form/create_text_container';
 import MediaForm from '../posts/post_form/media_form_container';
 import DashLinks from './dash_links';
 import PostIndex from '../posts/post_index_container';
-import RecommendedRadar from './recommended_radar';
+import RecommendedRadar from './recommended_radar_container';
 import { openModal } from '../../actions/ui_actions';
 import { connect } from 'react-redux';
 

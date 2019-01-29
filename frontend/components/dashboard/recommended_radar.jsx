@@ -1,31 +1,69 @@
 import React, { Component } from 'react';
 
-// will need lifecycle methods
 class RecommendedRadar extends Component {
-// TODO: add actual users here
-// will map over five random users for first rec-section
-// will choose one lucky user for radar-section
+
+  componentDidMount() {
+    return this.props.recommendedUsers.length || 
+           this.props.fetchRecommendedUsers();
+  }
+
   render() {
+    const descriptions = [
+      "let's be buds", "aliens are real", "eat. sleep. code. repeat.", 
+      "love, love, love", "music == life"
+    ];
+
+    const { recommendedUsers, currentUser, follow, unfollow } = this.props;
+    const users = recommendedUsers.map((user, i) => {
+      let img = <div style={{ width: '30px' }}></div>;
+      if (user.profile_pic) {
+        img = (
+          <img className="explore-profile-pic post-profile-pic" 
+          src={user.profile_pic} 
+          alt="profile photo"/>
+        );
+      }
+
+      let followBtn;
+      if (currentUser.follow_ids && currentUser.follow_ids.includes(user.id)) {
+        followBtn = (
+          <button 
+            onClick={() => unfollow(user.id)}
+            className="plus-minus">
+            <i className="fas fa-minus"></i>
+          </button>);
+      } else {
+        followBtn = (
+          <button 
+            onClick={() => follow(user.id)}
+            className="plus-minus">
+            <i className="fas fa-plus"></i>
+          </button>);
+      }
+
+      return (
+        <li key={user.id} className="recommended-user">
+          <div className="user-info-wrapper">
+            {img}
+            <div className="user-info">
+              <h3 className="sm-username">{user.username}</h3>
+              <span className="user-description">
+                {descriptions[i]}
+              </span>
+            </div>
+          </div>
+          {followBtn}
+        </li> 
+      );
+    });
+
     return (
       <aside className="recommended-radar-container">
         <ul className="recommended-radar">
         <h3 className="recommended-radar-header">
           RECOMMENDED USERS
         </h3>
-          <li className="recommended-user">
-            <div className="user-info-wrapper">
-              <div id="dummy-photo"></div>
-              <div className="user-info">
-                <h3 className="sm-username">l33tH4x0r</h3>
-
-                <span className="user-description">
-                  Let me hack you
-                </span>
-              </div>
-            </div>
-
-            <button className="plus-minus"><i className="fas fa-plus"></i></button>
-          </li> 
+        {users}
         </ul>
 
         <div className="radar">
@@ -35,17 +73,21 @@ class RecommendedRadar extends Component {
             </h3>
             <li className="recommended-user radar">
               <div className="user-info-wrapper">
-                <div id="dummy-photo"></div>
+                <img className="explore-profile-pic post-profile-pic" 
+                      src="https://avatars3.githubusercontent.com/u/41166875?s=460&v=4" 
+                      alt="profile photo"/>
                 <div className="user-info">
-                  <h3 className="sm-username">stargazer73</h3>
+                  <h3 className="sm-username">ChristianCashiola</h3>
 
                   <span className="user-description">
-                    Life is in the details
+                    Check me out --> -->  --> --> -->
                   </span>
                 </div>
               </div>
-
+              <a href="https://github.com/christiancashiola">
               <button className="plus-minus"><i className="fas fa-plus"></i></button>
+              </a>
+              
             </li> 
           </ul>
           <img

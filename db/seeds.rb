@@ -27,12 +27,12 @@ u3 = User.create!({ email: 'user3@demo.com', password: '12345678', username: 'ZR
 u4 = User.create!({ email: 'user4@demo.com', password: '12345678', username: 'hauntedHeather' })
 u5 = User.create!({ email: 'user5@demo.com', password: '12345678', username: 'AnnaMay4life' })
 
-ud.profile_pic.attach(io: File.open("/Users/Cashiola/Desktop/default_profile_pic.png"), filename: "default_profile_pic.png")
-u1.profile_pic.attach(io: File.open("/Users/Cashiola/Desktop/stellar_seeds/user1.jpg"), filename: "user1.jpg")
-u2.profile_pic.attach(io: File.open("/Users/Cashiola/Desktop/stellar_seeds/user2.jpg"), filename: "user2.jpg")
-u3.profile_pic.attach(io: File.open("/Users/Cashiola/Desktop/stellar_seeds/user3.jpg"), filename: "user3.jpg")  
-u4.profile_pic.attach(io: File.open("/Users/Cashiola/Desktop/stellar_seeds/user4.jpg"), filename: "user4.jpg")
-u5.profile_pic.attach(io: File.open("/Users/Cashiola/Desktop/stellar_seeds/user5.jpg"), filename: "user5.jpg")
+# ud.profile_pic.attach(io: File.open("/Users/Cashiola/Desktop/default_profile_pic.png"), filename: "default_profile_pic.png")
+# u1.profile_pic.attach(io: File.open("/Users/Cashiola/Desktop/stellar_seeds/user1.jpg"), filename: "user1.jpg")
+# u2.profile_pic.attach(io: File.open("/Users/Cashiola/Desktop/stellar_seeds/user2.jpg"), filename: "user2.jpg")
+# u3.profile_pic.attach(io: File.open("/Users/Cashiola/Desktop/stellar_seeds/user3.jpg"), filename: "user3.jpg")  
+# u4.profile_pic.attach(io: File.open("/Users/Cashiola/Desktop/stellar_seeds/user4.jpg"), filename: "user4.jpg")
+# u5.profile_pic.attach(io: File.open("/Users/Cashiola/Desktop/stellar_seeds/user5.jpg"), filename: "user5.jpg")
 
 # POSTS
 

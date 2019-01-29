@@ -1,7 +1,7 @@
 .recommended-radar-container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-row-gap: 20px;
+  grid-row-gap: 10px;
   color: hsla(0, 0%, 100%, .3);
 }
 
@@ -54,6 +54,7 @@
 }
 
 .user-info {
+  margin-left: 15px;
   display: flex;
   flex-flow: column;
 }
