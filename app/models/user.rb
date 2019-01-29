@@ -10,15 +10,22 @@ class User < ApplicationRecord
 
   attr_reader :password
 
-  # has_many :followings,
-  #   dependent: :destroy
+  has_many :followee_follows,
+    foreign_key: :user_id,
+    class_name: :Follow,
+    dependent: :destroy
 
-  # has_many :followed_users,
-  #   through: :followings
+  has_many :followees,
+    through: :followee_follows,
+    source: :followed_user
 
-  # has_many :followers,
-  #   through: :followers,
-  #   source: :user
+  has_many :follower_follows,
+    foreign_key: :followed_user_id,
+    class_name: :Follow
+    
+  has_many :followers,
+    through: :follower_follows,
+    source: :user
 
   has_many :posts,
     dependent: :destroy

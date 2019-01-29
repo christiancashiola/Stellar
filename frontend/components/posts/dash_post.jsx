@@ -9,6 +9,7 @@ import PostFeatures from './misc/post_features';
 
 const mapStateToProps = state => ({
   currentUserId: state.session.currentUserId,
+  currentUser: state.entities.users[currentUserId],
   users: state.entities.users,
 });
 
@@ -33,7 +34,13 @@ class DashPost extends Component {
   }
   
   render() {
-    const { post, openModal, currentUserId, like, unlike } = this.props;
+    const { 
+      post,
+      openModal,
+      currentUserId,
+      currentUser,
+      like, 
+      unlike } = this.props;
 
     const media = getMedia(post);
     let link;
@@ -53,12 +60,22 @@ class DashPost extends Component {
         alt="profile photo"/>
       );
     }
+
+    let followBtn;
+    if (currentUser.follow_ids.include(post.user_id)) {
+      followBtn = <button className="plus"><i class="fas fa-minus"></i></button>
+    } else {
+      followBtn = <button className="plus"><i className="fas fa-plus"></i></button>
+    }
   // TODO: Make tags links that go to: search/:tag
     return (
       <div className="post-container">
         {img}
         <div className="dash-post">
+          <div className="post-user-info">
           <span className="post-username">{post.username}</span>
+          {followBtn}
+          </div>
           <figure className="post-media-wrapper">
             {media}
           </figure>

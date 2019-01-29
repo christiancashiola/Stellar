@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :show, :create, :update, :destroy]
     resources :tags, only: :create
     resources :likes, only: [:create, :destroy]
+    resources :follows, only: :create
+    delete 'api/follows/:user_id', to: 'follows#destroy', as: 'unfollow'
   end
   
 end

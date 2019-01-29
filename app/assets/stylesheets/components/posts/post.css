@@ -177,3 +177,10 @@ a.link-style {
 .red-heart{
   color: #c23a3a;
 }
+
+.post-user-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 5px;
+}

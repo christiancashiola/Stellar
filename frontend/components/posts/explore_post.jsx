@@ -5,6 +5,7 @@ import { updatePost } from '../../actions/post_actions';
 import { openModal } from '../../actions/ui_actions';
 import { createLike, removeLike } from '../../actions/like_actions';
 import { fetchUser } from '../../actions/user_actions';
+import PostFeatures from './misc/post_features';
 
 const mapStateToProps = state => ({
   currentUserId: state.session.currentUserId,
@@ -32,7 +33,7 @@ class ExplorePost extends Component {
   }
   // TODO: Make tags links that go to: search/:tag
   render() {
-    const { post } = this.props;
+    const { post, openModal, currentUserId, like, unlike } = this.props;
     const media = getMedia(post);
     
     let link;
@@ -67,6 +68,8 @@ class ExplorePost extends Component {
 
         <div className="tags-settings">
           <ul className="post-tags">{tags}</ul>
+          <PostFeatures post={post} currentUserId={currentUserId}
+            openModal={openModal} like={like} unlike={unlike}/>
         </div>
       </div>
     );
