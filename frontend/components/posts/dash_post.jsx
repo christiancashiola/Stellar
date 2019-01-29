@@ -1,25 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { updatePost } from '../../actions/post_actions';
-import { openModal } from '../../actions/ui_actions';
 import { linkify, getMedia } from '../../util/parse_util';
-import { createLike, removeLike } from '../../actions/like_actions';
-import { fetchUser } from '../../actions/user_actions';
 import PostFeatures from './misc/post_features';
-
-const mapStateToProps = state => ({
-  currentUserId: state.session.currentUserId,
-  currentUser: state.entities.users[currentUserId],
-  users: state.entities.users,
-});
-
-const mapDispatchToProps = dispatch => ({
-  updatePost: post => dispatch(updatePost(post)),
-  openModal: (modal, info) => dispatch(openModal(modal, info)),
-  like: postId => dispatch(createLike(postId)),
-  unlike: postId => dispatch(removeLike(postId)),
-  fetchUser: userId => dispatch(fetchUser(userId)),
-});
 
 class DashPost extends Component {
 
@@ -32,6 +13,12 @@ class DashPost extends Component {
     this.props.fetchUser(this.props.post.user_id)
     .then(user => this.setState({ user: user.user }));
   }
+
+  componentDidUpdate() {
+    if (!this.props.currentUser.follow_ids) {
+      this.props.fetchUser(this.props.currentUserId);
+    }
+  }
   
   render() {
     const { 
@@ -40,7 +27,9 @@ class DashPost extends Component {
       currentUserId,
       currentUser,
       like, 
-      unlike } = this.props;
+      unlike,
+      follow,
+      unfollow } = this.props;
 
     const media = getMedia(post);
     let link;
@@ -62,10 +51,21 @@ class DashPost extends Component {
     }
 
     let followBtn;
-    if (currentUser.follow_ids.include(post.user_id)) {
-      followBtn = <button className="plus"><i class="fas fa-minus"></i></button>
+    const postUserId = post.user_id;
+    if (currentUser.follow_ids && currentUser.follow_ids.includes(postUserId)) {
+      followBtn = (
+        <button 
+          onClick={() => unfollow(postUserId)}
+          className="plus-minus">
+          <i className="fas fa-minus"></i>
+        </button>);
     } else {
-      followBtn = <button className="plus"><i className="fas fa-plus"></i></button>
+      followBtn = (
+        <button 
+          onClick={() => follow(postUserId)}
+          className="plus-minus">
+          <i className="fas fa-plus"></i>
+        </button>);
     }
   // TODO: Make tags links that go to: search/:tag
     return (
@@ -97,4 +97,4 @@ class DashPost extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DashPost);
+export default DashPost;

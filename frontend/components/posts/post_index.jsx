@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import DashPost from './dash_post';
-import ExplorePost from './explore_post';
+import DashPost from './dash_post_container';
+import ExplorePost from './explore_post_container';
 import Waypoint from 'react-waypoint';
 
 class PostsIndex extends Component {

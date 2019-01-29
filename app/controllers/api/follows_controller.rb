@@ -5,7 +5,7 @@ class Api::FollowsController < ApplicationController
       user_id: current_user.id,
       followed_user_id: params[:user_id]
     )
-    @user = User.find(params[:user_id])
+    @user = current_user
     if follow.save
       render 'api/users/show'
     else
@@ -19,7 +19,7 @@ class Api::FollowsController < ApplicationController
     
     if follow
       follow.destroy
-      @user = User.find(params[:user_id])
+      @user = current_user
       render 'api/users/show'
     else
       render json: ['Oops. Something went wrong'], status: 422

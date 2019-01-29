@@ -1,24 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { linkify, getMedia } from '../../util/parse_util';
-import { updatePost } from '../../actions/post_actions';
-import { openModal } from '../../actions/ui_actions';
-import { createLike, removeLike } from '../../actions/like_actions';
-import { fetchUser } from '../../actions/user_actions';
 import PostFeatures from './misc/post_features';
-
-const mapStateToProps = state => ({
-  currentUserId: state.session.currentUserId,
-  users: state.entities.users,
-});
-
-const mapDispatchToProps = dispatch => ({
-  updatePost: post => dispatch(updatePost(post)),
-  openModal: (modal, info) => dispatch(openModal(modal, info)),
-  like: postId => dispatch(createLike(postId)),
-  unlike: postId => dispatch(removeLike(postId)),
-  fetchUser: userId => dispatch(fetchUser(userId)),
-});
 
 class ExplorePost extends Component {
 
@@ -31,9 +13,24 @@ class ExplorePost extends Component {
     this.props.fetchUser(this.props.post.user_id)
     .then(user => this.setState({ user: user.user }));
   }
+
+  componentDidUpdate() {
+    if (!this.props.currentUser.follow_ids) {
+      this.props.fetchUser(this.props.currentUserId);
+    }
+  }
+  
   // TODO: Make tags links that go to: search/:tag
   render() {
-    const { post, openModal, currentUserId, like, unlike } = this.props;
+    const { 
+      post,
+      openModal,
+      currentUserId,
+      currentUser,
+      like, 
+      unlike,
+      follow,
+      unfollow } = this.props;
     const media = getMedia(post);
     
     let link;
@@ -54,10 +51,33 @@ class ExplorePost extends Component {
       );
     }
 
+    let followBtn;
+    const postUserId = post.user_id;
+    if (currentUser.follow_ids && currentUser.follow_ids.includes(postUserId)) {
+      followBtn = (
+        <button 
+          onClick={() => unfollow(postUserId)}
+          className="plus-minus">
+          <i className="fas fa-minus"></i>
+        </button>);
+    } else {
+      followBtn = (
+        <button 
+          onClick={() => follow(postUserId)}
+          className="plus-minus">
+          <i className="fas fa-plus"></i>
+        </button>);
+    }
+
     return (
       <div className="explore-post">
-        {img}
-        <span className="post-username">{post.username}</span>
+        <div className="post-user-info">
+          <div className="profile-photo-username-wrapper">
+            {img}
+            <span className="post-username">{post.username}</span>
+          </div>
+          {followBtn}
+        </div>
         <figure className="post-media-wrapper">
           {media}
         </figure>
@@ -76,4 +96,4 @@ class ExplorePost extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ExplorePost);
+export default ExplorePost;

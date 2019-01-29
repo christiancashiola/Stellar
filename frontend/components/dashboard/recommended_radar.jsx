@@ -24,7 +24,7 @@ class RecommendedRadar extends Component {
               </div>
             </div>
 
-            <button className="plus"><i className="fas fa-plus"></i></button>
+            <button className="plus-minus"><i className="fas fa-plus"></i></button>
           </li> 
         </ul>
 
@@ -45,7 +45,7 @@ class RecommendedRadar extends Component {
                 </div>
               </div>
 
-              <button className="plus"><i className="fas fa-plus"></i></button>
+              <button className="plus-minus"><i className="fas fa-plus"></i></button>
             </li> 
           </ul>
           <img
