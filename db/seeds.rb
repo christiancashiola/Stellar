@@ -33,7 +33,7 @@ u5 = User.create!({ email: 'user5@demo.com', password: '12345678', username: 'An
 # model_instance.save!
 
 
-ud.profile_pic.attach(io: File.open("https://s3.amazonaws.com/stellar-dev/default_profile_pic.png"), filename: "default_profile_pic.png").save!
+ud.profile_pic.attach(io: EzDownload.open("https://s3.amazonaws.com/stellar-dev/default_profile_pic.png"), filename: "default_profile_pic.png").save!
 u1.profile_pic.attach(io: EzDownload.open('https://s3.amazonaws.com/stellar-dev/user1.jpg'), filename: "user1.jpg").save!
 u2.profile_pic.attach(io: EzDownload.open('https://s3.amazonaws.com/stellar-dev/user2.jpg'), filename: "user2.jpg").save!
 u3.profile_pic.attach(io: EzDownload.open('https://s3.amazonaws.com/stellar-dev/user3.jpg'), filename: "user3.jpg").save!  
