@@ -23,6 +23,10 @@
   padding: 0 20px;
 }
 
+.post-content h3 {
+  margin: 0;
+}
+
 .post-content p {
   margin: 0;
 }
@@ -39,7 +43,7 @@
   align-self: center;
   height: auto;
   width: auto;
-  max-width: 500px;
+  max-width: 100%;
 }
 
 .dash-post h3 {

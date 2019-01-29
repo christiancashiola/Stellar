@@ -29,7 +29,7 @@ export const getMedia = (post) => {
         </video>
       );
     case 'audio':
-      return <audio  controls src={post.media}></audio>
+      return <audio controls src={post.media}></audio>
     default:
       return null;
   }
