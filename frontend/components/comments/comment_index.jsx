@@ -1,32 +1,18 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { fetchComments } from '../../actions/comment_actions';
 import { readyComment, unreadyComment } from '../../util/ui_util';
-import { fetchUsers } from '../../actions/user_actions';
 import Comment from './comment';
-
-const mapStateToProps = ({ entities }, ownProps) => {
-  const comments = Object.values(entities.comments)
-    .filter(comment => comment.postId === ownProps.post.id);
-
-  return { 
-    currentUserIds: Object.keys(entities.users),
-    comments,
-  };
-};
-
-const mapDispatchToProps = dispatch => ({
-  fetchComments: postId => dispatch(fetchComments(postId)),
-  fetchUsers: userIds => dispatch(fetchUsers(userIds)),
-});
 
 let interval = null;
 
-class Comments extends Component {
+class CommentIndex extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { comments: [] };
+    this.state = { 
+      comments: [],
+      createdComment: '',
+     };
+     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   // TODO: add load spinner  
@@ -43,6 +29,21 @@ class Comments extends Component {
     this.setPlaceholder();
   }
 
+  componentDidUpdate() {
+    this.props.fetchComments(this.props.post.id)
+    .then(() => {
+      let userIds = this.state.comments.map(comment => comment.authorId);
+      userIds = userIds.filter(id => !this.props.currentUserIds.includes(id));
+      this.props.fetchUsers(userIds);
+
+      this.setState({ comments: this.props.comments });
+    });
+  }
+
+  componentWillUnmount() {
+    clearInterval(interval);
+  }
+
   setPlaceholder() {
     const placeholders = [
       "Speak from heart", "Don't be shy", "Let 'em hear it",
@@ -57,8 +58,14 @@ class Comments extends Component {
     }, 1750);
   }
 
-  componentWillUnmount() {
-    clearInterval(interval);
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.createComment(this.state.createdComment, this.props.post.id)
+    .then(() => this.setState({ createdComment: '' }));
+  }
+
+  update(e) {
+    this.setState({createdComment: e.target.value });
   }
 
   render() {
@@ -72,13 +79,19 @@ class Comments extends Component {
       <div className="comments-container">
         <h3 className="comment-count">{commentCount} comments</h3>
         <ul className="comments-index">
-          {comments}
+          {
+            comments.length ? 
+            comments : 
+            <p style={{ textAlign: 'center' }}>No comments yet.</p>
+          }
         </ul>
-        <form className="comment-form">
+        <form onSubmit={this.handleSubmit} className="comment-form">
           <textarea
+            onChange={this.update.bind(this)}
             onFocus={readyComment} 
             onBlur={unreadyComment} 
             placeholder="Got something to say?"
+            value={this.state.createdComment}
             id="comment-input">
           </textarea>
           <label htmlFor="comment-input"></label>
@@ -89,4 +102,4 @@ class Comments extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Comments);
+export default CommentIndex;

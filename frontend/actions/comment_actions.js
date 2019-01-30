@@ -4,8 +4,8 @@ import { receiveErrors } from './error_actions';
 export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
 export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS';
 
-export const createComment = comment => dispatch => (
-  APIUtil.createComment(comment).then(
+export const createComment = (comment, postId) => dispatch => (
+  APIUtil.createComment(comment, postId).then(
     comment => dispatch(receiveComment(comment)),
     errors => dispatch(receiveErrors(errors))
   )

@@ -1,8 +1,8 @@
-export const createComment = comment => (
+export const createComment = (body, post_id) => (
   $.ajax({
     method: 'POST',
     url: 'api/comments',
-    data: { comment },
+    data: { comment: { body, post_id }},
   })
 );
 

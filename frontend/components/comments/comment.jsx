@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-const mapStateToProps = ({ entities: { users } }, ownProps) => {
-  debugger
-  return {
+const mapStateToProps = ({ entities: { users } }, ownProps) => ({
   user: users[ownProps.comment.authorId]
-  };
-};
+});
 
 class Comment extends Component {
   render() {

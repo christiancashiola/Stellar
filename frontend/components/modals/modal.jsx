@@ -4,7 +4,7 @@ import PostMedium from '../posts/misc/post_medium';
 import EditTextForm from '../posts/post_form/edit_text_form';
 import MediaForm from '../posts/post_form/media_form_container';
 import ProfilePic from '../profile/profile_pic';
-import Comment from '../comments/comment_container';
+import CommentIndex from '../comments/comment_index_container';
 
 const Modal = ({modal, info, closeModal}) => {
   if (!modal) {
@@ -29,7 +29,7 @@ const Modal = ({modal, info, closeModal}) => {
       component = <MediaForm post={info} />;
       break;
     case 'comment':
-      component = <Comment post={info} />;
+      component = <CommentIndex post={info} />;
       break;
     default:
       return null;
