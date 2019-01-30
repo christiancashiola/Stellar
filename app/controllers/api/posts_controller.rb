@@ -1,25 +1,22 @@
 class Api::PostsController < ApplicationController
   
   def index
-    criterion = params[:criterion]
+    pathname = params[:pathname]
+    @posts = nil
+    
+    if pathname.include?('dashboard')
+      @posts = Post.order(created_at: :desc)
+        .where(user_id: current_user.followee_ids)
+        .page(params[:page]).per(20)
 
-    # Production
-    @posts = Post.order(created_at: :desc).page(params[:page]).per(25)
+    elsif pathname.include?('explore')
+      @posts = Post.order(likes_count: :desc)
+        .page(params[:page]).per(30)
 
-    # Development
-      # @posts = Post.all.page(params[:page]).per(5)
-
-    # TODO: Edit results based off of location - dash, explore, or search
-    # if criterion == 'dashboard'
-    #   # TODO: query all followed users and
-    #   # display their most recent posts
-    #   @posts = Post.all
-    # elsif criterion == 'trending'
-    #   @posts = Post.all
-    # else
-    #   tag_id = Tag.find_by(subject: criterion).id      
-    #   @posts = Post.where(tag_id: criterion)
-    # end
+    else
+      tag_id = Tag.find_by(subject: pathname.split('/')[-1])
+      @post = Post.where(tag_ids: tag_id)
+    end
       
     render 'api/posts/index'
   end

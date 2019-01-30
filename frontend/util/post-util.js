@@ -1,8 +1,8 @@
-export const fetchPosts = (criterion, page) => (
+export const fetchPosts = (pathname, page) => (
   $.ajax({
     method: 'GET',
     url: 'api/posts/',
-    data: { criterion, page },
+    data: { pathname, page },
   })
 );
 

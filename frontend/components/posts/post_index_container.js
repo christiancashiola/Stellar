@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchPosts: (criterion, id) => dispatch(fetchPosts(criterion, id)),
+  fetchPosts: (pathname, id) => dispatch(fetchPosts(pathname, id)),
 });
 
 export default withRouter(

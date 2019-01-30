@@ -7,26 +7,21 @@ class PostsIndex extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      criterion: this.props.location.pathname.split('/')[1],
-      page: 0,
-    };
+    this.state = { page: 0 };
     this.getPosts = this.getPosts.bind(this);
   }
 
-  // why doesn't this work without += ?
   getPosts() {
-    this.props.fetchPosts(this.state.criterion, this.state.page);
+    this.props.fetchPosts(this.props.location.pathname, this.state.page);
     this.setState = ({ page: this.state.page += 1 });
   }
 
-  // TODO: maybe fetch all users after fetching all posts? maybe not...
   componentDidMount() {
     this.getPosts();
   }
 
   render() {
-    const criterion = this.state.criterion;
+    const criterion = this.props.location.pathname.split('/')[1];
     const { loading } = this.props;
 
     const posts = this.props.posts.map(post => {

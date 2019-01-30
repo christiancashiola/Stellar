@@ -34,8 +34,8 @@ u5 = User.create!({ email: 'user5@demo.com', password: '12345678', username: 'An
 # u4.profile_pic.attach(io: File.open('/Users/Cashiola/Desktop/stellar_seeds/user4.jpg'), filename: "user4.jpg")
 # u5.profile_pic.attach(io: File.open('/Users/Cashiola/Desktop/stellar_seeds/user5.jpg'), filename: "user5.jpg")
 
-p1 = Post.create({ user_id: u1.id, title: 'Check this out...', body: 'JK' })
-p1.tags = [t7]
+# p1 = Post.create({ user_id: u1.id, title: 'Check this out...', body: 'JK' })
+# p1.tags = [t7]
 
 # ud.profile_pic.attach(io: EzDownload.open("https://s3.amazonaws.com/stellar-dev/default_profile_pic.png"), filename: "default_profile_pic.png")
 # u1.profile_pic.attach(io: EzDownload.open('https://s3.amazonaws.com/stellar-dev/user1.jpg'), filename: "user1.jpg")
