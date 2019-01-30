@@ -44,6 +44,10 @@ class MediaForm extends Component {
       fileReader.readAsDataURL(file);
     }
   }
+
+  componentDidMount() {
+    document.querySelector('#body').focus();
+  }
   
   render() {
     const { currentUser } = this.props;

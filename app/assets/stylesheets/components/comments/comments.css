@@ -78,6 +78,7 @@
   border-radius: 5px;
   display: flex;
   flex-flow: column;
+  word-wrap: break-word;  
 }
 
 .comment-feature-icon {
@@ -137,4 +138,39 @@
   height: 45px;
   font-size: 16px;
   font-weight: 600;
+}
+
+.edit-comment-form {
+  background-color: #fff;
+  border-radius: 3px;
+  width: 275px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: space-between;
+  height: 150px;
+  border-radius: 3px;
+}
+
+#edit-comment {
+  width: 255px;
+  padding: 10px;
+  border: none;
+  font-size: 16px;
+  margin: 0;
+  height: 60px;
+  overflow-y: visible;
+}
+
+.edit-comment-btn {
+  width: 100%;
+  padding: 0;
+  height: 45px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #559DCC;
+  color: #fff;
+  border-top: 1px solid #ccc;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
 }

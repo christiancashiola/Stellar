@@ -28,6 +28,15 @@ class Api::CommentsController < ApplicationController
   end
 
   def update
+    @comment = Comment.where(user_id: current_user.id).find(params[:id])
+
+    if @comment.update(comment_params)
+      render 'api/comments/show'
+    else
+      errors = @comments.errors.full_messages if @comments.errors
+      errors ||= ['Only authors can edit their comments']
+      render json: errors, status: 401
+    end
   end
 
   def destroy

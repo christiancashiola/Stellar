@@ -26,6 +26,13 @@ export const deleteComment = comment => dispatch => (
   )
 );
 
+export const updateComment = comment => dispatch => (
+  APIUtil.updateComment(comment).then(
+    comment => dispatch(receiveComment(comment)),
+    errors => dispatch(receiveErrors(errors))
+  )
+);
+
 export const receiveComment = comment => ({
   type: RECEIVE_COMMENT,
   comment,

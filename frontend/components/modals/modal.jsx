@@ -6,12 +6,13 @@ import MediaForm from '../posts/post_form/media_form_container';
 import ProfilePic from '../profile/profile_pic';
 import CommentIndex from '../comments/comment_index_container';
 import CommentSettings from '../comments/comment_settings';
+import EditComment from '../comments/edit_comment';
 
 const Modal = ({modal, info, closeModal}) => {
   if (!modal) {
     return null;
   }
-  
+
   let component = null;
   switch (modal) {
     case 'profile pic':
@@ -28,6 +29,9 @@ const Modal = ({modal, info, closeModal}) => {
       break;
     case 'edit text':
       component = <EditTextForm post={info} />;
+      break;
+    case 'edit comment':
+      component = <EditComment comment={info} />;
       break;
     case 'edit media':
       component = <MediaForm post={info} />;

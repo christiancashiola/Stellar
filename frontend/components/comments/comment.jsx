@@ -37,7 +37,7 @@ class Comment extends Component {
         {img}
         <div className="comment-body">
           <span className="comment-username">{user ? user.username : null}</span>
-          {comment.body}
+          <p className="comment-text">{comment.body}</p>
           { currentUserId === comment.authorId ? commentSettings : null }
         </div>
       </article>

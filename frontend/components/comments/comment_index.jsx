@@ -19,6 +19,7 @@ class CommentIndex extends Component {
   componentDidMount() {
     this.getComments();
     this.setPlaceholder();
+    document.querySelector('#comment-input').focus();
   }
 
   componentDidUpdate() {

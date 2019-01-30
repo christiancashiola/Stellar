@@ -25,6 +25,10 @@ class TextForm extends Component {
     return e => this.setState({ [field]: e.target.value });
   }
 
+  componentDidMount() {
+    document.querySelector('#title').focus();
+  }
+
   render() {
     let titlePlaceholder;
     let bodyPlaceholder;

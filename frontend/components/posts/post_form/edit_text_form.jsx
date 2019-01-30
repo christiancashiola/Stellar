@@ -24,6 +24,10 @@ class EditTextForm extends Component {
   update(field) {
     return e => this.setState({ [field]: e.target.value });
   }
+
+  componentDidMount() {
+    document.querySelector('#body').focus();
+  }
   
   render() {
     const { post } = this.props;
