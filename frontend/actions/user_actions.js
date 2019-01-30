@@ -3,6 +3,7 @@ import { receiveErrors } from './error_actions';
 import { receiveCurrentUser } from './session_actions';
 
 export const RECEIVE_USER = 'RECEIVE_USER';
+export const RECEIVE_USERS = 'RECEIVE_USERS';
 export const RECEIVE_RECOMMENDED_USERS = 'RECEIVE_RECOMMENDED_USERS';
 
 export const fetchUser = userId => dispatch => (
@@ -13,7 +14,7 @@ export const fetchUser = userId => dispatch => (
 );
 
 export const fetchRecommendedUsers = () => dispatch => (
-  APIUtil.fetchRecommendedUsers().then(
+  APIUtil.fetchUsers().then(
     users => dispatch(receiveRecommendedUsers(users)),
     errors => dispatch(receiveErrors(errors))
   )
@@ -26,9 +27,21 @@ export const updateUser = (userId, data) => dispatch => (
   )
 );
 
+export const fetchUsers = userIds => dispatch => (
+  APIUtil.fetchUsers(userIds).then(
+    users => dispatch(receiveUsers(users)),
+    errors => dispatch(receiveErrors(errors))
+  )
+);
+
 export const receiveUser = user => ({
   type: RECEIVE_USER,
   user,
+});
+
+export const receiveUsers = users => ({
+  type: RECEIVE_USERS,
+  users,
 });
 
 export const receiveRecommendedUsers = users => ({

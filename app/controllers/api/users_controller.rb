@@ -1,8 +1,13 @@
 class Api::UsersController < ApplicationController
 
   def index
-    ids = User.where.not(id: current_user.id).order('RANDOM()').limit(5).pluck(:id)
-    @users = ids.map { |id| User.find(id) }
+    @users = nil;
+    if params[:user_ids]
+      @users = User.where(id: [params[:user_ids]])
+    else
+      ids = User.where.not(id: current_user.id).order('RANDOM()').limit(5).pluck(:id)
+      @users = ids.map { |id| User.find(id) }
+    end
 
     render 'api/users/index'
   end

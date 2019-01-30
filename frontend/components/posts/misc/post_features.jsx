@@ -33,9 +33,18 @@ const PostFeatures = ({openModal, post, currentUserId, like, unlike}) => {
     </button>
   );
 
+  const commentBtn = (
+    <button 
+      onClick={() => openModal('comment', post)} 
+      className={`post-feature-icon`}>
+      <i className="far fa-comment"></i>
+    </button>
+  );
+
   return (
     <div className="settings-likes-comments-wrapper">
       { currentUserId === post.user_id ? postSettings : null }
+      { commentBtn }
       { currentUserId === post.user_id ? null : likeBtn }
     </div>
   );

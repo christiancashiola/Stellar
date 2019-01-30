@@ -15,9 +15,10 @@ export const updateUser = (userId, profile_pic) => (
   })
 );
 
-export const fetchRecommendedUsers = () => (
+export const fetchUsers = userIds => (
   $.ajax({
     method: 'GET',
     url: 'api/users',
+    data: { user_ids: userIds },
   })
 );

@@ -21,15 +21,8 @@ class DashPost extends Component {
   }
   
   render() {
-    const { 
-      post,
-      openModal,
-      currentUserId,
-      currentUser,
-      like, 
-      unlike,
-      follow,
-      unfollow } = this.props;
+    const { post, openModal, currentUserId, currentUser } = this.props;
+    const { like,  unlike, follow, unfollow } = this.props;
 
     const media = getMedia(post);
     let link;
