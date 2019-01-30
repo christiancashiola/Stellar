@@ -10,15 +10,15 @@ Like.destroy_all
 # bodies = [b1, b2, b3]
 
 # TAGS
-t1 = Tag.create!({subject: '#food'})
-t2 = Tag.create!({subject: '#anime'})
-t3 = Tag.create!({subject: '#trails'})
-t4 = Tag.create!({subject: '#running'})
-t5 = Tag.create!({subject: '#gaming'})
-t6 = Tag.create!({subject: '#music'})
-t7 = Tag.create!({subject: '#life'})
-t8 = Tag.create!({subject: '#reading'})
-t9 = Tag.create!({subject: '#coffee'})
+# t1 = Tag.create!({subject: '#food'})
+# t2 = Tag.create!({subject: '#anime'})
+# t3 = Tag.create!({subject: '#trails'})
+# t4 = Tag.create!({subject: '#running'})
+# t5 = Tag.create!({subject: '#gaming'})
+# t6 = Tag.create!({subject: '#music'})
+# t7 = Tag.create!({subject: '#life'})
+# t8 = Tag.create!({subject: '#reading'})
+# t9 = Tag.create!({subject: '#coffee'})
 
 # USERS
 ud = User.create!({ email: 'demo@demo.com', password: '12345678', username: 'demo_user19' })
@@ -34,22 +34,9 @@ u5 = User.create!({ email: 'user5@demo.com', password: '12345678', username: 'An
 # u4.profile_pic.attach(io: File.open('/Users/Cashiola/Desktop/stellar_seeds/user4.jpg'), filename: "user4.jpg")
 # u5.profile_pic.attach(io: File.open('/Users/Cashiola/Desktop/stellar_seeds/user5.jpg'), filename: "user5.jpg")
 
-# p1 = Post.create({ user_id: u1.id, title: 'Check this out...', body: 'JK' })
-# p1.tags = [t7]
-# Comment.create!(body: 'lol right', post_id: p1.id, user_id: u1.id)
-# Comment.create!(body: 'no way youre so lame', post_id: p1.id, user_id: u2.id)
-# Comment.create!(body: 'i got promoted today!', post_id: p1.id, user_id: u3.id)
-# Comment.create!(body: 'nobody cares bro', post_id: p1.id, user_id: u4.id)
-# Comment.create!(body: 'dont be a jerk', post_id: p1.id, user_id: u5.id)
-# Comment.create!(body: 'yall playin', post_id: p1.id, user_id: u1.id)
-# Comment.create!(body: 'got that new resident evil game. its lit', post_id: p1.id, user_id: u2.id)
-# Comment.create!(body: 'let me come over?', post_id: p1.id, user_id: u3.id)
-# Comment.create!(body: 'ooooooooooo', post_id: p1.id, user_id: u4.id)
-# Comment.create!(body: 'i wanna play too!', post_id: p1.id, user_id: u5.id)
-# Comment.create!(body: 'so i have a rash..........', post_id: p1.id, user_id: u1.id)
-# Comment.create!(body: 'not this again. how many times have i told you lol', post_id: p1.id, user_id: u2.id)
-# Comment.create!(body: 'does anyone have any plans this weekend?', post_id: p.id, user_id: u3.id)
-# Comment.create!(body: 'yeah. resident evil', post_id: p.id, user_id: u2.id)
+p1 = Post.create({ user_id: u1.id, title: 'Check this out...', body: 'JK' })
+p1.tags = [t7]
+
 # ud.profile_pic.attach(io: EzDownload.open("https://s3.amazonaws.com/stellar-dev/default_profile_pic.png"), filename: "default_profile_pic.png")
 # u1.profile_pic.attach(io: EzDownload.open('https://s3.amazonaws.com/stellar-dev/user1.jpg'), filename: "user1.jpg")
 # u2.profile_pic.attach(io: EzDownload.open('https://s3.amazonaws.com/stellar-dev/user2.jpg'), filename: "user2.jpg")
@@ -59,8 +46,7 @@ u5 = User.create!({ email: 'user5@demo.com', password: '12345678', username: 'An
 
 # # POSTS
 
-# p18 = Post.create!({ user_id: u3.id })
-# p18.tags = [t4]
+# p18 = Post.create!({ user_id: u3.id })8.tags = [t4]
 # p18.media.attach(io: EzDownload.open("https://s3.amazonaws.com/stellar-dev/running5.jpg"), filename: "running5.jpg")
 # Post.create!({ user_id: u4.id, title: 'Life is...', body: b1 })
 
@@ -217,9 +203,3 @@ u5 = User.create!({ email: 'user5@demo.com', password: '12345678', username: 'An
 # p24.tags = [t3]
 # p24.media.attach(io: EzDownload.open("https://s3.amazonaws.com/stellar-dev/trail1.jpg"), filename: "trail1.jpg")
 # Post.create!({ user_id: u2.id, title: 'Life is...', body: b2 })
-
-# u1.save!
-# u2.save!
-# u3.save!
-# u4.save!
-# u5.save!
