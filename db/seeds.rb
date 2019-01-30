@@ -1,12 +1,13 @@
+Comment.destroy_all
 User.destroy_all
 Post.destroy_all
 Tag.destroy_all
 Like.destroy_all
 
-b1 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer orci lorem, dapibus at nulla ac, accumsan fermentum velit. Cras dignissim sapien nisi, quis pharetra turpis scelerisque vel. Curabitur libero sem, euismod at neque a, condimentum consequat elit. Ut neque lectus, tempus ut massa vitae, consectetur sollicitudin arcu. Nullam at ex id felis interdum sagittis vitae vitae nibh. Nam quis tellus eget arcu bibendum bibendum non a eros. Praesent sit amet finibus elit, in luctus leo. Sed congue erat sed justo sollicitudin, at commodo tellus volutpat. Nunc leo ex, lobortis id ultrices ut, rutrum vel arcu. Etiam dignissim dui ut turpis."
-b2 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut congue lectus. Ut malesuada tempor metus vel elementum. Sed nec convallis velit. Aliquam consequat laoreet urna. Ut ut erat pretium, facilisis neque ac, vehicula leo. Curabitur accumsan finibus pharetra. Ut ultrices dui vel dapibus fermentum. Nulla elementum porta maximus. Pellentesque."
-b3 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mattis, arcu id finibus feugiat, ex turpis molestie nibh, at finibus mi erat et tellus. Curabitur."
-bodies = [b1, b2, b3]
+# b1 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer orci lorem, dapibus at nulla ac, accumsan fermentum velit. Cras dignissim sapien nisi, quis pharetra turpis scelerisque vel. Curabitur libero sem, euismod at neque a, condimentum consequat elit. Ut neque lectus, tempus ut massa vitae, consectetur sollicitudin arcu. Nullam at ex id felis interdum sagittis vitae vitae nibh. Nam quis tellus eget arcu bibendum bibendum non a eros. Praesent sit amet finibus elit, in luctus leo. Sed congue erat sed justo sollicitudin, at commodo tellus volutpat. Nunc leo ex, lobortis id ultrices ut, rutrum vel arcu. Etiam dignissim dui ut turpis."
+# b2 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut congue lectus. Ut malesuada tempor metus vel elementum. Sed nec convallis velit. Aliquam consequat laoreet urna. Ut ut erat pretium, facilisis neque ac, vehicula leo. Curabitur accumsan finibus pharetra. Ut ultrices dui vel dapibus fermentum. Nulla elementum porta maximus. Pellentesque."
+# b3 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mattis, arcu id finibus feugiat, ex turpis molestie nibh, at finibus mi erat et tellus. Curabitur."
+# bodies = [b1, b2, b3]
 
 # TAGS
 t1 = Tag.create!({subject: '#food'})
@@ -27,6 +28,28 @@ u3 = User.create!({ email: 'user3@demo.com', password: '12345678', username: 'ZR
 u4 = User.create!({ email: 'user4@demo.com', password: '12345678', username: 'hauntedHeather' })
 u5 = User.create!({ email: 'user5@demo.com', password: '12345678', username: 'AnnaMay4life' })
 
+# u1.profile_pic.attach(io: File.open('/Users/Cashiola/Desktop/stellar_seeds/user1.jpg'), filename: "user1.jpg")
+# u2.profile_pic.attach(io: File.open('/Users/Cashiola/Desktop/stellar_seeds/user2.jpg'), filename: "user2.jpg")
+# u3.profile_pic.attach(io: File.open('/Users/Cashiola/Desktop/stellar_seeds/user3.jpg'), filename: "user3.jpg")  
+# u4.profile_pic.attach(io: File.open('/Users/Cashiola/Desktop/stellar_seeds/user4.jpg'), filename: "user4.jpg")
+# u5.profile_pic.attach(io: File.open('/Users/Cashiola/Desktop/stellar_seeds/user5.jpg'), filename: "user5.jpg")
+
+# p1 = Post.create({ user_id: u1.id, title: 'Check this out...', body: 'JK' })
+# p1.tags = [t7]
+# Comment.create!(body: 'lol right', post_id: p1.id, user_id: u1.id)
+# Comment.create!(body: 'no way youre so lame', post_id: p1.id, user_id: u2.id)
+# Comment.create!(body: 'i got promoted today!', post_id: p1.id, user_id: u3.id)
+# Comment.create!(body: 'nobody cares bro', post_id: p1.id, user_id: u4.id)
+# Comment.create!(body: 'dont be a jerk', post_id: p1.id, user_id: u5.id)
+# Comment.create!(body: 'yall playin', post_id: p1.id, user_id: u1.id)
+# Comment.create!(body: 'got that new resident evil game. its lit', post_id: p1.id, user_id: u2.id)
+# Comment.create!(body: 'let me come over?', post_id: p1.id, user_id: u3.id)
+# Comment.create!(body: 'ooooooooooo', post_id: p1.id, user_id: u4.id)
+# Comment.create!(body: 'i wanna play too!', post_id: p1.id, user_id: u5.id)
+# Comment.create!(body: 'so i have a rash..........', post_id: p1.id, user_id: u1.id)
+# Comment.create!(body: 'not this again. how many times have i told you lol', post_id: p1.id, user_id: u2.id)
+# Comment.create!(body: 'does anyone have any plans this weekend?', post_id: p.id, user_id: u3.id)
+# Comment.create!(body: 'yeah. resident evil', post_id: p.id, user_id: u2.id)
 # ud.profile_pic.attach(io: EzDownload.open("https://s3.amazonaws.com/stellar-dev/default_profile_pic.png"), filename: "default_profile_pic.png")
 # u1.profile_pic.attach(io: EzDownload.open('https://s3.amazonaws.com/stellar-dev/user1.jpg'), filename: "user1.jpg")
 # u2.profile_pic.attach(io: EzDownload.open('https://s3.amazonaws.com/stellar-dev/user2.jpg'), filename: "user2.jpg")

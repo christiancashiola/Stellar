@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-const mapStateToProps = ({ entities: { users } }, ownProps) => ({
-  user: users[ownProps.comment.userId]
-});
+const mapStateToProps = ({ entities: { users } }, ownProps) => {
+  debugger
+  return {
+  user: users[ownProps.comment.authorId]
+  };
+};
 
 class Comment extends Component {
   render() {
@@ -21,7 +24,6 @@ class Comment extends Component {
       return (
       <article className="comment-wrapper">
         {img}
-
         <div className="comment-body">
           <span className="comment-username">{user ? user.username : null}</span>
           {comment.body}

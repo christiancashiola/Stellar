@@ -54,7 +54,7 @@ class Comments extends Component {
       document.querySelector('#comment-input')
         .setAttribute('placeholder', placeholders[i]);
       i += 1;
-    }, 1500);
+    }, 1750);
   }
 
   componentWillUnmount() {
@@ -62,7 +62,7 @@ class Comments extends Component {
   }
 
   render() {
-
+    const commentCount = Object.keys(this.state.comments).length;
 
     const comments = this.state.comments.map(comment => {
       return <Comment key={comment.id} comment={comment} />
@@ -70,7 +70,7 @@ class Comments extends Component {
 
     return (
       <div className="comments-container">
-        <h3 className="comment-count">10 comments</h3>
+        <h3 className="comment-count">{commentCount} comments</h3>
         <ul className="comments-index">
           {comments}
         </ul>
