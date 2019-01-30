@@ -20,6 +20,8 @@ const mapDispatchToProps = dispatch => ({
   fetchUsers: userIds => dispatch(fetchUsers(userIds)),
 });
 
+let interval = null;
+
 class Comments extends Component {
 
   constructor(props) {
@@ -27,7 +29,7 @@ class Comments extends Component {
     this.state = { comments: [] };
   }
 
-  // TODO: add load spinner here  
+  // TODO: add load spinner  
   componentDidMount() {
     this.props.fetchComments(this.props.post.id)
     .then(() => {
@@ -37,13 +39,30 @@ class Comments extends Component {
 
       this.setState({ comments: this.props.comments });
     });
+
+    this.setPlaceholder();
+  }
+
+  setPlaceholder() {
+    const placeholders = [
+      "Speak from heart", "Don't be shy", "Let 'em hear it",
+      "Say what you mean", "Mean what you say", "They'll love it"
+    ];
+    let i = 0;
+    interval = setInterval(() => {
+      i %= 5;
+      document.querySelector('#comment-input')
+        .setAttribute('placeholder', placeholders[i]);
+      i += 1;
+    }, 1500);
+  }
+
+  componentWillUnmount() {
+    clearInterval(interval);
   }
 
   render() {
-    const placeholders = [
-      "Speak from heart", "Say what you mean",
-      "Mean what you say", "Don't be shy", "Let 'em hear it"
-    ];
+
 
     const comments = this.state.comments.map(comment => {
       return <Comment key={comment.id} comment={comment} />
@@ -59,7 +78,7 @@ class Comments extends Component {
           <textarea
             onFocus={readyComment} 
             onBlur={unreadyComment} 
-            placeholder={placeholders[Math.floor(Math.random() * 5)]}
+            placeholder="Got something to say?"
             id="comment-input">
           </textarea>
           <label htmlFor="comment-input"></label>

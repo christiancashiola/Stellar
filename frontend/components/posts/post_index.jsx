@@ -20,6 +20,7 @@ class PostsIndex extends Component {
     this.setState = ({ page: this.state.page += 1 });
   }
 
+  // TODO: maybe fetch all users after fetching all posts? maybe not...
   componentDidMount() {
     this.getPosts();
   }
