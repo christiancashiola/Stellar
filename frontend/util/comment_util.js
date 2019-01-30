@@ -14,10 +14,10 @@ export const fetchComments = postId => (
   })
 );
 
-// export const removeComment = comment => (
-//   $.ajax({
-//     method: 'POST',
-//     url: `api/comments/${comment.id}`,
-//     data: { comment },
-//   })
-// );
+export const deleteComment = comment => (
+  $.ajax({
+    method: 'DELETE',
+    url: `api/comments/${comment.id}`,
+    data: { comment },
+  })
+);

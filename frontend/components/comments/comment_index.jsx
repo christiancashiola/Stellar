@@ -13,29 +13,25 @@ class CommentIndex extends Component {
       createdComment: '',
      };
      this.handleSubmit = this.handleSubmit.bind(this);
+     this.getComments = this.getComments.bind(this);
   }
 
-  // TODO: add load spinner  
   componentDidMount() {
-    this.props.fetchComments(this.props.post.id)
-    .then(() => {
-      let userIds = this.state.comments.map(comment => comment.authorId);
-      userIds = userIds.filter(id => !this.props.currentUserIds.includes(id));
-      this.props.fetchUsers(userIds);
-
-      this.setState({ comments: this.props.comments });
-    });
-
+    this.getComments();
     this.setPlaceholder();
   }
 
   componentDidUpdate() {
+    const ul = document.querySelector('.comments-index');
+    ul.scrollTop = ul.scrollHeight;
+  }
+
+  getComments() {
     this.props.fetchComments(this.props.post.id)
     .then(() => {
       let userIds = this.state.comments.map(comment => comment.authorId);
       userIds = userIds.filter(id => !this.props.currentUserIds.includes(id));
       this.props.fetchUsers(userIds);
-
       this.setState({ comments: this.props.comments });
     });
   }
@@ -61,7 +57,10 @@ class CommentIndex extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createComment(this.state.createdComment, this.props.post.id)
-    .then(() => this.setState({ createdComment: '' }));
+    .then(() => {
+      this.setState({ createdComment: '' });
+      this.getComments();
+    });
   }
 
   update(e) {

@@ -31,6 +31,14 @@ class Api::CommentsController < ApplicationController
   end
 
   def destroy
+    @comment = Comment.where(user_id: current_user.id).find(params[:id])
+
+    if @comment
+      @comment.destroy!
+      render 'api/comments/show'
+    else
+      render json: ['You cannot delete this comment'], status: 422
+    end
   end
 
   private

@@ -5,6 +5,7 @@ import EditTextForm from '../posts/post_form/edit_text_form';
 import MediaForm from '../posts/post_form/media_form_container';
 import ProfilePic from '../profile/profile_pic';
 import CommentIndex from '../comments/comment_index_container';
+import CommentSettings from '../comments/comment_settings';
 
 const Modal = ({modal, info, closeModal}) => {
   if (!modal) {
@@ -18,6 +19,9 @@ const Modal = ({modal, info, closeModal}) => {
       break;
     case 'post settings':
       component = <PostSettings post={info} />
+      break;
+    case 'comment settings':
+      component = <CommentSettings comment={info} />;
       break;
     case 'create post':
       component = <PostMedium />;
