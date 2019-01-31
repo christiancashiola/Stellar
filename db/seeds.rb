@@ -17,3 +17,7 @@ u7 = User.create!({ email: 'user7@demo.com', password: '12345678', username: 'yo
 u8 = User.create!({ email: 'user8@demo.com', password: '12845678', username: 'zim77' })
 u9 = User.create!({ email: 'user9@demo.com', password: '12345678', username: 'worthy1' })
 u10 = User.create!({ email: 'user10@demo.com', password: '12345678', username: 'yoyoWizard' })
+
+# p1 = Post.create(user_id: u9.id);
+# file = EzDownload.open('https://s3.amazonaws.com/stellar-dev/3pcq1rowtSWvJCrZotJ2geJb')
+# p1.media.attach(io: file, filename: 'some-file.jpg')

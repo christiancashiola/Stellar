@@ -28,7 +28,9 @@ export const setColors = modernColors => {
   const video = document.querySelector('.video');
   const dashLinks = Boolean(text);
   
-  if (nav && modernColors) { 
+  // bool logic just for heroku
+  modernColors = modernColors.toString();
+  if (nav && modernColors === 'true') { 
     body.style.backgroundColor = '#011A34';
     nav.style.backgroundColor = '#011A34';
     if (dashLinks) {
@@ -39,7 +41,7 @@ export const setColors = modernColors => {
       audio.style.color = '#8972FB';
       video.style.color = '#FD77D1';
     }
-  } else if (nav && !modernColors) {
+  } else if (nav && modernColors === 'false') {
     body.style.backgroundColor = '#35465C';
     nav.style.backgroundColor = '#35465C';
     if (dashLinks) {
