@@ -20,13 +20,6 @@ class SearchExplorePost extends Component {
     }
   }
 
-  // componentDidUpdate() {
-  //   if (!this.props.currentUser.follow_ids) {
-  //     this.props.fetchUser(this.props.currentUserId);
-  //   }
-  // }
-  
-  // TODO: Make tags links that go to: search/:tag
   render() {
     const { 
       post,
@@ -36,6 +29,7 @@ class SearchExplorePost extends Component {
       like, 
       unlike,
       follow,
+      admin,
       unfollow } = this.props;
     const media = getMedia(post);
     
@@ -97,7 +91,7 @@ class SearchExplorePost extends Component {
 
         <div className="tags-settings">
           <ul className="post-tags">{tags}</ul>
-          <PostFeatures post={post} currentUserId={currentUserId}
+          <PostFeatures post={post} admin={admin} currentUserId={currentUserId}
             openModal={openModal} like={like} unlike={unlike}/>
         </div>
       </div>

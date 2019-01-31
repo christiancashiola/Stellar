@@ -22,7 +22,7 @@ t8 = Tag.create!({subject: '#reading'})
 t9 = Tag.create!({subject: '#coffee'})
 
 # USERS
-ud = User.create!({ email: 'demo@demo.com', password: '12345678', username: 'demo_user19' })
+ud = User.create!({ email: 'demo@demo.com', password: '12345678', username: 'demo_user19', admin: true })
 u1 = User.create!({ email: 'user1@demo.com', password: '12345678', username: 'itsK' })
 u2 = User.create!({ email: 'user2@demo.com', password: '12345678', username: 'feltfanatic' })
 u3 = User.create!({ email: 'user3@demo.com', password: '12345678', username: 'ZRobot' })

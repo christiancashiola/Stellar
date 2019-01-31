@@ -80,7 +80,7 @@ class RecommendedRadar extends Component {
                   <h3 className="sm-username">ChristianCashiola</h3>
 
                   <span className="user-description">
-                    Check me out --> -->  --> --> -->
+                    Check me out!
                   </span>
                 </div>
               </div>

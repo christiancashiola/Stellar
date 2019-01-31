@@ -19,12 +19,6 @@ class DashPost extends Component {
       this.setState({ user: users[postUserId] });
     }
   }
-
-  // componentDidUpdate() {
-  //   if (!this.props.currentUser.follow_ids) {
-  //     this.props.fetchUser(this.props.currentUserId);
-  //   }
-  // }
   
   render() {
     const { post, openModal, currentUserId, currentUser } = this.props;
@@ -68,7 +62,7 @@ class DashPost extends Component {
           <i className="fas fa-plus"></i>
         </button>);
     }
-  // TODO: Make tags links that go to: search/:tag
+    
     return (
       <div className="post-container">
         {img}

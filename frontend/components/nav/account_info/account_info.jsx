@@ -31,13 +31,13 @@ class AccountInfo extends Component {
           <button 
             className="logout"
             onClick={() => updateColorTheme(currentUserId, true)}>
-            Cosmic Theme
+            <i className="fas fa-meteor"></i>Cosmic Theme
           </button>
 
           <button
             className="logout"
             onClick={() => updateColorTheme(currentUserId, false)}>
-            Classic Theme
+            <i className="far fa-star"></i>Classic Theme
           </button>
 
           <button className="logout" onClick={logout}>

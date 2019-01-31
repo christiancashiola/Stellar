@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       },
       session: {
-        currentUserId: window.currentUser.id
+        currentUserId: window.currentUser.id,
+        admin: window.currentUser.admin
       }
     };
     delete window.currentUser;

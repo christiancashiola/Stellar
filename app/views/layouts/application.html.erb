@@ -21,7 +21,8 @@
           'email': '<%= current_user.email %>',
           'username': '<%= current_user.username %>',
           'modernColors': <%= current_user.modern_colors %>,
-          'follow_ids': <%= current_user.followees.map(&:id) %>
+          'follow_ids': <%= current_user.followees.map(&:id) %>,
+          'admin': <%= current_user.admin %>
         };
       </script>
     <% end %>

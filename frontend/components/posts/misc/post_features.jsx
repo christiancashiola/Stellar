@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PostFeatures = ({openModal, post, currentUserId, like, unlike}) => {
+const PostFeatures = ({openModal, post, currentUserId, like, unlike, admin}) => {
   const postSettings = (
     <button 
       onClick={() => openModal('post settings', post)} 
@@ -40,10 +40,10 @@ const PostFeatures = ({openModal, post, currentUserId, like, unlike}) => {
       <i className="far fa-comment"></i>
     </button>
   );
-
+  
   return (
     <div className="settings-likes-comments-wrapper">
-      { currentUserId === post.user_id ? postSettings : null }
+      { currentUserId === post.user_id || admin ? postSettings : null }
       { commentBtn }
       { currentUserId === post.user_id ? null : likeBtn }
     </div>

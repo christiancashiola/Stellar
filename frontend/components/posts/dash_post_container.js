@@ -8,6 +8,7 @@ import DashPost from './dash_post';
 
 const mapStateToProps = (state, ownProps) => ({
   currentUserId: state.session.currentUserId,
+  admin: state.session.admin,
   currentUser: state.entities.users[state.session.currentUserId],
   users: state.entities.users,
   post: ownProps.post,

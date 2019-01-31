@@ -53,7 +53,13 @@ class Api::PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.where(user_id: current_user.id).find(params[:id])
+    @post = nil
+    if current_user.admin 
+      @post = Post.find(params[:id])
+    else
+      Post.where(user_id: current_user.id).find(params[:id])
+    end
+
     if @post
       @post.destroy!
       render 'api/posts/show'

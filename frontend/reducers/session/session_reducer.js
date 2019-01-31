@@ -11,7 +11,10 @@ const sessionReducer = (state = _nullSession, action) => {
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
       setColors(action.user.modern_colors);
-      return { currentUserId: action.user.id };
+      return { 
+        currentUserId: action.user.id,
+        admin: action.user.admin
+       };
 
     case LOGOUT_CURRENT_USER:
       document.querySelector('nav').style.backgroundColor = 'transparent';
