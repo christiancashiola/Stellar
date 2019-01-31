@@ -1,0 +1,16 @@
+.search-results {
+  box-sizing: border-box; 
+  position: absolute;
+  background-color: #fff;
+  width: 35%;
+  border-radius: 3px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+}
+
+.search-result {
+  padding: 10px;
+}
+
+.search-result:hover {
+  background-color: rgba(127, 178, 245, 0.4);
+}

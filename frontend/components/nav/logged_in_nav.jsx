@@ -13,16 +13,21 @@ class LoggedInNav extends Component {
     };
     this.toggleAccountInfo = this.toggleAccountInfo.bind(this);
     this.checkSubmit = this.checkSubmit.bind(this);
- 
+    this.handleSubmit = this.handleSubmit.bind(this);
   } 
 
   checkSubmit(e) {
     if(e && e.keyCode == 13) {
-      document.querySelector('#search').blur();
-      this.props.clearPosts();
-      this.props.history.push(`/search/${this.state.search}`);
-      this.setState({ search: '' });
+      this.handleSubmit();
     }
+  }
+
+  handleSubmit(searchValue) {
+    const query = searchValue || this.state.search;
+    document.querySelector('#search').blur();
+    this.props.clearPosts();
+    this.props.history.push(`/search/${query}`);
+    this.setState({ search: '' });
   }
 
   toggleAccountInfo() {
@@ -35,12 +40,13 @@ class LoggedInNav extends Component {
     }
   }
 
-  handleClick() {
+  scrollToTop() {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   }
 
   update(e) {
+    this.props.fetchTags(e.target.value);
     this.setState({ search: e.target.value });
   }
 
@@ -51,15 +57,28 @@ class LoggedInNav extends Component {
 
   handleBlur() {
     unsetFocus();
+    this.setState({ search: '' });
+    setTimeout(() => this.props.clearTags(), 100);
     document.removeEventListener("keypress", this.checkSubmit);
   }
 
+  handleClick(e) {
+    this.handleSubmit(e.target.innerText.slice(1));
+  }
+
   render() {
-    const { openModal } = this.props;
+    const { openModal, tags } = this.props;
+    const subjects = tags.map(tag => {
+      return (
+        <li onClick={this.handleClick.bind(this)}
+        className="search-result" 
+        key={tag.id}>{tag.subject}</li>
+      )
+    });
     // submit-less form!
     return (
       <>
-        <form className="search-bar">
+        <form autoComplete="off" className="search-bar">
           <label className="search-label" 
             htmlFor="search"><i className="fas fa-search"></i>
           </label>
@@ -72,9 +91,12 @@ class LoggedInNav extends Component {
             id="search" 
             type="text"/>
         </form>
+          <ul className="search-results">
+            {subjects}
+          </ul>
         <div className="dash-nav-btns">
           <Link to="/dashboard">
-            <button onClick={this.handleClick} className="nav-link"><i className="fas fa-home"></i></button>
+            <button onClick={this.scrollToTop} className="nav-link"><i className="fas fa-home"></i></button>
           </Link>
           <Link to="/explore/trending">
             <button className="nav-link"><i className="far fa-compass"></i></button>

@@ -14,7 +14,7 @@ class Api::PostsController < ApplicationController
         .page(params[:page]).per(30)
 
     else
-      tag = Tag.find_by(subject: '#' + pathname.split('/')[-1])
+      tag = Tag.find_by(subject: "##{pathname.split('/')[-1]}")
       @posts = tag.posts.order(created_at: :desc).page(params[:page]).per(30)
     end
     render 'api/posts/index'

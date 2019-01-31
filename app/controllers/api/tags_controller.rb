@@ -1,5 +1,14 @@
 class Api::TagsController < ApplicationController
 
+  def index
+    if params[:fragment].present?
+      
+      @tags = Tag.where('subject ~ ?', "##{params[:fragment]}")
+    else
+      @tags = Tag.none
+    end
+  end
+  
   def create
     tag = Tag.new(tag_params)
 
