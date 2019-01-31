@@ -8,10 +8,16 @@ class DashPost extends Component {
     super(props);
     this.state = { user: null };
   }
-  
+
   componentDidMount() {
-    this.props.fetchUser(this.props.post.user_id)
-    .then(user => this.setState({ user: user.user }));
+    const postUserId = this.props.post.user_id;
+    const users = this.props.users;
+    if (!users[postUserId]) {
+      this.props.fetchUser(postUserId)
+      .then(user => this.setState({ user: user.user }));
+    } else {
+      this.setState({ user: users[postUserId] });
+    }
   }
 
   componentDidUpdate() {

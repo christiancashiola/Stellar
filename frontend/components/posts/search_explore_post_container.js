@@ -4,7 +4,7 @@ import { openModal } from '../../actions/ui_actions';
 import { createLike, removeLike } from '../../actions/like_actions';
 import { fetchUser } from '../../actions/user_actions';
 import { follow, unfollow } from '../../actions/follow_actions';
-import ExplorePost from './explore_post';
+import SearchExplorePost from './search_explore_post';
 
 const mapStateToProps = (state, ownProps) => ({
   currentUserId: state.session.currentUserId,
@@ -23,4 +23,4 @@ const mapDispatchToProps = dispatch => ({
   unfollow: userId => dispatch(unfollow(userId)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ExplorePost);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchExplorePost);

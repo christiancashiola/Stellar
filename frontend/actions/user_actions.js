@@ -9,28 +9,28 @@ export const RECEIVE_RECOMMENDED_USERS = 'RECEIVE_RECOMMENDED_USERS';
 export const fetchUser = userId => dispatch => (
   APIUtil.fetchUser(userId).then(
     user => dispatch(receiveUser(user)),
-    errors => dispatch(receiveErrors(errors))
+    errors => dispatch(receiveErrors(errors.responseJSON))
   )
 );
 
 export const fetchRecommendedUsers = () => dispatch => (
   APIUtil.fetchUsers().then(
     users => dispatch(receiveRecommendedUsers(users)),
-    errors => dispatch(receiveErrors(errors))
+    errors => dispatch(receiveErrors(errors.responseJSON))
   )
 );
 
 export const updateUser = (userId, data) => dispatch => (
   APIUtil.updateUser(userId, data).then(
     user => dispatch(receiveCurrentUser(user)),
-    errors => dispatch(receiveErrors(errors))
+    errors => dispatch(receiveErrors(errors.responseJSON))
   )
 );
 
 export const fetchUsers = userIds => dispatch => (
   APIUtil.fetchUsers(userIds).then(
     users => dispatch(receiveUsers(users)),
-    errors => dispatch(receiveErrors(errors))
+    errors => dispatch(receiveErrors(errors.responseJSON))
   )
 );
 

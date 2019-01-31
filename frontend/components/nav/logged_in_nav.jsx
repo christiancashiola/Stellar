@@ -1,13 +1,24 @@
 import React, { Component } from 'react';
 import AccountInfo from './account_info/account_info_container';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { setFocus, unsetFocus } from '../../util/ui_util';
 
 class LoggedInNav extends Component {
+  
   constructor(props) {
     super(props);
-    this.state = { accountInfo: null };
+    this.state = { 
+      accountInfo: null,
+      search: '',
+    };
     this.toggleAccountInfo = this.toggleAccountInfo.bind(this);
+    this.checkSubmit = (e) => {
+      if(e && e.keyCode == 13) {
+        document.querySelector('#search').blur();
+        this.props.history.push(`/search/${this.state.search}`);
+        this.setState({ search: '' });
+      }
+    };  
   }
 
   toggleAccountInfo() {
@@ -15,7 +26,7 @@ class LoggedInNav extends Component {
       this.setState({ accountInfo: null });
     } else {
       this.setState({
-        accountInfo: <AccountInfo unmount={this.toggleAccountInfo}/> 
+        accountInfo: <AccountInfo unmount={this.toggleAccountInfo}/>
       });
     }
   }
@@ -24,9 +35,24 @@ class LoggedInNav extends Component {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   }
-  // TODO: add search functionality
+
+  update(e) {
+    this.setState({ search: e.target.value });
+  }
+
+  handleFocus() {
+    setFocus();
+    document.addEventListener("keypress", this.checkSubmit);
+  }
+
+  handleBlur() {
+    unsetFocus();
+    document.removeEventListener("keypress", this.checkSubmit);
+  }
+
   render() {
     const { openModal } = this.props;
+    // submit-less form!
     return (
       <>
         <form className="search-bar">
@@ -34,8 +60,10 @@ class LoggedInNav extends Component {
             htmlFor="search"><i className="fas fa-search"></i>
           </label>
           <input
-            onFocus={setFocus}
-            onBlur={unsetFocus}
+            onChange={this.update.bind(this)}
+            onFocus={this.handleFocus.bind(this)}
+            onBlur={this.handleBlur.bind(this)}
+            value={this.state.search}
             placeholder="Search the stars"
             id="search" 
             type="text"/>
@@ -64,4 +92,4 @@ class LoggedInNav extends Component {
   }
 }
 
-export default LoggedInNav;
+export default withRouter(LoggedInNav);

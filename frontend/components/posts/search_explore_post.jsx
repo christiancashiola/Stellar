@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { linkify, getMedia } from '../../util/parse_util';
 import PostFeatures from './misc/post_features';
 
-class ExplorePost extends Component {
+class SearchExplorePost extends Component {
 
   constructor(props) {
     super(props);
@@ -10,8 +10,14 @@ class ExplorePost extends Component {
   }
   
   componentDidMount() {
-    this.props.fetchUser(this.props.post.user_id)
-    .then(user => this.setState({ user: user.user }));
+    const postUserId = this.props.post.user_id;
+    const users = this.props.users;
+    if (!users[postUserId]) {
+      this.props.fetchUser(postUserId)
+      .then(user => this.setState({ user: user.user }));
+    } else {
+      this.setState({ user: users[postUserId] });
+    }
   }
 
   componentDidUpdate() {
@@ -73,7 +79,7 @@ class ExplorePost extends Component {
     }
 
     return (
-      <div className="explore-post">
+      <div className="search-explore-post">
         <div className="post-user-info">
           <div className="profile-photo-username-wrapper">
             {img}
@@ -99,4 +105,4 @@ class ExplorePost extends Component {
   }
 }
 
-export default ExplorePost;
+export default SearchExplorePost;

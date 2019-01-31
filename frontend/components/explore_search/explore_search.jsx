@@ -1,7 +1,7 @@
 import React from 'react';
 import PostIndex from '../posts/post_index_container';
 
-const Explore = () => {
+const ExploreSearch = () => {
   return (
     <section className="explore">
       <PostIndex />
@@ -9,4 +9,4 @@ const Explore = () => {
   );
 };
 
-export default Explore;
+export default ExploreSearch;

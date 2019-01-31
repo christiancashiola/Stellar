@@ -9,7 +9,7 @@ const postReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_POSTS:
-      return merge({}, state, action.posts);
+      return action.posts;
 
     case RECEIVE_POST:
       let newState = merge({}, state);

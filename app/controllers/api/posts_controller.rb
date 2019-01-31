@@ -3,7 +3,7 @@ class Api::PostsController < ApplicationController
   def index
     pathname = params[:pathname]
     @posts = nil
-    
+
     if pathname.include?('dashboard')
       @posts = Post.order(created_at: :desc)
         .where(user_id: current_user.followee_ids)
@@ -14,10 +14,9 @@ class Api::PostsController < ApplicationController
         .page(params[:page]).per(30)
 
     else
-      tag_id = Tag.find_by(subject: pathname.split('/')[-1])
-      @post = Post.where(tag_ids: tag_id)
+      tag = Tag.find_by(subject: '#' + pathname.split('/')[-1])
+      @posts = tag.posts.order(created_at: :desc)
     end
-      
     render 'api/posts/index'
   end
 

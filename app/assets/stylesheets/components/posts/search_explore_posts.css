@@ -1,14 +1,14 @@
-.explore-posts {
+.explore-posts, .search-posts {
   margin: auto;
   padding-top: 80px;
   column-gap: 20px;
 }
 
-.explore-post {
+.search-explore-post {
   max-width: 300px;
   background-color: #fff;
   border-radius: 5px;
-  padding: 0;
+  padding: 5px 0 0;
   position: relative;
   display: inline-block;
   margin: 0 0 1em;
@@ -16,21 +16,21 @@
 }
 
 @media (min-width: 1281px) {
-  .explore-posts {
+  .explore-posts, .search-posts {
     width: 75%;
     column-count: 5;
   }
 }
 
 @media (min-width: 1025px) and (max-width: 1280px) {
-  .explore-posts {
+  .explore-posts, .search-posts {
     width: 85%;
     column-count: 4;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  .explore-posts {
+  .explore-posts, .search-posts {
     width: 90%;
     column-count: 3;
   }
@@ -38,7 +38,7 @@
 
 
 @media (min-width: 320px) and (max-width: 480px) {
-  .explore-posts {
+  .explore-posts, .search-posts {
     width: 95%;
     column-count: 1;
   }

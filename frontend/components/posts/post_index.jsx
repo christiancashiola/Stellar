@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DashPost from './dash_post_container';
-import ExplorePost from './explore_post_container';
+import SearchExplorePost from './search_explore_post_container';
 import Waypoint from 'react-waypoint';
 
 class PostsIndex extends Component {
@@ -28,7 +28,7 @@ class PostsIndex extends Component {
       if (criterion === 'dashboard') {
         return <DashPost key={post.id} post={post} />
       } else {
-        return <ExplorePost key={post.id} post={post} />
+        return <SearchExplorePost key={post.id} post={post} />
       }
     });
     

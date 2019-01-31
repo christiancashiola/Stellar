@@ -5,7 +5,7 @@ import Splash from './splash/splash_container';
 import Dashboard from './dashboard/dashboard';
 import Nav from './nav/nav_container';
 import Modal from './modals/modal_container';
-import Explore from './explore/explore';
+import ExploreSearch from './explore_search/explore_search';
 
 const App = () => {
   return (
@@ -14,8 +14,9 @@ const App = () => {
       <Route path='/' component={Nav} />
       <AuthRoute exact path='/' component={Splash} />
       <Switch>
+        <ProtectedRoute path='/search/:tag' component={ExploreSearch} />
         <ProtectedRoute path='/dashboard' component={Dashboard} />
-        <ProtectedRoute path='/explore' component={Explore} />
+        <ProtectedRoute path='/explore' component={ExploreSearch} />
       </Switch>
     </>
   )
