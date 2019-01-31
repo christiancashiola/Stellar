@@ -29,7 +29,10 @@ export const setColors = modernColors => {
   const dashLinks = Boolean(text);
   
   // bool logic just for heroku
-  modernColors = modernColors.toString();
+  if (modernColors) {
+    modernColors = modernColors.toString();
+  }
+  
   if (nav && modernColors === 'true') { 
     body.style.backgroundColor = '#011A34';
     nav.style.backgroundColor = '#011A34';
