@@ -22,3 +22,11 @@ export const fetchUsers = userIds => (
     data: { user_ids: userIds },
   })
 );
+
+export const updateColorTheme = (userId, bool) => (
+  $.ajax({
+    method: 'PATCH',
+    url: `api/users/${userId}`,
+    data: { user: { modern_colors: bool }},
+  })
+);

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { updateColorTheme } from '../../../actions/user_actions';
 
 class AccountInfo extends Component {
 
@@ -22,24 +23,22 @@ class AccountInfo extends Component {
   }
 
   render() {
-    const { logout } = this.props;
+    const { logout, currentUserId, updateColorTheme } = this.props;
     return (
       <aside className="account-info-container">
         <h4 className="gray-header">ACCOUNT</h4>
         <div className="account-info-wrapper">
-          <Link to="/likes">
-            <span className="social">
-              <i className="fas fa-heart"></i>Likes
-            </span>
-            <span className="count">17</span>
-          </Link>
+          <button 
+            className="logout"
+            onClick={() => updateColorTheme(currentUserId, true)}>
+            Cosmic Theme
+          </button>
 
-          <Link to="/likes">
-            <span className="social">
-              <i className="far fa-address-book"></i>Following
-            </span>
-            <span className="count">23</span>
-          </Link>
+          <button
+            className="logout"
+            onClick={() => updateColorTheme(currentUserId, false)}>
+            Classic Theme
+          </button>
 
           <button className="logout" onClick={logout}>
             <i className="fas fa-sign-out-alt"></i>Log out

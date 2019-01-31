@@ -41,7 +41,9 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :profile_pic)
+    params.require(:user).permit(
+      :username, :email, :password, :profile_pic, :modern_colors
+    )
   end
 
   def parse_errors(errors)

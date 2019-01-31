@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import LoggedInNav from './logged_in_nav';
+import { setColors } from '../../util/ui_util';
 
 const Nav = props => {
 // TODO: refactor currentUser if unnecessary
-  const { currentUser, openModal } = props
+  const { currentUser, openModal } = props;
   const path = props.location.pathname.split('/')[1];
   let display;
   if (path) {
@@ -20,15 +21,13 @@ const Nav = props => {
       </div>
     );
   }
-
-  let bgStyle = { backgroundColor: 'transparent' };
   if (currentUser) {
-    bgStyle = { backgroundColor: '#36455D' };
+    setColors(currentUser.modernColors);
     display = <LoggedInNav openModal={openModal} currentUser={currentUser} />
   }
 
   return (
-    <nav className="nav" id="top" style={bgStyle}>
+    <nav className="nav" id="top">
       <div className="logo-wrapper">
         <Link className="logo-link" to={currentUser ? '/dashboard' : '/'}>
           <button className="logo"><i className="far fa-star-half"></i>S</button>

@@ -19,7 +19,7 @@ class LoggedInNav extends Component {
         this.setState({ search: '' });
       }
     };  
-  }
+  } 
 
   toggleAccountInfo() {
     if (this.state.accountInfo) {

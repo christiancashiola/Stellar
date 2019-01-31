@@ -1,4 +1,5 @@
 import * as APIUtil from '../util/user_util';
+import { setColors } from '../util/ui_util';
 import { receiveErrors } from './error_actions';
 import { receiveCurrentUser } from './session_actions';
 
@@ -26,6 +27,14 @@ export const updateUser = (userId, data) => dispatch => (
     errors => dispatch(receiveErrors(errors.responseJSON))
   )
 );
+
+export const updateColorTheme = (userId, bool) => dispatch => {
+  setColors(bool);
+  APIUtil.updateColorTheme(userId, bool).then(
+    user => dispatch(receiveCurrentUser(user)),
+    errors => dispatch(receiveErrors(errors.responseJSON))
+  );
+};
 
 export const fetchUsers = userIds => dispatch => (
   APIUtil.fetchUsers(userIds).then(
