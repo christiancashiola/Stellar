@@ -4,8 +4,7 @@ import LoggedInNav from './logged_in_nav';
 import { setColors } from '../../util/ui_util';
 
 const Nav = props => {
-// TODO: refactor currentUser if unnecessary
-  const { currentUser, openModal } = props;
+  const { currentUser, openModal, clearPosts } = props;
   const path = props.location.pathname.split('/')[1];
   let display;
   if (path) {
@@ -23,7 +22,12 @@ const Nav = props => {
   }
   if (currentUser) {
     setColors(currentUser.modernColors);
-    display = <LoggedInNav openModal={openModal} currentUser={currentUser} />
+    display = (
+      <LoggedInNav 
+        openModal={openModal} 
+        clearPosts={clearPosts}
+        currentUser={currentUser} />
+    );
   }
 
   return (

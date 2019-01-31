@@ -2,6 +2,7 @@ import {
   RECEIVE_POSTS,
   RECEIVE_POST,
   REMOVE_POST,
+  CLEAR_POSTS,
  } from '../../actions/post_actions';
  import { merge } from 'lodash';
 
@@ -9,8 +10,7 @@ const postReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_POSTS:
-      return action.posts;
-
+      return merge({}, state, action.posts);
     case RECEIVE_POST:
       let newState = merge({}, state);
       const postId = Object.keys(action.post)[0];
@@ -22,7 +22,8 @@ const postReducer = (state = {}, action) => {
       newState = merge({}, state);
       delete newState[action.id];
       return newState;
-
+    case CLEAR_POSTS:
+      return {};
     default:
       return state;
   }

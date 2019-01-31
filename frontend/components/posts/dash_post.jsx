@@ -20,11 +20,11 @@ class DashPost extends Component {
     }
   }
 
-  componentDidUpdate() {
-    if (!this.props.currentUser.follow_ids) {
-      this.props.fetchUser(this.props.currentUserId);
-    }
-  }
+  // componentDidUpdate() {
+  //   if (!this.props.currentUser.follow_ids) {
+  //     this.props.fetchUser(this.props.currentUserId);
+  //   }
+  // }
   
   render() {
     const { post, openModal, currentUserId, currentUser } = this.props;

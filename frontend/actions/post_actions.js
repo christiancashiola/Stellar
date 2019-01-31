@@ -5,6 +5,7 @@ import { startLoadingPosts } from './ui_actions';
 export const RECEIVE_POSTS = 'RECEIVE_POSTS';
 export const RECEIVE_POST = 'RECEIVE_POST';
 export const REMOVE_POST = 'REMOVE_POST';
+export const CLEAR_POSTS = 'CLEAR_POSTS';
 
 export const fetchPosts = (pathname, page) => dispatch => {
   dispatch(startLoadingPosts());
@@ -55,4 +56,8 @@ export const receivePost = post => ({
 export const removePost = id => ({
   type: REMOVE_POST,
   id,
+});
+
+export const clearPosts = () => ({
+  type: CLEAR_POSTS,
 });

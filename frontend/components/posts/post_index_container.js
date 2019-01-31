@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { fetchPosts } from '../../actions/post_actions';
+import { fetchPosts, clearPosts } from '../../actions/post_actions';
 import PostIndex from './post_index';
 
 const mapStateToProps = state => ({
@@ -11,6 +11,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchPosts: (pathname, id) => dispatch(fetchPosts(pathname, id)),
+  clearPosts: () => dispatch(clearPosts()),
 });
 
 export default withRouter(

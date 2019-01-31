@@ -20,11 +20,11 @@ class SearchExplorePost extends Component {
     }
   }
 
-  componentDidUpdate() {
-    if (!this.props.currentUser.follow_ids) {
-      this.props.fetchUser(this.props.currentUserId);
-    }
-  }
+  // componentDidUpdate() {
+  //   if (!this.props.currentUser.follow_ids) {
+  //     this.props.fetchUser(this.props.currentUserId);
+  //   }
+  // }
   
   // TODO: Make tags links that go to: search/:tag
   render() {

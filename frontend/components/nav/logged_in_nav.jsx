@@ -12,14 +12,18 @@ class LoggedInNav extends Component {
       search: '',
     };
     this.toggleAccountInfo = this.toggleAccountInfo.bind(this);
-    this.checkSubmit = (e) => {
-      if(e && e.keyCode == 13) {
-        document.querySelector('#search').blur();
-        this.props.history.push(`/search/${this.state.search}`);
-        this.setState({ search: '' });
-      }
-    };  
+    this.checkSubmit = this.checkSubmit.bind(this);
+ 
   } 
+
+  checkSubmit(e) {
+    if(e && e.keyCode == 13) {
+      document.querySelector('#search').blur();
+      this.props.clearPosts();
+      this.props.history.push(`/search/${this.state.search}`);
+      this.setState({ search: '' });
+    }
+  }
 
   toggleAccountInfo() {
     if (this.state.accountInfo) {

@@ -11,13 +11,26 @@ class PostsIndex extends Component {
     this.getPosts = this.getPosts.bind(this);
   }
 
-  getPosts() {
-    this.props.fetchPosts(this.props.location.pathname, this.state.page);
-    this.setState = ({ page: this.state.page += 1 });
+  getPosts(page) {
+    if (page === 0) {
+      this.props.fetchPosts(this.props.location.pathname, page);
+      this.setState = ({ page: 1 });
+    } else {
+      this.props.fetchPosts(this.props.location.pathname, this.state.page);
+      this.setState = ({ page: this.state.page += 1 });
+    }
   }
 
   componentDidMount() {
+    this.props.clearPosts();
     this.getPosts();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.location.pathname !== this.props.location.pathname) {
+      this.props.clearPosts();
+      this.getPosts(0);
+    }
   }
 
   render() {
