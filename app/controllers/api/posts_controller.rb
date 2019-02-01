@@ -5,18 +5,19 @@ class Api::PostsController < ApplicationController
     @posts = nil
 
     if pathname.include?('dashboard')
-      @posts = Post.order(created_at: :desc)
+      @posts = Post
+        .order(created_at: :desc)
         .where(user_id: current_user.followee_ids)
         .page(params[:page]).per(20)
-
     elsif pathname.include?('explore')
-      @posts = Post.order(likes_count: :desc)
+      @posts = Post
+        .order(likes_count: :desc)
         .page(params[:page]).per(30)
-
     else
       tag = Tag.find_by(subject: "##{pathname.split('/')[-1]}")
       @posts = tag.posts.order(created_at: :desc).page(params[:page]).per(30)
     end
+
     render 'api/posts/index'
   end
 
