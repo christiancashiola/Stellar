@@ -23,10 +23,12 @@ const Splash = (props) => {
     loginBtn = null;
   }
 
+  const imgNumber = Math.floor(Math.random() * 5 + 1);
+  
   const splashStyle = {
+    background: `url( ${ window.splashUrl })`,
     position: 'relative',
     height: '100vh',
-    background: `url( ${ window.splashUrl })`,
     backgroundRepeat: 'no-repeat',
     backgroundAttachment: 'fixed',
     backgroundSize: 'cover',
@@ -52,9 +54,14 @@ const Splash = (props) => {
       </div>
       
       <div className="footer">
-        <a className="git-link" href="https://github.com/christiancashiola">
-        <img className="git-img" src={window.gitLogo}/>
-          GitHub
+        <a className="business-link" href="https://github.com/christiancashiola">
+          <i className="fab fa-github"></i>
+        </a>
+        <a className="business-link" href="https://angel.co/christian-cashiola">
+          <i className="fab fa-angellist"></i>
+        </a>
+        <a className="business-link" href="https://www.linkedin.com/in/christian-cashiola-48574616b/">
+          <i className="fab fa-linkedin-in"></i>
         </a>
       </div>
     </section>

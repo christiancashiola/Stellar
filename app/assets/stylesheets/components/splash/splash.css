@@ -50,20 +50,20 @@
 .mid-content p {
   color: #fff;
   font-size: 20px;
-  font-weight: 100;
+  font-weight: 400;
   margin: 0 0 15px;
+  letter-spacing: 1px;
   line-height: 20px;
-  letter-spacing: 0.7px;
-  text-shadow: 1px 1px 1px #000;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .head-logo {
-  font-size: 6em;
+  font-size: 8em;
 }
 
 .head-logo i {
   font-size: 1.1em;
-  letter-spacing: -80px;
+  letter-spacing: -100px;
   transform: rotate(-2deg);
 }
 
@@ -107,18 +107,15 @@
 }
 
 .footer {
+  display: flex;
   position: absolute;
   bottom: 1%;
   padding-left: 10px;
 }
 
-.git-img {
-  width: 25px;
-  height: auto;
-  margin-right: 5px;
-}
-
-.git-link {
+.business-link {
+  font-size: 24px;
+  margin-right: 10px;
   text-decoration: none;
   color: #aaa;
   display: flex;
@@ -126,6 +123,10 @@
   transition: 0.1s;
 }
 
-.git-link:hover {
+.business-link:last-of-type {
+  margin: 0;
+}
+
+.business-link:hover {
   color: #fff;
 }

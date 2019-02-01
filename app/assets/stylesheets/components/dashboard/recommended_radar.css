@@ -81,6 +81,10 @@
   margin: 5px;
 }
 
+.radar-business-wrapper {
+  display: flex;
+}
+
 .plus-minus:hover {
   background-color: #559DCC;
   color: #fff;

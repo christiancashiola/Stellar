@@ -74,7 +74,7 @@ class RecommendedRadar extends Component {
             <li className="recommended-user radar">
               <div className="user-info-wrapper">
                 <img className="explore-profile-pic post-profile-pic" 
-                      src="https://avatars3.githubusercontent.com/u/41166875?s=460&v=4" 
+                      src="https://s3.amazonaws.com/stellar-dev/cash.jpeg" 
                       alt="profile photo"/>
                 <div className="user-info">
                   <h3 className="sm-username">ChristianCashiola</h3>
@@ -84,10 +84,20 @@ class RecommendedRadar extends Component {
                   </span>
                 </div>
               </div>
-              <a href="https://github.com/christiancashiola">
-              <button className="plus-minus"><i className="fas fa-plus"></i></button>
-              </a>
-              
+              <div className="radar-business-wrapper">
+                <a className="business-link" 
+                  href="https://github.com/christiancashiola">
+                  <i className="fab fa-github"></i>
+                </a>
+                <a className="business-link" 
+                  href="https://angel.co/christian-cashiola">
+                  <i className="fab fa-angellist"></i>
+                </a>
+                <a className="business-link" 
+                  href="https://www.linkedin.com/in/christian-cashiola-48574616b/">
+                  <i className="fab fa-linkedin-in"></i>
+                </a>
+              </div>
             </li> 
           </ul>
           <img
