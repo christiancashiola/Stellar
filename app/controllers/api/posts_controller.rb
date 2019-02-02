@@ -3,7 +3,7 @@ class Api::PostsController < ApplicationController
   def index
     pathname = params[:pathname].split('/')
     @posts = nil
-
+    
     if pathname[1] == 'dashboard'
       @posts = Post
         .order(created_at: :desc)

@@ -39,7 +39,7 @@ class PostsIndex extends Component {
 
     const posts = this.props.posts.map(post => {
       if (criterion === 'dashboard') {
-        return <DashPost key={post.id} post={post} />
+        return <DashPost key={post.id} post={post} getPosts={this.getPosts} />
       } else {
         return <SearchExplorePost key={post.id} post={post} />
       }

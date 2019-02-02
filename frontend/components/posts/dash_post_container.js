@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { updatePost } from '../../actions/post_actions';
+import { updatePost, clearPosts, fetchPosts } from '../../actions/post_actions';
 import { openModal } from '../../actions/ui_actions';
 import { createLike, removeLike } from '../../actions/like_actions';
 import { fetchUser } from '../../actions/user_actions';
@@ -14,14 +14,16 @@ const mapStateToProps = (state, ownProps) => ({
   post: ownProps.post,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
   updatePost: post => dispatch(updatePost(post)),
   openModal: (modal, info) => dispatch(openModal(modal, info)),
   like: postId => dispatch(createLike(postId)),
   unlike: postId => dispatch(removeLike(postId)),
   fetchUser: userId => dispatch(fetchUser(userId)),
   follow: userId => dispatch(follow(userId)),
-  unfollow: userId => dispatch(unfollow(userId)),
+  unfollow: userId => dispatch(unfollow(userId))
+    .then(() => dispatch(clearPosts()))
+    .then(() => ownProps.getPosts(0)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DashPost);
