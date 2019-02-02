@@ -23,24 +23,24 @@ Stellar is single-page web application inspired by Tumblr. Share quotes, video, 
 ```ruby
 # in PostsController
 def index
-  pathname = params[:pathname]
+  # example pathname: "#/search/trails"
+  pathname = params[:pathname].split('/')
   @posts = nil
 
-  if pathname.include?('dashboard')
+  if pathname[1] == 'dashboard'
     @posts = Post
       .order(created_at: :desc)
       .where(user_id: current_user.followee_ids)
       .page(params[:page]).per(20)
-      
-  elsif pathname.include?('explore')
+  elsif pathname[1] == 'explore'
     @posts = Post
       .order(likes_count: :desc)
       .page(params[:page]).per(30)
   else
-    tag = Tag.find_by(subject: "##{pathname.split('/')[-1]}")
+    tag = Tag.find_by(subject: "##{pathname[-1]}")
     @posts = tag.posts.order(created_at: :desc).page(params[:page]).per(30)
   end
-  
+
   render 'api/posts/index'
 end
 ```
