@@ -7,7 +7,7 @@ class Api::PostsController < ApplicationController
     if pathname[1] == 'dashboard'
       @posts = Post
         .order(created_at: :desc)
-        .where(user_id: current_user.followee_ids)
+        .where(user_id: current_user.followee_ids.push(current_user.id))
         .page(params[:page]).per(20)
     elsif pathname[1] == 'explore'
       @posts = Post
