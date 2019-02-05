@@ -5,7 +5,7 @@ class TextForm extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { body: '', title: '', tags: '', errors: null };
+    this.state = { body: '', title: '', tags: '' };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.path = this.props.location.pathname.split('/')[3];
   }
