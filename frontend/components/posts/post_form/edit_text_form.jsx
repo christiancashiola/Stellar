@@ -10,7 +10,11 @@ class EditTextForm extends Component {
   constructor(props) {
     super(props);
     const { post } = props;
-    this.state = { body: post.body, title: post.title, tag: '' };
+    this.state = { 
+      body: post.body, 
+      title: post.title, 
+      tags: post.tags.map(tag => tag.subject)
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -52,8 +56,8 @@ class EditTextForm extends Component {
         <label htmlFor="tag"></label>
         <input
           className="tag-input"
-          onChange={this.update('tag')}
-          value={post.tag}
+          onChange={this.update('tags')}
+          value={this.state.tags}
           id="tag" 
           type="text"/>
 

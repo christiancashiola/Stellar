@@ -2,7 +2,7 @@
   box-sizing: border-box;
   background-color: #fff;
   width: 510px;
-  height: 260px;
+  min-height: 260px;
   padding: 10px 0 20px;
   border-radius: 3px;
 }
@@ -69,4 +69,9 @@
 .media-form textarea {
   font-size: 18px;
   height: 60px;
+}
+
+.post-errors {
+  margin: 0;
+  color: red;
 }

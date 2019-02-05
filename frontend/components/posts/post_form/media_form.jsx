@@ -22,8 +22,10 @@ class MediaForm extends Component {
     formData.append('post[body]', this.state.body);
     formData.append('post[tags]', this.state.tags);
     this.props.processForm(formData)
-    .then(this.props.history.push('/dashboard'));
-    this.props.closeModal();
+    .then(() => {
+      this.props.history.push('/dashboard');
+      this.props.closeModal();
+    });
   }
 
   handleFile(e) {
@@ -68,14 +70,16 @@ class MediaForm extends Component {
         case 'audio':
           preview = <audio controls src={media}></audio>
     }
-      
+    
+      const bodyPlaceholder = this.props.postErrors.length ?
+        this.props.postErrors : "Reach for the stars...";
       bodyInput = <>
         <label htmlFor="body"></label>
         <textarea 
           onChange={this.update('body')}
           value={this.state.body}
           id="body"
-          placeholder="Reach for the stars...">
+          placeholder={bodyPlaceholder}>
         </textarea>
 
         <label htmlFor="tag"></label>

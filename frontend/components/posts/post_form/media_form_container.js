@@ -1,10 +1,9 @@
 import { connect } from 'react-redux';
 import { createPost } from '../../../actions/post_actions';
 import { closeModal } from '../../../actions/ui_actions';
-import { withRouter } from 'react-router-dom';
 import MediaForm from './media_form';
 
-const mapStateToProps = ({ entities, session }, ownProps) => {
+const mapStateToProps = ({ entities, session, errors }, ownProps) => {
   const currentUserID = session[Object.keys(session)[0]];
   const username = entities.users[currentUserID].username;
   const defaultPost = {
@@ -13,9 +12,19 @@ const mapStateToProps = ({ entities, session }, ownProps) => {
     body: '',
     tags: '',
   };
-  let post = ownProps.post || defaultPost;
+  let post;
+  if (ownProps.post) {
+    post = {...ownProps.post};
+    post.tags = post.tags.map(tag => tag.subject)
+  } else {
+    post = defaultPost;
+  }
 
-  return { username, post };
+  return {
+    username, 
+    post, 
+    postErrors: errors.post
+  };
 };
 
 const mapDispatchToProps = dispatch => ({

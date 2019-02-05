@@ -5,7 +5,7 @@ class TextForm extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { body: '', title: '', tags: '' };
+    this.state = { body: '', title: '', tags: '', errors: null };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.path = this.props.location.pathname.split('/')[3];
   }
@@ -17,8 +17,10 @@ class TextForm extends Component {
         post.title = '!link!' + post.title;
     }
     this.props.processForm({ post })
-    .then(this.setState({ body: '', title: '', tags: '' }))
-    .then(this.props.history.push('/dashboard'));
+    .then(() => {
+      this.setState({ body: '', title: '', tags: '' });
+      this.props.history.push('/dashboard');
+    });
   }
 
   update(field) {
@@ -49,6 +51,9 @@ class TextForm extends Component {
         specialStyle = 'link-style';
         bodyPlaceholder = 'What about this link?';
     }
+
+    bodyPlaceholder = this.props.postErrors.length ?
+      this.props.postErrors : bodyPlaceholder;
 
     const { currentUser } = this.props;
     return (

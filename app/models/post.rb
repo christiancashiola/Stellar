@@ -1,5 +1,7 @@
 class Post < ApplicationRecord
   
+  validates_presence_of :body
+  
   belongs_to :user
 
   has_and_belongs_to_many :tags
