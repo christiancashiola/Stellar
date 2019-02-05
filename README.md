@@ -62,3 +62,5 @@ end
 + **Change themes. (These settings persist when a user logs out and logs back in)**
   ![Theme selection](app/assets/images/cosmic.png?raw=true)
   ![Theme selection](app/assets/images/classic.png?raw=true)  
+  
++ **Admin profile that can remove any posts**
