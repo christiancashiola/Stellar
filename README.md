@@ -1,7 +1,7 @@
 # Stellar
 ### [Live Site](https://stellar-aa.herokuapp.com/)  
   
-Stellar is single-page web application inspired by Tumblr. Share quotes, video, photos, audio, link, and comment or like others posts. Users can search by tags (which are split and parsed when added to post) or explore trending posts (those with most likes). With an infinite scroll users can enjoy searching the stars.
+Stellar is single-page web application inspired by Tumblr. Share quotes, video, photos, audio, link, and comment or like others posts. Users can search by tags or explore trending posts (those with most likes). With an infinite scroll users can enjoy searching the stars.
   
 ![Posts layout](app/assets/images/posts.png?raw=true)
 
