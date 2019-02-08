@@ -8,6 +8,7 @@ class TextForm extends Component {
     this.state = { body: '', title: '', tags: '' };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.path = this.props.location.pathname.split('/')[3];
+    this.bodyPlaceholder = '';
   }
   
   handleSubmit(e) {
@@ -31,6 +32,14 @@ class TextForm extends Component {
     document.querySelector('#title').focus();
   }
 
+  componentDidUpdate(_, prevState) {
+    if (prevState.title !== this.state.title && this.path === 'link') {
+      let newPlaceholder;
+      newPlaceholder = this.state.title ? 'What about this link?': '';
+      this.setState({ bodyPlaceholder: newPlaceholder });
+    }
+  }
+
   render() {
     let titlePlaceholder;
     let bodyPlaceholder;
@@ -47,11 +56,10 @@ class TextForm extends Component {
         bodyPlaceholder = '- Source';
         break;
       case 'link':
-        titlePlaceholder = "website-name (we'll do the parsing)";
+        titlePlaceholder = "Paste in any link you'd like to share.";
         specialStyle = 'link-style';
-        bodyPlaceholder = 'What about this link?';
     }
-
+    bodyPlaceholder = this.state.bodyPlaceholder || bodyPlaceholder;
     bodyPlaceholder = this.props.postErrors.length ?
       this.props.postErrors : bodyPlaceholder;
 

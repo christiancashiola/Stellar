@@ -13,10 +13,8 @@ const App = () => {
     <>
       <Modal />
       <Route path='/' component={Nav} />
-      <Switch>
-        <Route exact path='/ping/pong' component={Ping} />
-        <AuthRoute exact path='/' component={Splash} />
-      </Switch>
+      <Route exact path='/ping/pong' component={Ping} />
+      <AuthRoute exact path='/' component={Splash} />
       <Switch>
         <ProtectedRoute path='/search/:tag' component={ExploreSearch} />
         <ProtectedRoute path='/dashboard' component={Dashboard} />
