@@ -64,3 +64,4 @@ end
   ![Theme selection](app/assets/images/classic.png?raw=true)  
   
 + **Admin profile that can remove any posts**
++ **Custom `ping route` to avoid AWS over-usage when making HTTP requests every thirty minutes (preventing Heroku slumber)**
