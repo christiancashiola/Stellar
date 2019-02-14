@@ -31,7 +31,6 @@ class MediaForm extends Component {
     } else {
       processForm = this.props.createPost;
     }
-    // debugger
     processForm(formData, postId)
       .then(() => {
         this.props.history.push('/dashboard');

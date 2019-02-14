@@ -23,7 +23,6 @@ class DashPost extends Component {
   }
 
   handleTagClick(subject) {
-    debugger
     this.props.history.push(`/search/${subject.slice(1)}`)
   }
   
