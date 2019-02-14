@@ -166,7 +166,12 @@ a.link-style {
   display: flex;
   list-style: none;
   color: #777;
+  cursor: pointer;
   font-weight: 400;
+}
+
+.post-tags:hover {
+  color: #333;
 }
 
 .post-tag {

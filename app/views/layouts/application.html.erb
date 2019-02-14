@@ -22,7 +22,8 @@
           'username': '<%= current_user.username %>',
           'modernColors': <%= current_user.modern_colors %>,
           'follow_ids': <%= current_user.followees.map(&:id) %>,
-          'admin': <%= current_user.admin %>
+          'admin': <%= current_user.admin %>, 
+          'profile_pic': '<%= url_for(current_user.profile_pic) %>'
         };
       </script>
     <% end %>

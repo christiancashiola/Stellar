@@ -19,6 +19,7 @@ const mapDispatchToProps = dispatch => ({
 const Dashboard = ({ currentUser, openModal }) => {
 
   let img;
+  debugger
   if (currentUser.profile_pic) {
     img = (
       <img onClick={() => openModal('profile pic')}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { linkify, getMedia } from '../../util/parse_util';
 import PostFeatures from './misc/post_features';
 
@@ -7,6 +8,7 @@ class DashPost extends Component {
   constructor(props) {
     super(props);
     this.state = { user: null };
+    this.handleTagClick = this.handleTagClick.bind(this);
   }
 
   componentDidMount() {
@@ -18,6 +20,11 @@ class DashPost extends Component {
     } else {
       this.setState({ user: users[postUserId] });
     }
+  }
+
+  handleTagClick(subject) {
+    debugger
+    this.props.history.push(`/search/${subject.slice(1)}`)
   }
   
   render() {
@@ -31,7 +38,14 @@ class DashPost extends Component {
     }
     
     const tags = post.tags.map(tag => {
-       return <li key={tag.id} className="post-tag">{tag.subject}</li>
+       return (
+       <li 
+        key={tag.id} 
+        className="post-tag" 
+        onClick={() => this.handleTagClick(tag.subject)}>
+        {tag.subject}
+       </li>
+       )
     });
     
     let img = <div style={{ width: '75px' }}></div>;
@@ -92,4 +106,4 @@ class DashPost extends Component {
   }
 }
 
-export default DashPost;
+export default withRouter(DashPost);
