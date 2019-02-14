@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 
 class RecommendedRadar extends Component {
 
+  componentDidUpdate() {
+    this.props.recommendedUsers.length || 
+    this.props.fetchRecommendedUsers();
+           
+  }
   componentDidMount() {
-    return this.props.recommendedUsers.length || 
-           this.props.fetchRecommendedUsers();
+    this.props.recommendedUsers.length || 
+    this.props.fetchRecommendedUsers();
   }
 
   render() {
-    const descriptions = [
-      "let's be buds", "aliens are real", "eat. sleep. code. repeat.", 
-      "love, love, love", "music == life"
-    ];
-
     const { recommendedUsers, currentUser, follow, unfollow } = this.props;
-    const users = recommendedUsers.map((user, i) => {
+    const users = recommendedUsers.map(user => {
       let img = <div style={{ width: '30px' }}></div>;
       if (user.profile_pic) {
         img = (
@@ -47,9 +47,6 @@ class RecommendedRadar extends Component {
             {img}
             <div className="user-info">
               <h3 className="sm-username">{user.username}</h3>
-              <span className="user-description">
-                {descriptions[i]}
-              </span>
             </div>
           </div>
           {followBtn}
@@ -63,7 +60,10 @@ class RecommendedRadar extends Component {
         <h3 className="recommended-radar-header">
           RECOMMENDED USERS
         </h3>
-        {users}
+        {
+          users.length ? users :
+          <h3 className="sm-username">You're following everyone!</h3>
+        }
         </ul>
 
         <div className="radar">
