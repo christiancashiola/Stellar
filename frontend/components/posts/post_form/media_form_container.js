@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { createPost } from '../../../actions/post_actions';
+import { createPost, updatePost } from '../../../actions/post_actions';
 import { closeModal } from '../../../actions/ui_actions';
 import MediaForm from './media_form';
 
@@ -12,23 +12,26 @@ const mapStateToProps = ({ entities, session, errors }, ownProps) => {
     body: '',
     tags: '',
   };
-  let post;
+  let post, edit;
   if (ownProps.post) {
     post = {...ownProps.post};
     post.tags = post.tags.map(tag => tag.subject)
+    edit = true;
   } else {
     post = defaultPost;
+    edit = false;
   }
-
   return {
     username, 
     post, 
-    postErrors: errors.post
+    postErrors: errors.post,
+    edit
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  processForm: post => dispatch(createPost(post)),
+  createPost: post => dispatch(createPost(post)),
+  updatePost: (post, postId) => dispatch(updatePost(post, postId)),
   closeModal: () => dispatch(closeModal()),
 });
 

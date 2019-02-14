@@ -29,8 +29,8 @@ export const createPost = post => dispatch => (
   )
 );
 
-export const updatePost = post => dispatch => (
-  APIUtil.updatePost(post).then(
+export const updatePost = (post, postId) => dispatch => (
+  APIUtil.updatePost(post, postId).then(
     post => dispatch(receivePost(post)),
     errors => dispatch(receiveErrors(errors.responseJSON))
   )

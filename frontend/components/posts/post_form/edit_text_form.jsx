@@ -20,7 +20,7 @@ class EditTextForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.updatePost(merge({}, this.props.post, this.state))
+    this.props.updatePost(merge({}, this.props.post, this.state), this.props.post.id)
       .then(this.setState({ body: '', title: '', tag: '' }));
     this.props.closeModal();  
   }
