@@ -23,7 +23,7 @@
           'modernColors': <%= current_user.modern_colors %>,
           'follow_ids': <%= current_user.followees.map(&:id) %>,
           'admin': <%= current_user.admin %>, 
-          'profile_pic': '<%= url_for(current_user.profile_pic) %>'
+          'profile_pic': '<%= url_for(current_user.profile_pic) if current_user.profile_pic.attached? %>'
         };
       </script>
     <% end %>
