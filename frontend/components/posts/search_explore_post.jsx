@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import { linkify, getMedia } from '../../util/parse_util';
 import PostFeatures from './misc/post_features';
+import { withRouter } from 'react-router-dom';
 
 class SearchExplorePost extends Component {
 
   constructor(props) {
     super(props);
     this.state = { user: null };
+  }
+
+  handleTagClick(subject) {
+    this.props.history.push(`/search/${subject.slice(1)}`)
   }
   
   componentDidMount() {
@@ -39,7 +44,11 @@ class SearchExplorePost extends Component {
     }
     
     const tags = post.tags.map(tag => {
-       return <li key={tag.id} className="post-tag">{tag.subject}</li>
+       return <li 
+       key={tag.id} 
+       className="post-tag"
+       onClick={() => this.handleTagClick(tag.subject)}>
+       {tag.subject}</li>
     });
 
     let img = null;
@@ -99,4 +108,4 @@ class SearchExplorePost extends Component {
   }
 }
 
-export default SearchExplorePost;
+export default withRouter(SearchExplorePost);

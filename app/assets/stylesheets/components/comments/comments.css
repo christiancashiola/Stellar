@@ -90,6 +90,7 @@
 }
 
 .comment-settings {
+  text-align: center;
   background-color: #fff;
   border-radius: 3px;
   display: flex;

@@ -92,6 +92,7 @@
   flex-flow: column;
   align-items: center;
   padding: 20px;
+  text-align: center;
 }
 
 .delete-post-confirmation h3 {
@@ -167,11 +168,10 @@ a.link-style {
   display: flex;
   list-style: none;
   color: #777;
-  cursor: pointer;
   font-weight: 400;
 }
 
-.post-tags:hover {
+.post-tag:hover {
   color: #333;
 }
 
@@ -179,6 +179,7 @@ a.link-style {
   color: inherit;
   font-size: 14px;
   margin-right: 10px;
+  cursor: pointer;
 }
 
 .red-heart{

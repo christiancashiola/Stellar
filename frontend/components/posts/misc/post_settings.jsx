@@ -28,15 +28,15 @@ export const PostSettings = (props) => {
       <div className="btn-wrapper">
         <button
           onClick={handleEdit}
-          className="edit-post">
+          className="edit-post post-options">
           Edit it</button>
         <button 
           onClick={handleDelete}
-          className="delete-post">
+          className="delete-post post-options">
           Delete it</button>
         <button
           onClick={closeModal}
-          className="nevermind">
+          className="nevermind post-options">
           Nevermind</button>
       </div>
     </div>

@@ -110,6 +110,13 @@
     top: 120px;
     left: 5px;
   }
+  /* POST FEATURES */
+  .btn-wrapper {
+    flex-flow: column;
+  }
+  .post-options {
+    margin-bottom: 10px;
+  }
 }
 
 
@@ -164,6 +171,7 @@
     flex-flow: column;
     align-items: center;  
     width: 95%;
+    padding-top: 100px;
   }
   /* NAV */
   .search-bar {
@@ -224,5 +232,13 @@
     position: absolute;
     top: 120px;
     left: 5px;
+  }
+  /* POST FEATURES */
+  .btn-wrapper {
+    flex-flow: column;
+    align-items: center;
+  }
+  .post-options {
+    margin: 0 0 10px;
   }
 }

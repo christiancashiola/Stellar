@@ -29,6 +29,7 @@ u7.profile_pic.attach(io: EzDownload.open('https://s3.amazonaws.com/stellar-dev/
 u8.profile_pic.attach(io: EzDownload.open('https://s3.amazonaws.com/stellar-dev/user8.jpg'), filename: 'seed.jpg')
 u9.profile_pic.attach(io: EzDownload.open('https://s3.amazonaws.com/stellar-dev/user9.jpg'), filename: 'seed.jpg')
 u10.profile_pic.attach(io: EzDownload.open('https://s3.amazonaws.com/stellar-dev/user10.jpg'), filename: 'seed.jpg')
+users = [u1, u2, u3, u4, u5, u6, u7, u8, u9, u10]
 
 # TAGS
 t1 = Tag.create!({subject: '#food'})
@@ -40,3 +41,17 @@ t6 = Tag.create!({subject: '#music'})
 t7 = Tag.create!({subject: '#life'})
 t8 = Tag.create!({subject: '#reading'})
 t9 = Tag.create!({subject: '#coffee'})
+
+# TEXT
+b1 = "Kale chips try-hard forage whatever YOLO venmo brooklyn adaptogen roof party tilde heirloom XOXO farm-to-table umami sriracha. Salvia 90's hexagon viral, affogato prism chambray. Edison bulb succulents celiac ennui green juice. Church-key craft beer offal af, cornhole kickstarter cray microdosing retro chicharrones farm-to-table taxidermy. Seitan gastropub sriracha ethical pok pok PBR&B meditation street art air plant godard cold-pressed sartorial."
+b2 = "Heirloom umami viral, vinyl shaman activated charcoal jianbing +1 asymmetrical migas gentrify pour-over XOXO. Ramps fam chillwave tousled, hammock vinyl tumblr distillery unicorn hoodie fixie farm-to-table sartorial whatever williamsburg."
+b3 = "Shoreditch taiyaki tumblr authentic, kogi chambray hashtag jianbing VHS direct trade gluten-free 3 wolf moon seitan. Blog subway tile everyday carry hammock. Whatever actually live-edge vegan keffiyeh green juice farm-to-table health goth brooklyn disrupt chicharrones. 3 wolf moon thundercats williamsburg franzen. Flexitarian whatever actually, selfies ethical helvetica meggings fanny pack XOXO gentrify cred jianbing occupy stumptown pok pok. Pinterest activated charcoal 3 wolf moon 8-bit adaptogen."
+text = [b1, b2, b3]
+
+# POSTS 
+j = 0
+50.times do |i| 
+  j = 0 if j > 2
+  Post.create({ title: "test", body: text[j], tag_ids: [t6.id, t7.id], user_id: users[i % 10].id })
+  j += 1
+end
