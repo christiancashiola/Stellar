@@ -23,6 +23,9 @@
   .post-profile-pic, #profile-pic, #null-profile-pic {
     display: none;
   }
+  .post-container {
+    grid-gap: 0;
+  }
   .explore-profile-pic {
     display: block;
   }
@@ -54,6 +57,9 @@
   /* DASHBOARD */
   .post-profile-pic, #profile-pic, #null-profile-pic {
     display: none;
+  }
+  .post-container {
+    grid-gap: 0;
   }
   .explore-profile-pic {
     display: block;
@@ -137,6 +143,9 @@
   .post-profile-pic, #profile-pic, #null-profile-pic {
   display: none;
   }
+  .post-container {
+    grid-gap: 0;
+  }
   .explore-profile-pic {
     display: block;
   }
@@ -207,31 +216,31 @@
   }
   #medium-1 {
     position: absolute;
-    bottom: 20px;
-    right: 5px;
+    bottom: 0;
+    right: -25px;
   }
   #medium-2 {
     position: absolute;
-    right: 75px;
+    right: 30px;
   }
   #medium-3 {
     position: absolute;
-    top: 120px;
-    right: 5px;
+    top: 100px;
+    right: -25px;
   }
   #medium-4 {
     position: absolute;
-    bottom: 20px;
-    left: 5px;
+    bottom: 0;
+    left: 2px;
   }
   #medium-5 {
     position: absolute;
-    left: 75px;
+    left: 55px;
   }
   #medium-6 {
     position: absolute;
-    top: 120px;
-    left: 5px;
+    top: 100px;
+    left: 2px;
   }
   /* POST FEATURES */
   .btn-wrapper {
