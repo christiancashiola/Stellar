@@ -27,7 +27,7 @@ class TextForm extends Component {
   update(field) {
     return e => this.setState({ [field]: e.target.value });
   }
-
+  
   componentDidMount() {
     document.querySelector('#title').focus();
   }

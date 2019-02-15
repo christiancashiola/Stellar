@@ -5,6 +5,7 @@
   font-size: 36px;
   font-weight: 500;
   font-family: 'Lobster', cursive;
+  text-shadow: 0 2px #000;
   margin: 5px;
 }
 
@@ -12,6 +13,7 @@
   letter-spacing: -25px;
   transform: rotate(-1deg);
   font-size: 34px;
+  z-index: 5;
 }
 
 .login-sm {
@@ -54,11 +56,12 @@
   margin: 0 0 15px;
   letter-spacing: 1px;
   line-height: 20px;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px #000;
 }
 
 .head-logo {
   font-size: 8em;
+  z-index: 1;
 }
 
 .head-logo i {

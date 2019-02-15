@@ -14,10 +14,14 @@
  *= require_self
  */
 
- /* GENERAL STYLES */
- html {
-   height: 100%;
- }
+/* GENERAL STYLES */
+html {
+  height: 100%;
+}
+
+p {
+  word-wrap: break-word;
+}
 
 body {
   margin: 0 0;

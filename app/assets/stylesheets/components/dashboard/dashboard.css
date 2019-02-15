@@ -7,10 +7,8 @@
 }
 
 .current-user-dock {
-  height: 100px;
-  display: grid;
-  grid-template-columns: 75px auto;
-  grid-gap: 20px;
+  display: flex;
+  flex-flow: column;
   margin-right: 30px;
   padding-top: 15px;
 }
@@ -109,4 +107,9 @@
 .dash-links > img {
   border-radius: 3px;
   margin-top: 2px;
+}
+
+.dash-links-wrapper {
+  display: flex;
+  margin-bottom: 20px;
 }

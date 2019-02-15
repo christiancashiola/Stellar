@@ -5,7 +5,7 @@
   position: fixed;
   top: 0%;
   z-index: 5;
-  width: 97%;
+  width: 96%;
   padding-right: 50px;
 }
 
@@ -47,6 +47,7 @@
   top: 50px;
   right: 0;
   z-index: 5;
+  box-shadow: 0 0 4px #444;
 }
 
 .account-info-container > .gray-header {

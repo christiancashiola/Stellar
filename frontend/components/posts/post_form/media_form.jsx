@@ -48,7 +48,7 @@ class MediaForm extends Component {
       fileReader.readAsDataURL(file);
     }
   }
-  
+
   render() {
     const type = this.state.media_type || this.props.location.pathname
     let fileInput = <>

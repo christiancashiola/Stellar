@@ -5,6 +5,7 @@
   padding: 10px 0 20px;
   border-radius: 3px;
   position: relative;
+  z-index: 6;
 }
 
 .img-preview {

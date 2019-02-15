@@ -5,6 +5,7 @@
   min-height: 260px;
   padding: 10px 0 20px;
   border-radius: 3px;
+  z-index: 6;
 }
 
 .post-form input, textarea {

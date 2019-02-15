@@ -37,18 +37,19 @@ const Dashboard = ({ currentUser, openModal }) => {
     <section className="dashboard">
       <div className="current-user-dock">
 
+        <div className="dash-links-wrapper">
         {img}
-          
         <Route 
           exact path='/dashboard' 
           render={() => <DashLinks currentUser={currentUser} /> } />
+
         <Switch>
           <Route path='/dashboard/new/text' component={TextForm} />
           <Route path='/dashboard/new/quote' component={TextForm} />
           <Route path='/dashboard/new/link' component={TextForm} />
           <Route path='/dashboard/new' component={MediaForm} />
         </Switch>
-
+        </div>
         <PostIndex />
       </div>
       <RecommendedRadar />
