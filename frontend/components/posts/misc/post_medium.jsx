@@ -17,37 +17,37 @@ const PostMedium = props => {
 
   return (
     <div className="post-medium">
-      <Link to="/dashboard/new/text" onClick={handleClick} className="medium">
+      <Link to="/dashboard/new/text" onClick={handleClick} className="medium" id="medium-1">
         <div className="bg-circle white">
           <span id="aa">Aa</span>
         </div>
       </Link>
     
-      <Link to="/dashboard/new/photo" onClick={handleClick} className="medium">
+      <Link to="/dashboard/new/photo" onClick={handleClick} className="medium" id="medium-2">
         <div className="bg-circle red">
           <i className="fas fa-camera-retro"></i>
         </div>
       </Link>
     
-      <Link to="/dashboard/new/quote" onClick={handleClick} className="medium">
+      <Link to="/dashboard/new/quote" onClick={handleClick} className="medium" id="medium-3">
         <div className="bg-circle yellow">
           <i className="fas fa-quote-left"></i>
         </div>
       </Link>
 
-      <Link to="/dashboard/new/link" onClick={handleClick} className="medium">
+      <Link to="/dashboard/new/link" onClick={handleClick} className="medium" id="medium-4">
         <div className="bg-circle green">
           <i className="fas fa-link"></i>
         </div>
       </Link>
 
-      <Link to="/dashboard/new/audio" onClick={handleClick} className="medium">
+      <Link to="/dashboard/new/audio" onClick={handleClick} className="medium" id="medium-5">
         <div className="bg-circle purple">
           <i className="fas fa-headphones-alt"></i>
         </div>
       </Link>
 
-      <Link to="/dashboard/new/video" onClick={handleClick} className="medium">
+      <Link to="/dashboard/new/video" onClick={handleClick} className="medium" id="medium-6">
         <div className="bg-circle gray">
           <i className="fas fa-video"></i>
         </div>
