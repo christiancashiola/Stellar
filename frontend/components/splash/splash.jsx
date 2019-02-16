@@ -37,7 +37,9 @@ const Splash = (props) => {
   return (
     <section style={splashStyle}>
       <div className="mid-content">
-        <h1 className="head-logo logo"><i className="far fa-star-half"></i>stellar</h1>
+          <span id="main-header">
+          <i className="far fa-star-half"></i><h1 className="head-logo logo">stellar</h1>
+          </span>
         <p>
           Discover yourself<br/>amongst the stars.
         </p>

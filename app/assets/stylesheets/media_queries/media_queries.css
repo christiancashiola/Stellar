@@ -131,9 +131,9 @@
   .head-logo {
     font-size: 5em;
   }
-  .head-logo i {
-    letter-spacing: -65px;
-    transform: rotate(-2deg);
+  #main-header i {
+    font-size: 5em;
+    margin-right: -60px;
   }
   .mid-content {
     top: 10%;

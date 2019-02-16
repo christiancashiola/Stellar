@@ -42,7 +42,7 @@
 
 .mid-content {
   position: relative;
-  top: 25%;
+  top: 20%;
   display: flex;
   align-items: center;
   flex-flow: column;
@@ -56,7 +56,15 @@
   margin: 0 0 15px;
   letter-spacing: 1px;
   line-height: 20px;
-  text-shadow: 0 2px #000;
+  background-color: rgba(25, 25, 25, 0.5);
+  padding: 10px;
+  border-radius: 3px;
+}
+
+#main-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .head-logo {
@@ -64,10 +72,12 @@
   z-index: 1;
 }
 
-.head-logo i {
-  font-size: 1.1em;
-  letter-spacing: -100px;
-  transform: rotate(-2deg);
+#main-header i {
+  padding-top: 6px;
+  color: #fff;
+  font-size: 8em;
+  margin-right: -95px;
+  text-shadow: 0 2px #000;
 }
 
 .lg-blue-btn {

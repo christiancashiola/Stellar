@@ -1,6 +1,9 @@
 import React from 'react';
 
 export const linkify = text => {
+  if (text.slice(0, 8) !== 'https://') {
+    text = 'https://' + text;
+  }
   return <a className="link-style" href={`${text}`}>{text.slice(8)}</a>
 };
 

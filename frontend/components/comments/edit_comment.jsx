@@ -34,6 +34,7 @@ class EditComment extends Component {
         <textarea 
           value={this.state.body}
           onChange={this.update.bind(this)}
+          placeholder="Unfortunately, we cannot read invisible text..."
           id="edit-comment">
         </textarea>
         <button className="edit-comment-btn">Edit</button>
