@@ -143,3 +143,16 @@
 .business-link:hover {
   color: #fff;
 }
+
+#splash-links {
+  display: flex;
+  flex-flow: column;
+  position: fixed;
+  top: 40%;
+  left: 5px;
+  z-index: 5;
+}
+
+#splash-page-container {
+  scroll-behavior: smooth;
+}
