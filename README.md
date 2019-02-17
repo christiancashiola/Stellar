@@ -3,7 +3,7 @@
 ![screen shots](public/stellar.gif?raw=true)
 
 ## Background
-Stellar is a responsive single-page web application inspired by Tumblr. Share quotes, video, photos, audio, link, and comment or like others posts. Users can search by tags or explore trending posts (those with most likes). With an infinite scroll users can enjoy searching the stars.
+Stellar is a responsive single-page web application inspired by Tumblr. Share quotes, videos, photos, audio, and comment or like other posts. Users can search by tags or explore trending posts (those with most likes). With an infinite scroll, users can enjoy searching the stars.
 
 ## Technologies Used
 + **React/Redux** for frontend
