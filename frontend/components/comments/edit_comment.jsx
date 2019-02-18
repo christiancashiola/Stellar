@@ -15,8 +15,10 @@ class EditComment extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.updateComment(merge({}, this.props.comment, this.state))
-    .then(() => this.props.openModal('comment', this.props.post));
+    if (this.state.body.length) {
+      this.props.updateComment(merge({}, this.props.comment, this.state))
+      .then(() => this.props.openModal('comment', this.props.post));
+    }
   }
 
   update(e) {

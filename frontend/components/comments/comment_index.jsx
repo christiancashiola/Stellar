@@ -57,11 +57,13 @@ class CommentIndex extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    if (this.state.createdComment.length) {
     this.props.createComment(this.state.createdComment, this.props.post.id)
-    .then(() => {
-      this.setState({ createdComment: '' });
-      this.getComments();
-    });
+      .then(() => {
+        this.setState({ createdComment: '' });
+        this.getComments();
+      });   
+    }
   }
 
   update(e) {

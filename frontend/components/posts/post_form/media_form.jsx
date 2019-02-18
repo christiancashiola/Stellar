@@ -17,25 +17,27 @@ class MediaForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const formData = new FormData();
-    if (this.state.mediaFile) {
-      formData.append('post[media]', this.state.mediaFile);
-    }
-    formData.append('post[body]', this.state.body);
-    formData.append('post[tags]', this.state.tags);
-    let processForm, postId;
+    if (this.state.body.length) {
+      const formData = new FormData();
+      if (this.state.mediaFile) {
+        formData.append('post[media]', this.state.mediaFile);
+      }
+      formData.append('post[body]', this.state.body);
+      formData.append('post[tags]', this.state.tags);
+      let processForm, postId;
 
-    if (this.props.edit) {
-      processForm = this.props.updatePost;
-      postId = this.props.post.id;
-    } else {
-      processForm = this.props.createPost;
+      if (this.props.edit) {
+        processForm = this.props.updatePost;
+        postId = this.props.post.id;
+      } else {
+        processForm = this.props.createPost;
+      }
+      processForm(formData, postId)
+        .then(() => {
+          this.props.history.push('/dashboard');
+          this.props.closeModal();
+        });
     }
-    processForm(formData, postId)
-      .then(() => {
-        this.props.history.push('/dashboard');
-        this.props.closeModal();
-      });
   }
 
   handleFile(e) {
