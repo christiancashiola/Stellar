@@ -14,63 +14,79 @@ class Splash extends Component {
     }
     this.scrollUp = this.scrollUp.bind(this);
     this.scrollDown = this.scrollDown.bind(this);
-    this.handleScroll = this.handleScroll.bind(this);
+    this.handleWheelEvent = this.handleWheelEvent.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   scrollUp() {
-
+    this.setState((prevState, _) => ({
+      pageNum: prevState.pageNum -= 1
+    }), () => {
+      this.switchPage(this.state.pageNum);
+    });
   }
 
   scrollDown() {
-    console.log(this.state.scrolling, this.state.prevScrollTop, this.state.pageNum)
     this.setState((prevState, _) => ({
-      pageNume: prevState.pageNum += 1
-    }), () => this.switchPage(this.state.pageNum));
+      pageNum: prevState.pageNum += 1
+    }), () => {
+      this.switchPage(this.state.pageNum);
+    });
   }
 
-  handleScroll() {
-    console.log(this.state.scrolling, this.state.prevScrollTop, this.state.pageNum)
-
+  handleWheelEvent(e) {
+    e.preventDefault();
     if (!this.state.scrolling) {
-      alert(3)
-      if (window.pageYOffset > this.state.prevScrollTop) {
-        alert(2)
+      if (e.deltaY > 0 && this.state.pageNum < 5) {
         this.setState({scrolling: true}, () => {
-          alert(1);
           this.scrollDown();
-        })
-      } else {
+        });
+      } else if (this.state.pageNum > 1) {
         this.setState({scrolling: true}, () => {
           this.scrollUp();
-        })
+        });
       }
     }
   }
   
   componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('wheel', this.handleWheelEvent);
+    setTimeout(() => {
+      window.scrollTo({
+        top: 50,
+        behavior: 'smooth'
+      });
+    }, 2000);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener('wheel', this.handleWheelEvent);
   }
 
   switchPage(pageNum) {
-    debugger
     const nextPage = document.querySelector(`#splash-${pageNum}`);
+    nextPage.scrollIntoView({ behavior: "smooth"});
     const pageSwitchInterval = setInterval(() => {
-      // error
-      if (nextPage.offsetHeight === window.pageYOffset) {
+      if (nextPage.offsetTop === window.pageYOffset) {
         window.clearInterval(pageSwitchInterval);
-        alert(4);
+        window.removeEventListener('wheel', this.wheelEventId);
         this.setState({
           scrolling: false,
-          prevScrollTop: nextPage.offsetHeight
-        }, alert(this.state.scrolling))
+          prevScrollTop: nextPage.offsetTop
+        });
+      } else {
+        nextPage.scrollIntoView({ behavior: "smooth"});
       }
-      nextPage.scrollIntoView({ behavior: 'smooth' });
-    }, 500);
-    
+    }, 600);
+  }
+
+  handleClick(pageNum) {
+    this.setState({
+      scrolling: true,
+      pageNum: pageNum
+    }, () => {
+      this.switchPage(this.state.pageNum);
+    });
   }
   
   render() {
@@ -102,7 +118,7 @@ class Splash extends Component {
     // ]
     
     const splashBg1 = {
-      // background: `url(${bgImages[0]})`,
+      background: `url(${bgImages[0]})`,
       backgroundColor: 'red',
       position: 'relative',
       height: window.innerHeight,
@@ -146,18 +162,17 @@ class Splash extends Component {
       backgroundAttachment: 'fixed',
       backgroundSize: 'cover',
     };
-       
-      
+    
     return (
       <>
       <ul id="splash-links">
-      <button onClick={() => this.switchPage(1)}>1</button>
-      <button onClick={() => this.switchPage(2)}>2</button>
-      <button onClick={() => this.switchPage(3)}>3</button>
-      <button onClick={() => this.switchPage(4)}>4</button>
-      <button onClick={() => this.switchPage(5)}>5</button>
+      <button onClick={() => this.handleClick(1)}>1</button>
+      <button onClick={() => this.handleClick(2)}>2</button>
+      <button onClick={() => this.handleClick(3)}>3</button>
+      <button onClick={() => this.handleClick(4)}>4</button>
+      <button onClick={() => this.handleClick(5)}>5</button>
       </ul>
-      <section id="pagepiling">
+      <section className="bounce">
         <div id="splash-1" style={splashBg1}>
           <a name="splash-1"></a>
           <div className="mid-content">
