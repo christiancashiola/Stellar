@@ -28,9 +28,11 @@
       </script>
     <% end %>
 
-    <% img = image_url("bg#{(rand(5) + 1).to_s}.jpg") %>
+    <% img1 = image_url("bg#{(rand(4) + 1).to_s}.jpg") %>
+    <% img2 = image_url("bg5.jpg") %>
     <script>      
-      window.splashUrl = "<%= img %>";
+      window.splashUrl1 = "<%= img1 %>";
+      window.splashUrl2 = "<%= img2 %>";
     </script>
   </head>
 

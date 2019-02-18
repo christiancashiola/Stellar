@@ -8,13 +8,14 @@ class Splash extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pageNum: 1,
-      prevScrollTop: 0,
+      pageNum: 0,
+      top: 0,
       scrolling: false,
     }
     this.scrollUp = this.scrollUp.bind(this);
     this.scrollDown = this.scrollDown.bind(this);
-    this.handleWheelEvent = this.handleWheelEvent.bind(this);
+    this.handleWheel = this.handleWheel.bind(this);
+    this.handleKeydown = this.handleKeydown.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -34,50 +35,65 @@ class Splash extends Component {
     });
   }
 
-  handleWheelEvent(e) {
+  handleWheel(e) {
     e.preventDefault();
+
     if (!this.state.scrolling) {
-      if (e.deltaY > 0 && this.state.pageNum < 5) {
-        this.setState({scrolling: true}, () => {
-          this.scrollDown();
-        });
-      } else if (this.state.pageNum > 1) {
+      this.setState({scrolling: true}, () => {
+      if (e.deltaY > 0 && this.state.pageNum < 4) {
+        this.scrollDown();
+      } else if (this.state.pageNum > 0) {
+        this.scrollUp();
+        }
+      });
+    }
+  }
+
+  handleKeydown(e) {
+    const keyCode = e.keyCode;
+    if (keyCode === 38 || keyCode === 40) {
+      e.preventDefault();
+    }
+
+    if (!this.state.scrolling) {
+      if (e.keyCode === 38) {
         this.setState({scrolling: true}, () => {
           this.scrollUp();
+        });
+      } else if (e.keyCode === 40) {
+        this.setState({scrolling: true}, () => {
+          this.scrollDown();
         });
       }
     }
   }
   
-  componentDidMount() {
-    window.addEventListener('wheel', this.handleWheelEvent);
+  peek() {
     setTimeout(() => {
       window.scrollTo({
         top: 50,
         behavior: 'smooth'
       });
-    }, 2000);
+    }, 2500);
+  }
+  
+  componentDidMount() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.addEventListener('keydown', this.handleKeydown);
+    window.addEventListener('wheel', this.handleWheel);
+    this.peek();
   }
 
   componentWillUnmount() {
-    window.removeEventListener('wheel', this.handleWheelEvent);
+    window.removeEventListener('wheel', this.handleKeydown);
+    window.removeEventListener('wheel', this.handleWheel);
   }
 
   switchPage(pageNum) {
-    const nextPage = document.querySelector(`#splash-${pageNum}`);
-    nextPage.scrollIntoView({ behavior: "smooth"});
-    const pageSwitchInterval = setInterval(() => {
-      if (nextPage.offsetTop === window.pageYOffset) {
-        window.clearInterval(pageSwitchInterval);
-        window.removeEventListener('wheel', this.wheelEventId);
-        this.setState({
-          scrolling: false,
-          prevScrollTop: nextPage.offsetTop
-        });
-      } else {
-        nextPage.scrollIntoView({ behavior: "smooth"});
-      }
-    }, 600);
+    window.scrollTo({ top: this.state.pageNum * 720, behavior: "smooth"});
+    setTimeout(() => {
+      this.setState({scrolling: false})
+    }, 2000);
   }
 
   handleClick(pageNum) {
@@ -107,57 +123,20 @@ class Splash extends Component {
       getStartedBtn = null;
       loginBtn = null;
     }
-
-    const imgNumber = Math.floor(Math.random() * 5);
-    // const bgImages = [
-    //   'https://s3.amazonaws.com/stellar-dev/bg1.jpg',
-    //   'https://s3.amazonaws.com/stellar-dev/bg2.jpg',
-    //   'https://s3.amazonaws.com/stellar-dev/bg3.jpg',
-    //   'https://s3.amazonaws.com/stellar-dev/bg4.jpg',
-    //   'https://s3.amazonaws.com/stellar-dev/bg5.jpg'
-    // ]
     
-    const splashBg1 = {
-      background: `url(${bgImages[0]})`,
-      backgroundColor: 'red',
+    const mainSplashStyle = {
+      background: `url( ${ window.splashUrl1 })`,
       position: 'relative',
-      height: window.innerHeight,
+      height: '100vh',
       backgroundRepeat: 'no-repeat',
       backgroundAttachment: 'fixed',
       backgroundSize: 'cover',
     };
-    const splashBg2 = {
-      // background: `url(${bgImages[2]})`,
-      backgroundColor: 'blue',
+
+    const lastSplashStyle = {
+      background: `url( ${ window.splashUrl2 })`,
       position: 'relative',
-      height: window.innerHeight,
-      backgroundRepeat: 'no-repeat',
-      backgroundAttachment: 'fixed',
-      backgroundSize: 'cover',
-    };
-    const splashBg3 = {
-      // background: `url(${bgImages[2]})`,
-      backgroundColor: 'green',
-      position: 'relative',
-      height: window.innerHeight,
-      backgroundRepeat: 'no-repeat',
-      backgroundAttachment: 'fixed',
-      backgroundSize: 'cover',
-    };
-    const splashBg4 = {
-      // background: `url(${bgImages[2]})`,
-      backgroundColor: 'purple',
-      position: 'relative',
-      height: window.innerHeight,
-      backgroundRepeat: 'no-repeat',
-      backgroundAttachment: 'fixed',
-      backgroundSize: 'cover',
-    };
-    const splashBg5 = {
-      // background: `url(${bgImages[2]})`,
-      backgroundColor: 'yellow',
-      position: 'relative',
-      height: window.innerHeight,
+      height: '100vh',
       backgroundRepeat: 'no-repeat',
       backgroundAttachment: 'fixed',
       backgroundSize: 'cover',
@@ -166,26 +145,22 @@ class Splash extends Component {
     return (
       <>
       <ul id="splash-links">
-      <button onClick={() => this.handleClick(1)}>1</button>
-      <button onClick={() => this.handleClick(2)}>2</button>
-      <button onClick={() => this.handleClick(3)}>3</button>
-      <button onClick={() => this.handleClick(4)}>4</button>
-      <button onClick={() => this.handleClick(5)}>5</button>
+        <button onClick={() => this.handleClick(0)}>1</button>
+        <button onClick={() => this.handleClick(1)}>2</button>
+        <button onClick={() => this.handleClick(2)}>3</button>
+        <button onClick={() => this.handleClick(3)}>4</button>
+        <button onClick={() => this.handleClick(4)}>5</button>
       </ul>
-      <section className="bounce">
-        <div id="splash-1" style={splashBg1}>
-          <a name="splash-1"></a>
+      <section className="splash-container">
+        <article className="splash-article" id="splash-0" style={mainSplashStyle}>
           <div className="mid-content">
-              <span id="main-header">
-              <i className="far fa-star-half"></i><h1 className="head-logo logo">stellar</h1>
-              </span>
-            <p>
-              Discover yourself<br/>amongst the stars.
-            </p>
-
+            <span id="main-header">
+              <i className="far fa-star-half"></i>
+              <h1 className="head-logo logo">stellar</h1>
+            </span>
+            <p>Discover yourself<br/>amongst the stars.</p>
             <Route path="/register" component={SignUpFormContainer} />
             <Route path='/login' component={LoginFormContainer} />
-            
             {getStartedBtn}
             {loginBtn}
             <button 
@@ -193,72 +168,32 @@ class Splash extends Component {
               className="demo-login">Demo Login
             </button>
           </div>
+        </article>
+        <article className="splash-article" id="splash-1">
+          <h3 id="sup">Sup.</h3>
+
+        </article>
+        <article className="splash-article" id="splash-2">
+
+        </article>
+        <article className="splash-article" id="splash-3">
+
+        </article>
+        <article className="splash-article" id="splash-5" style={lastSplashStyle}>
           
-          <div className="footer">
-            <a className="business-link" href="https://github.com/christiancashiola">
-              <i className="fab fa-github"></i>
-            </a>
-            <a className="business-link" href="https://angel.co/christian-cashiola">
-              <i className="fab fa-angellist"></i>
-            </a>
-            <a className="business-link" href="https://www.linkedin.com/in/christian-cashiola-48574616b/">
-              <i className="fab fa-linkedin-in"></i>
-            </a>
-          </div>
-        </div>
-        <div id="splash-2" style={splashBg2}>
-          <div className="footer">
-            <a className="business-link" href="https://github.com/christiancashiola">
-              <i className="fab fa-github"></i>
-            </a>
-            <a className="business-link" href="https://angel.co/christian-cashiola">
-              <i className="fab fa-angellist"></i>
-            </a>
-            <a className="business-link" href="https://www.linkedin.com/in/christian-cashiola-48574616b/">
-              <i className="fab fa-linkedin-in"></i>
-            </a>
-          </div>
-        </div>
-        <div id="splash-3" style={splashBg3}>
-          <div className="footer">
-            <a className="business-link" href="https://github.com/christiancashiola">
-              <i className="fab fa-github"></i>
-            </a>
-            <a className="business-link" href="https://angel.co/christian-cashiola">
-              <i className="fab fa-angellist"></i>
-            </a>
-            <a className="business-link" href="https://www.linkedin.com/in/christian-cashiola-48574616b/">
-              <i className="fab fa-linkedin-in"></i>
-            </a>
-          </div>
-        </div>
-        <div id="splash-4" style={splashBg4}>
-          <div className="footer">
-            <a className="business-link" href="https://github.com/christiancashiola">
-              <i className="fab fa-github"></i>
-            </a>
-            <a className="business-link" href="https://angel.co/christian-cashiola">
-              <i className="fab fa-angellist"></i>
-            </a>
-            <a className="business-link" href="https://www.linkedin.com/in/christian-cashiola-48574616b/">
-              <i className="fab fa-linkedin-in"></i>
-            </a>
-          </div>
-        </div>
-        <div id="splash-5" style={splashBg5}>
-          <div className="footer">
-            <a className="business-link" href="https://github.com/christiancashiola">
-              <i className="fab fa-github"></i>
-            </a>
-            <a className="business-link" href="https://angel.co/christian-cashiola">
-              <i className="fab fa-angellist"></i>
-            </a>
-            <a className="business-link" href="https://www.linkedin.com/in/christian-cashiola-48574616b/">
-              <i className="fab fa-linkedin-in"></i>
-            </a>
-          </div>
-        </div>
+        </article>
       </section>
+      <div className="footer">
+          <a className="business-link" href="https://github.com/christiancashiola">
+            <i className="fab fa-github"></i>
+          </a>
+          <a className="business-link" href="https://angel.co/christian-cashiola">
+            <i className="fab fa-angellist"></i>
+          </a>
+          <a className="business-link" href="https://www.linkedin.com/in/christian-cashiola-48574616b/">
+            <i className="fab fa-linkedin-in"></i>
+          </a>
+        </div>
       </>
     );
   }

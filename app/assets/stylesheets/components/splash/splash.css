@@ -121,7 +121,7 @@
 
 .footer {
   display: flex;
-  position: absolute;
+  position: fixed;
   bottom: 1%;
   padding-left: 10px;
 }
@@ -155,4 +155,27 @@
 
 #splash-page-container {
   scroll-behavior: smooth;
+}
+
+.splash-article {
+  position: relative;
+  height: 100vh;
+}
+
+#splash-1 {
+  background-color: #20CD40;
+}
+
+#splash-2 {
+  background-color: #7C62FB;
+}
+
+#splash-3 {
+ background-color: #FD8A25;
+}
+
+#sup {
+  width: 100%;
+  text-align: center;
+  margin: 0;
 }
