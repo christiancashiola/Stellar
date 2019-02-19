@@ -28,9 +28,13 @@
   display: inline-block;
 }
 
+.sm-circle:hover {
+  border: 3px solid #ddd;
+}
+
 .glow {
-  border: 3px solid #aaa;
-  background-color: #aaa;
+  border: 3px solid #ddd;
+  background-color: #ddd;
 }
 
 #splash-page-container {

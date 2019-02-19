@@ -130,9 +130,10 @@
   margin-right: 10px;
   text-decoration: none;
   color: #fff;
+  text-shadow: -1px -3px #444;
   display: flex;
   align-items: center;
-  transition: 0.1s;
+  transition: 0.3s ease-in-out;
 }
 
 .business-link:last-of-type {
@@ -140,5 +141,6 @@
 }
 
 .business-link:hover {
-  color: #fff;
+  color: #444;
+  text-shadow: -1px -3px #fff;
 }
