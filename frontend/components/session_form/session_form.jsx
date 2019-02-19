@@ -38,14 +38,12 @@ class SessionForm extends Component {
             <input
               onChange={this.update('email')}
               type="text" 
-              placeholder="Email"
-              id="email"/>
+              placeholder="Email"/>
             <label htmlFor="password"></label>
               <input
               onChange={this.update('password')}
               type="password"
-              placeholder="Password"
-              id="password"/> 
+              placeholder="Password"/> 
             {usernameField ? usernameField(this.update) : null}
         </div>
 

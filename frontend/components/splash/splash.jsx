@@ -4,8 +4,9 @@ import SignUpFormContainer from '../session_form/signup_form_container';
 import LoginFormContainer from '../session_form/login_form_container';
 
 
-export default ({ handleClick, demoLogin, toggleHeaderVisibility, location }) => {
+export default ({ handleClick, demoLogin, hideHeader, location }) => {
 
+  
   let getStartedBtn = (
     <Link to="/register">
       <button className="lg-blue-btn">Get Started</button>
@@ -88,11 +89,38 @@ export default ({ handleClick, demoLogin, toggleHeaderVisibility, location }) =>
       <article className="splash-article" id="splash-1">
         <h3 onClick={() => {
           handleClick(1);
-          toggleHeaderVisibility();
+          hideHeader();
          }} id="what-is-stellar">
           What is Stellar?
         </h3>
-
+        <div className="splash-content-container">
+          <i id="ornament-16" className="ornament fas fa-quote-left"></i>
+          <i id="ornament-1" className="ornament fas fa-comments"></i>
+          <i id="ornament-2" className="ornament fas fa-retweet"></i>
+          <i id="ornament-3" className="ornament fas fa-infinity"></i>
+          <i id="ornament-4" className="ornament fas fa-plus"></i>
+          <i id="ornament-5" className="ornament far fa-heart"></i>
+          <i id="ornament-6" className="ornament fas fa-user-astronaut"></i>
+          <i id="ornament-7" className="ornament fas fa-space-shuttle"></i>
+          <i id="ornament-8" className="ornament fas fa-meteor"></i>
+          <i id="ornament-9" className="ornament fas fa-user-friends"></i>
+          <i id="ornament-10" className="ornament fas fa-camera"></i>
+          <i id="ornament-11" className="ornament fas fa-quote-left"></i>
+          <i id="ornament-12" className="ornament fas fa-link"></i>
+          <i id="ornament-14" className="ornament fas fa-video"></i>
+          <i id="ornament-15" className="ornament fas fa-plus"></i>
+          <i id="ornament-17" className="ornament fas fa-exclamation"></i>
+          <i id="ornament-18" className="ornament fas fa-bookmark"></i>
+          <i id="ornament-19" className="ornament fas fa-moon"></i>
+          <i id="ornament-20" className="ornament fas fa-globe-americas"></i>
+          <i id="ornament-21" className="ornament fas fa-sun"></i>
+          <i id="ornament-13" className="ornament fas fa-headphones-alt"></i>
+          <i id="ornament-22" className="ornament fas fa-pen"></i>
+          <div className="sm-logo big-sm-logo">
+            <i className="far fa-star-half"></i>
+            <h5 id="logo-s">S</h5>
+          </div>
+        </div>
       </article>
       <article className="splash-article" id="splash-2">
 
@@ -113,6 +141,7 @@ export default ({ handleClick, demoLogin, toggleHeaderVisibility, location }) =>
         </div>
       </article>
     </section>
+
     <div className="footer">
         <a className="business-link" href="https://github.com/christiancashiola">
           <i className="fab fa-github"></i>
@@ -126,4 +155,4 @@ export default ({ handleClick, demoLogin, toggleHeaderVisibility, location }) =>
       </div>
     </>
   );
-}
+};

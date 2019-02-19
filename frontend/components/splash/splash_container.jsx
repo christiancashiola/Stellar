@@ -23,6 +23,7 @@ class SplashContainer extends Component {
     this.setState((prevState, _) => ({page: prevState.page -= 1}), () => {
       this.updateSplashLinks(this.state.page, this.state.page + 1);
       this.switchPage(this.state.page);
+      this.hideHeader();
     });
   }
 
@@ -30,6 +31,7 @@ class SplashContainer extends Component {
     this.setState((prevState, _) => ({page: prevState.page += 1}), () => {
       this.updateSplashLinks(this.state.page, this.state.page - 1);
       this.switchPage(this.state.page);
+      this.hideHeader();
     });
   }
 
@@ -77,6 +79,15 @@ class SplashContainer extends Component {
       });
     }, 2000);
   }
+
+  componentDidUpdate() {
+    const content = document.querySelector('.splash-content-container');
+    if (this.state.page === 1) {
+      content.style.display = 'flex';
+    } else if (this.state.page !== 1) {
+      content.style.display = 'none';
+    }
+  }
   
   componentDidMount() {
     const stopScroll = e => e.preventDefault();
@@ -109,19 +120,20 @@ class SplashContainer extends Component {
       scrolling: true,
       page: page
     }, () => {
+      this.hideHeader();
       this.updateSplashLinks(this.state.page, prevPage);
       this.switchPage(this.state.page);
     });
   }
 
-  toggleHeaderVisibility() {
-    document.querySelector('#what-is-stellar').classList.toggle('hidden');
+  hideHeader() {
+    document.querySelector('#what-is-stellar').classList.add('hidden');
   }
   
   render() {
     return (
       <Splash 
-        toggleHeaderVisibility={this.toggleHeaderVisibility}
+        hideHeader={this.hideHeader}
         demoLogin={this.props.demoLogin}
         handleClick={this.handleClick}
         location={this.props.location}

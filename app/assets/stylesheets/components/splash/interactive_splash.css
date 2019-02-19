@@ -51,20 +51,15 @@
 }
 
 #splash-1 {
-  /* background-color: #7C62FB; */
-  background-color: #B82601;
-  box-shadow: 0 5px 10px 3px rgba(0, 0, 0, 0.4);
+  background-color: #55c689;
 }
 
 #splash-2 {
-  /* background-color: #51A337; */
-  background-color: #062F4F;
-  
+  background-color: #AF86C8;
 }
 
 #splash-3 {
- /* background-color: #FD8925; */
- background-color: #813772;
+ background-color: #F1A344;
 }
 
 #splash-4 {
@@ -73,4 +68,485 @@
 
 .last-splash {
   top: 45%;
+}
+
+/* CONTENT */
+.splash-content-container {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: calc(100vw / 2 - 85px);
+  top: calc(100vh / 3 + 10px);
+  color: #fff;
+}
+
+.big-sm-logo {
+  text-shadow: 0 0 3px #222;
+  padding-right: 10px;
+  font-size: 124px;
+}
+
+.big-sm-logo i {
+  font-size: 118px;
+  margin-right: -85px;
+}
+
+.ornament {
+  -webkit-text-fill-color: #55c689;
+  -webkit-text-stroke-color: #367e58;
+  -webkit-text-stroke-width: 3px;
+  position: absolute;
+  transition: 1s;
+}
+
+#ornament-1 {
+  opacity: 0;
+  animation: slide-1 2s ease 1 forwards;
+  animation-delay: 0.3s;
+  font-size: 115px;
+}
+
+@keyframes slide-1 {
+  0% { 
+    left: 600px;
+    bottom: 500px;
+    opacity: 0;
+  }
+  100% { 
+    left: 155px;
+    bottom: 135px;
+    opacity: 1;
+  }
+}
+
+#ornament-2 {
+  transform: rotate(-10deg);
+  font-size: 85px;
+  animation: slide-2 2s ease 1 forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+@keyframes slide-2 {
+  0% { 
+    right: 600px;
+    top: 500px;
+    opacity: 0;
+  }
+  100% { 
+    right: 180px;
+    top: 140px;
+    opacity: 1;
+  }
+}
+
+#ornament-3 {
+  transform: rotate(53deg);
+  font-size: 95px;
+  animation: slide-3 2s ease 1 forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+@keyframes slide-3 {
+  0% { 
+    left: 300px;
+    bottom: 400px;
+    opacity: 0;
+  }
+  100% { 
+    left: 80px;
+    bottom: 80px;
+    opacity: 1;
+  }
+}
+
+#ornament-4 {
+  font-size: 60px;
+  animation: slide-4 2s ease 1 forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+@keyframes slide-4 {
+  0% { 
+    right: 800px;
+    top: 400px;
+    opacity: 0;
+  }
+  100% { 
+    right: 220px;
+    top: 20px;
+    opacity: 1;
+  }
+}
+
+#ornament-5 {
+  font-size: 80px;
+  animation: slide-5 2s ease 1 forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+@keyframes slide-5 {
+  0% { 
+    left: 800px;
+    bottom: 200px;
+    opacity: 0;
+  }
+  100% { 
+    left: 190px;
+    bottom: 60px;
+    opacity: 1;
+  }
+}
+
+#ornament-6 {
+  transform: rotate(180deg);
+  font-size: 135px;
+  animation: slide-6 2s ease 1 forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+@keyframes slide-6 {
+  0% { 
+    right: 300px;
+    bottom: 400px;
+    opacity: 0;
+  }
+  100% { 
+    bottom: 100px;
+    right: 130px;
+    opacity: 1;
+  }
+}
+
+#ornament-7 {
+  transform: rotate(160deg);
+  font-size: 120px;
+  animation: slide-7 2s ease 1 forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+@keyframes slide-7 {
+  0% { 
+    left: 600px;
+    top: 400px;
+    opacity: 0;
+  }
+  100% { 
+    left: 80px;
+    top: 105px;
+    opacity: 1;
+  }
+}
+
+#ornament-8 {
+  transform: rotate(180deg);
+  font-size: 80px;
+  animation: slide-8 2s ease 1 forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+@keyframes slide-8 {
+  0% { 
+    right: 800px;
+    top: 30px;
+    opacity: 0;
+  }
+  100% { 
+    right: 120px;
+    top: 30px;
+    opacity: 1;
+  }
+}
+
+#ornament-9 {
+  font-size: 105px;
+  animation: slide-9 2s ease 1 forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+@keyframes slide-9 {
+  0% { 
+    right: 700px;
+    top: 80px;
+    opacity: 0;
+  }
+  100% { 
+    right: 195px;
+    top: 50px;
+    opacity: 1;
+  }
+}
+
+#ornament-10 {
+  transform: rotate(30deg);
+  font-size: 70px;
+  animation: slide-10 2s ease 1 forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+@keyframes slide-10 {
+  0% { 
+    bottom: 400px;
+    right: 70px;
+    opacity: 0;
+  }
+  100% { 
+    bottom: 115px;
+    right: 55px;
+    opacity: 1;
+  }
+}
+
+#ornament-11 {
+  transform: rotate(15deg);
+  font-size: 60px;
+  animation: slide-11 2s ease 1 forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+@keyframes slide-11 {
+  0% { 
+    left: 200px;
+    bottom: 420px;
+    opacity: 0;
+  }
+  100% { 
+    left: 120px;
+    bottom: 210px;
+    opacity: 1;
+  }
+}
+
+#ornament-12 {
+  font-size: 85px;
+  animation: slide-12 2s ease 1 forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+@keyframes slide-12 {
+  0% { 
+    right: 900px;
+    bottom: 200px;
+    opacity: 0;
+  }
+  100% { 
+    right: 240px;
+    bottom: 100px;
+    opacity: 1;
+  }
+}
+
+#ornament-13 {
+  font-size: 85px;
+  animation: slide-13 2s ease 1 forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+@keyframes slide-13 {
+  0% { 
+    right: 110px;
+    top: 500px;
+    opacity: 0;
+  }
+  100% { 
+    right: 90px;
+    top: 105px;
+    opacity: 1;
+  }
+}
+
+#ornament-14 {
+  transform: rotate(180deg);
+  font-size: 75px;
+  animation: slide-14 2s ease 1 forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+@keyframes slide-14 {
+  0% { 
+    left: 900px;
+    top: 150px;
+    opacity: 0;
+  }
+  100% { 
+    left: 200px;
+    top: 50px;
+    opacity: 1;
+  }
+}
+
+#ornament-15 {
+  font-size: 55px;
+  animation: slide-15 2s ease 1 forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+@keyframes slide-15 {
+  0% { 
+    left: 700px;
+    top: 400px;
+    opacity: 0;
+  }
+  100% { 
+    left: 110px;
+    top: 65px;
+    opacity: 1;
+  }
+}
+
+#ornament-16 {
+  transform: rotate(200deg);
+  font-size: 60px;
+  animation: slide-16 2s ease 1 forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+@keyframes slide-16 {
+  0% { 
+    left: 900px;
+    bottom: 20px;
+    opacity: 0;
+  }
+  100% { 
+    left: 270px;
+    bottom: 120px;
+    opacity: 1;
+  }
+}
+
+#ornament-17 {
+  font-size: 80px;
+  animation: slide-17 2s ease 1 forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+@keyframes slide-17 {
+  0% { 
+    right: 120px;
+    bottom: 500px;
+    opacity: 0;
+  }
+  100% { 
+    bottom: 190px;
+    right: 95px;
+    opacity: 1;
+  }
+}
+
+#ornament-18 {
+  font-size: 60px;
+  animation: slide-18 2s ease 1 forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+@keyframes slide-18 {
+  0% { 
+    left: 850px;
+    bottom: 0px;
+    opacity: 0;
+  }
+  100% { 
+    left: 290px;
+    bottom: 50px;
+    opacity: 1;
+  }
+}
+
+#ornament-19 {
+  transform: rotate(-10deg);
+  font-size: 70px;
+  animation: slide-19 2s ease 1 forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+@keyframes slide-19 {
+  0% { 
+    left: 700px;
+    top: 500px;
+    opacity: 0;
+  }
+  100% { 
+    left: 235px;
+    top: 120px;
+    opacity: 1;
+  }
+}
+
+#ornament-20 {
+  font-size: 82px;
+  animation: slide-20 2s ease 1 forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+@keyframes slide-20 {
+  0% { 
+    padding-left: 0px;
+    bottom: 500px;
+    opacity: 0;
+  }
+  100% { 
+    padding-left: 15px;
+    bottom: 180px;
+    opacity: 1;
+  }
+}
+
+#ornament-21 {
+  font-size: 100px;
+  animation: slide-21 2s ease 1 forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+@keyframes slide-21 {
+  0% { 
+    top: 500px;
+    right: 80px;
+    opacity: 0;
+  }
+  100% { 
+    top: 125px;
+    right: 30px;
+    opacity: 1;
+  }
+}
+
+#ornament-22 {
+  transform: rotate(-100deg);
+  font-size: 40px;
+  animation: slide-22 2s ease 1 forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+@keyframes slide-22 {
+  0% { 
+    top: 500px;
+    left: 800px;
+    opacity: 0;
+  }
+  100% { 
+    top: 115px;
+    left: 80px;
+    opacity: 1;
+  }
 }
