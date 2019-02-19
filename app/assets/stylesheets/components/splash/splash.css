@@ -53,11 +53,10 @@
   color: #fff;
   font-size: 20px;
   font-weight: 400;
-  margin: 0 0 15px;
+  margin: 0 0 5px;
   letter-spacing: 1px;
   line-height: 20px;
-  background-color: rgba(25, 25, 25, 0.5);
-  padding: 10px;
+  padding-bottom: 10px;
   border-radius: 3px;
 }
 
@@ -122,15 +121,15 @@
 .footer {
   display: flex;
   position: fixed;
-  bottom: 1%;
+  bottom: 10px;
   padding-left: 10px;
 }
 
 .business-link {
-  font-size: 24px;
+  font-size: 30px;
   margin-right: 10px;
   text-decoration: none;
-  color: #aaa;
+  color: #fff;
   display: flex;
   align-items: center;
   transition: 0.1s;
@@ -142,40 +141,4 @@
 
 .business-link:hover {
   color: #fff;
-}
-
-#splash-links {
-  display: flex;
-  flex-flow: column;
-  position: fixed;
-  top: 40%;
-  left: 5px;
-  z-index: 5;
-}
-
-#splash-page-container {
-  scroll-behavior: smooth;
-}
-
-.splash-article {
-  position: relative;
-  height: 100vh;
-}
-
-#splash-1 {
-  background-color: #20CD40;
-}
-
-#splash-2 {
-  background-color: #7C62FB;
-}
-
-#splash-3 {
- background-color: #FD8A25;
-}
-
-#sup {
-  width: 100%;
-  text-align: center;
-  margin: 0;
 }

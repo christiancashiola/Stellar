@@ -8,7 +8,7 @@ class Splash extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pageNum: 0,
+      page: 0,
       top: 0,
       scrolling: false,
     }
@@ -20,29 +20,32 @@ class Splash extends Component {
   }
 
   scrollUp() {
-    this.setState((prevState, _) => ({
-      pageNum: prevState.pageNum -= 1
-    }), () => {
-      this.switchPage(this.state.pageNum);
+    this.setState((prevState, _) => ({page: prevState.page -= 1}), () => {
+      this.updateSplashLinks(this.state.page, this.state.page + 1);
+      this.switchPage(this.state.page);
     });
   }
 
   scrollDown() {
-    this.setState((prevState, _) => ({
-      pageNum: prevState.pageNum += 1
-    }), () => {
-      this.switchPage(this.state.pageNum);
+    this.setState((prevState, _) => ({page: prevState.page += 1}), () => {
+      this.updateSplashLinks(this.state.page, this.state.page - 1);
+      this.switchPage(this.state.page);
     });
+  }
+
+  updateSplashLinks(newPage, prevPage) {
+    const splashLinks = document.querySelector('#splash-links').children;
+    splashLinks[prevPage].classList.remove('glow');
+    splashLinks[newPage].classList.add('glow');
   }
 
   handleWheel(e) {
     e.preventDefault();
-
     if (!this.state.scrolling) {
       this.setState({scrolling: true}, () => {
-      if (e.deltaY > 0 && this.state.pageNum < 4) {
+      if (e.deltaY > 0 && this.state.page < 4) {
         this.scrollDown();
-      } else if (this.state.pageNum > 0) {
+      } else if (this.state.page > 0) {
         this.scrollUp();
         }
       });
@@ -50,19 +53,17 @@ class Splash extends Component {
   }
 
   handleKeydown(e) {
-    const keyCode = e.keyCode;
-    if (keyCode === 38 || keyCode === 40) {
-      e.preventDefault();
-    }
-
+    // This check must happen here and not below to cancel default
+    if (e.keyCode === 40 || e.keyCode === 38) e.preventDefault();
+    
     if (!this.state.scrolling) {
-      if (e.keyCode === 38) {
-        this.setState({scrolling: true}, () => {
-          this.scrollUp();
-        });
-      } else if (e.keyCode === 40) {
+      if (e.keyCode === 40 && this.state.page < 4) {
         this.setState({scrolling: true}, () => {
           this.scrollDown();
+        });
+      } else if (e.keyCode === 38 && this.state.page > 0) {
+        this.setState({scrolling: true}, () => {
+          this.scrollUp();
         });
       }
     }
@@ -74,13 +75,19 @@ class Splash extends Component {
         top: 50,
         behavior: 'smooth'
       });
-    }, 2500);
+    }, 2000);
   }
   
   componentDidMount() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const stopScroll = e => e.preventDefault();
+    window.scrollTo(0, 0);
     window.addEventListener('keydown', this.handleKeydown);
-    window.addEventListener('wheel', this.handleWheel);
+    window.addEventListener('wheel', stopScroll);
+    setTimeout(() => {
+      window.removeEventListener('wheel', stopScroll);
+      window.addEventListener('wheel', this.handleWheel);
+    }, 2000);
+
     this.peek();
   }
 
@@ -89,20 +96,26 @@ class Splash extends Component {
     window.removeEventListener('wheel', this.handleWheel);
   }
 
-  switchPage(pageNum) {
-    window.scrollTo({ top: this.state.pageNum * 720, behavior: "smooth"});
+  switchPage(page) {
+    window.scrollTo({ top: this.state.page * window.innerHeight, behavior: "smooth"});
     setTimeout(() => {
       this.setState({scrolling: false})
     }, 2000);
   }
 
-  handleClick(pageNum) {
+  handleClick(page) {
+    const prevPage = this.state.page;
     this.setState({
       scrolling: true,
-      pageNum: pageNum
+      page: page
     }, () => {
-      this.switchPage(this.state.pageNum);
+      this.updateSplashLinks(this.state.page, prevPage);
+      this.switchPage(this.state.page);
     });
+  }
+
+  toggleHeaderVisibility() {
+    document.querySelector('#what-is-stellar').classList.toggle('hidden');
   }
   
   render() {
@@ -130,6 +143,7 @@ class Splash extends Component {
       height: '100vh',
       backgroundRepeat: 'no-repeat',
       backgroundAttachment: 'fixed',
+      backgroundPosition: 'bottom',
       backgroundSize: 'cover',
     };
 
@@ -142,14 +156,30 @@ class Splash extends Component {
       backgroundSize: 'cover',
     };
     
+    
     return (
       <>
       <ul id="splash-links">
-        <button onClick={() => this.handleClick(0)}>1</button>
-        <button onClick={() => this.handleClick(1)}>2</button>
-        <button onClick={() => this.handleClick(2)}>3</button>
-        <button onClick={() => this.handleClick(3)}>4</button>
-        <button onClick={() => this.handleClick(4)}>5</button>
+        <button 
+          className="glow sm-circle" 
+          onClick={() => this.handleClick(0)}>
+        </button>
+        <button 
+          className="sm-circle"
+          onClick={() => this.handleClick(1)}>
+        </button>
+        <button 
+          className="sm-circle"
+          onClick={() => this.handleClick(2)}>
+        </button>
+        <button 
+          className="sm-circle" 
+          onClick={() => this.handleClick(3)}>
+        </button>
+        <button 
+          className="sm-circle" 
+          onClick={() => this.handleClick(4)}>
+        </button>
       </ul>
       <section className="splash-container">
         <article className="splash-article" id="splash-0" style={mainSplashStyle}>
@@ -170,7 +200,12 @@ class Splash extends Component {
           </div>
         </article>
         <article className="splash-article" id="splash-1">
-          <h3 id="sup">Sup.</h3>
+          <h3 onClick={() => {
+            this.handleClick(1);
+            this.toggleHeaderVisibility();
+           }} id="what-is-stellar">
+            What is Stellar?
+          </h3>
 
         </article>
         <article className="splash-article" id="splash-2">
@@ -179,8 +214,17 @@ class Splash extends Component {
         <article className="splash-article" id="splash-3">
 
         </article>
-        <article className="splash-article" id="splash-5" style={lastSplashStyle}>
-          
+        <article className="splash-article" id="splash-4" style={lastSplashStyle}>
+          <div className="mid-content last-splash">
+            <Route path="/register" component={SignUpFormContainer} />
+            <Route path='/login' component={LoginFormContainer} />
+            {getStartedBtn}
+            {loginBtn}
+            <button 
+              onClick={this.props.demoLogin}
+              className="demo-login">Demo Login
+            </button>
+          </div>
         </article>
       </section>
       <div className="footer">
