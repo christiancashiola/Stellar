@@ -21,7 +21,8 @@ class EditTextForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     if (this.state.body.length) {
-      this.props.updatePost(merge({}, this.props.post, this.state), this.props.post.id)
+      const post = merge({}, this.props.post, this.state);
+      this.props.updatePost({ post }, this.props.post.id)
         .then(this.setState({ body: '', title: '', tag: '' }));
       this.props.closeModal();  
     }
@@ -77,7 +78,7 @@ class EditTextForm extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  updatePost: post => dispatch(updatePost(post)),
+  updatePost: (post, id) => dispatch(updatePost(post, id)),
   closeModal: () => dispatch(closeModal()),
 });
 

@@ -94,6 +94,12 @@ class SplashContainer extends Component {
     if (window.innerHeight >= 720 && window.innerWidth >= 920) {
       updateAnimations(this.state.page);
     }
+    const nav = document.querySelector('.nav');
+    if (this.state.page !== 0 && this.state.page !== 4) {
+      nav.style.display = 'none';
+    } else {
+      nav.style.display = 'flex';
+    }
   }
 
   handleResize(e) {
@@ -112,7 +118,7 @@ class SplashContainer extends Component {
       window.addEventListener('resize', this.handleResize);
       window.addEventListener('wheel', stopScroll);
       setTimeout(() => {
-        window.removeEventListener('wheel', this.stopScroll);
+        window.removeEventListener('wheel', stopScroll);
         window.addEventListener('wheel', this.handleWheel);
         removeDisabled();
       }, 2000);
@@ -126,7 +132,6 @@ class SplashContainer extends Component {
     window.removeEventListener('keydown', this.handleKeydown);
     window.removeEventListener('wheel', this.handleWheel);
     window.removeEventListener('resize', this.checkSize);
-    window.removeEventListener('scroll', this.disableScrolling);
   }
 
   switchPage() {

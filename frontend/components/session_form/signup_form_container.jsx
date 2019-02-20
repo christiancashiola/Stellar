@@ -15,7 +15,7 @@ const mapStateToProps = ({ errors }) => {
         onChange={changeHandler('username')}
         type="text"
         placeholder="Username"
-        id="username"/>
+        name="username"/>
       </>
     )
   };
