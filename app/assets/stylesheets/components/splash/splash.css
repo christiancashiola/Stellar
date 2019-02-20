@@ -41,7 +41,7 @@
 }
 
 .mid-content {
-  position: relative;
+  position: absolute;
   display: flex;
   align-items: center;
   flex-flow: column;
@@ -54,11 +54,11 @@
 
 @keyframes slide-in {
   0% { 
-    top: 30%;
+    top: 60%;
     opacity: 0;
   }
   100% { 
-    top: 5%;
+    top: 25%;
     opacity: 1;
   }
 }

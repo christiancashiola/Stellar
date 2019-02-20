@@ -249,7 +249,7 @@ export default ({ handleClick, demoLogin, location }) => {
         </div>
       </article>
       <article className="splash-article" id="splash-4" style={lastSplashStyle}>
-        <div className="last-mid-content last-splash">
+        <div className="mid-content">
           <h2 className="splash-page-header">
             The final frontier<br />ins't so "final" afterall...
           </h2>

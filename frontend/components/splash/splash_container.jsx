@@ -62,7 +62,10 @@ class SplashContainer extends Component {
 
   handleKeydown(e) {
     // This check must happen here and not below to cancel default
-    if (e.keyCode === 40 || e.keyCode === 38) e.preventDefault();
+    if (e.keyCode === 33 || e.keyCode === 34 || e.keyCode === 35 ||
+        e.keyCode === 36 || e.keyCode === 38 || e.keyCode === 40) {
+        e.preventDefault();
+    }
     
     if (!this.state.scrolling) {
       if (e.keyCode === 40 && this.state.page < 4) {
