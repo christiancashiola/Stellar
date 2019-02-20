@@ -65,13 +65,14 @@
 
 .mid-content p {
   color: #fff;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 400;
   margin: 0 0 5px;
   letter-spacing: 1px;
   line-height: 20px;
   padding-bottom: 10px;
   border-radius: 3px;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5)
 }
 
 #main-header {
@@ -148,7 +149,7 @@
   text-shadow: -1px -2px #222;
   display: flex;
   align-items: center;
-  transition: 0.3s ease-in-out;
+  transition: 0.1s ease-in-out;
 }
 
 .business-link:last-of-type {
@@ -189,12 +190,6 @@
   padding-bottom: 65vh;
 }
 
-#splash-text-3 {
-  position: absolute;
-  padding-bottom: 79vh;
-}
-
-#splash-text-4 {
-  position: absolute;
-  padding-top: 85vh;
+#splash-4 h2 {
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9)
 }

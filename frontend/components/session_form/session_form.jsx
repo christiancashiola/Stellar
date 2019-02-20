@@ -32,7 +32,7 @@ class SessionForm extends Component {
     const { usernameField, formType, sessionErrors } = this.props;
     
     return (
-      <form className="session-form" onSubmit={this.handleSubmit}>
+      <form className="session-form" onSubmit={this.handleSubmit} autoComplete="off">
         <div className="input-wrapper">
           <label htmlFor="email"></label>
             <input

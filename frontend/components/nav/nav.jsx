@@ -20,6 +20,7 @@ const Nav = props => {
       </div>
     );
   }
+
   if (currentUser) {
     setColors(currentUser.modernColors);
     display = (

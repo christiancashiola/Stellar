@@ -59,11 +59,10 @@ export const setColors = modernColors => {
 
 export const removeDisabled = () => {
   const buttons = document.querySelectorAll('.sm-circle');
-  debugger
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].disabled = false;
   }
-  }
+};
 
 export const updateAnimations = (page) => {
   const content1 = document.querySelector('.mid-content');
@@ -102,4 +101,4 @@ export const updateAnimations = (page) => {
       content4.style.display = 'none';
       break;
   }
-}
+};

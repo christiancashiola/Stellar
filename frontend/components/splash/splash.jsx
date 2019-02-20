@@ -250,6 +250,9 @@ export default ({ handleClick, demoLogin, hideHeader, location }) => {
       </article>
       <article className="splash-article" id="splash-4" style={lastSplashStyle}>
         <div className="mid-content last-splash">
+          <h2 className="splash-page-header">
+            The final frontier<br />ins't so "final" afterall...
+          </h2>
           <Route path="/register" component={SignUpFormContainer} />
           <Route path='/login' component={LoginFormContainer} />
           {getStartedBtn}
@@ -263,16 +266,16 @@ export default ({ handleClick, demoLogin, hideHeader, location }) => {
     </section>
 
     <div className="footer">
-        <a className="business-link" href="https://github.com/christiancashiola">
-          <i className="fab fa-github"></i>
-        </a>
-        <a className="business-link" href="https://angel.co/christian-cashiola">
-          <i className="fab fa-angellist"></i>
-        </a>
-        <a className="business-link" href="https://www.linkedin.com/in/christian-cashiola-48574616b/">
-          <i className="fab fa-linkedin-in"></i>
-        </a>
-      </div>
+      <a className="business-link" href="https://github.com/christiancashiola">
+        <i className="fab fa-github"></i>
+      </a>
+      <a className="business-link" href="https://angel.co/christian-cashiola">
+        <i className="fab fa-angellist"></i>
+      </a>
+      <a className="business-link" href="https://www.linkedin.com/in/christian-cashiola-48574616b/">
+        <i className="fab fa-linkedin-in"></i>
+      </a>
+    </div>
     </>
   );
 };

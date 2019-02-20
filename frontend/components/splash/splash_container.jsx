@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import Splash from './splash';
 import { connect } from 'react-redux';
 import { login } from '../../actions/session_actions';
-import { updateAnimations, removeDisabled } from '../../util/ui_util';
+import {
+  updateAnimations,
+  removeDisabled,
+  checkSize,
+  disableScrolling
+} from '../../util/ui_util';
 
 class SplashContainer extends Component {
   
@@ -18,6 +23,8 @@ class SplashContainer extends Component {
     this.handleWheel = this.handleWheel.bind(this);
     this.handleKeydown = this.handleKeydown.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.checkSize = this.checkSize.bind(this);
+    this.disableScrolling = this.disableScrolling.bind(this);
   }
 
   scrollUp() {
@@ -71,6 +78,21 @@ class SplashContainer extends Component {
       }
     }
   }
+
+  checkSize(){
+    if (window.innerHeight < 760 || window.innerWidth < 920) {
+      window.scrollTo(0, 0);
+      document.querySelector('#splash-links').style.display = 'none';
+      window.removeEventListener('wheel', this.handleWheel);
+      window.removeEventListener('keydown', this.handleKeydown);
+      window.removeEventListener('keydown', this.handleKeydown);
+      window.addEventListener('scroll', disableScrolling);
+    }
+  }
+  
+  disableScrolling(){
+    window.scrollTo(0, 0);
+  }
   
   peek() {
     setTimeout(() => {
@@ -86,22 +108,27 @@ class SplashContainer extends Component {
   }
   
   componentDidMount() {
+    this.checkSize();
     const stopScroll = e => e.preventDefault();
     window.scrollTo(0, 0);
     window.addEventListener('keydown', this.handleKeydown);
+    window.addEventListener('resize', this.checkSize);
     window.addEventListener('wheel', stopScroll);
     setTimeout(() => {
-      window.removeEventListener('wheel', stopScroll);
+      window.removeEventListener('wheel', this.stopScroll);
       window.addEventListener('wheel', this.handleWheel);
       removeDisabled();
     }, 2000);
 
-    this.peek(0);
+    this.peek();
   }
 
   componentWillUnmount() {
-    window.removeEventListener('wheel', this.handleKeydown);
+    // Temporary disable interactive splash until further mobile development
+    window.removeEventListener('keydown', this.handleKeydown);
     window.removeEventListener('wheel', this.handleWheel);
+    window.removeEventListener('resize', this.checkSize);
+    window.removeEventListener('scroll', this.disableScrolling);
   }
 
   switchPage() {
