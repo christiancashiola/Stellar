@@ -15,8 +15,15 @@
   flex-flow: column;
   position: fixed;
   top: calc(50% - 80px);
-  left: 20px;
   z-index: 5;
+  left: -100px;
+  animation: links 0.5s ease 1 forwards;
+  animation-delay: 2s;
+}
+
+@keyframes links {
+  0% { left: -100px; }
+  100% { left: 20px; }
 }
 
 .sm-circle {
@@ -43,7 +50,11 @@
 }
 
 .splash-article {
-  /* overflow-y: hidden; */
+  color: #fff;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  overflow-y: hidden;
   display: flex;
   justify-content: center;
   height: 100vh;
@@ -60,7 +71,6 @@
 
 #splash-2 {
   background-color: rgb(126, 101, 252);
-  /* background-color: #011A34; */
 }
 
 #splash-3 {
@@ -68,7 +78,7 @@
 }
 
 .last-splash {
-  top: 45%;
+  padding-top: 150px;
 }
 
 /* SPLASH 1 */
@@ -95,7 +105,7 @@
 
 .ornament {
   -webkit-text-fill-color: #1ab537;
-  -webkit-text-stroke-color: #367e58;
+  -webkit-text-stroke-color: #2e5936;
   -webkit-text-stroke-width: 3px;
   position: absolute;
   transition: 1s;

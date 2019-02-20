@@ -144,8 +144,8 @@
   font-size: 30px;
   margin-right: 10px;
   text-decoration: none;
-  color: #fff;
-  text-shadow: -1px -3px #222;
+  color: #ddd;
+  text-shadow: -1px -2px #222;
   display: flex;
   align-items: center;
   transition: 0.3s ease-in-out;
@@ -157,5 +157,26 @@
 
 .business-link:hover {
   color: #222;
-  text-shadow: -1px -3px #fff;
+  text-shadow: -1px -3px #ddd;
+}
+
+/* SPLASH PAGES TEXT */
+.splash-page-text {
+  width: 400px;
+  font-weight: 200;
+  margin: 0;
+  width: 600px;
+  text-align: center;
+}
+
+.splash-page-header {
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 45px;
+  margin-bottom: 20px;
+  padding-top: 60vh;
+}
+
+.splash-page-paragraph {
+  font-size: 20px;
 }

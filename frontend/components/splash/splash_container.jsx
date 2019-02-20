@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Splash from './splash';
 import { connect } from 'react-redux';
 import { login } from '../../actions/session_actions';
-import { updateAnimations } from '../../util/ui_util';
+import { updateAnimations, removeDisabled } from '../../util/ui_util';
 
 class SplashContainer extends Component {
   
@@ -86,16 +86,17 @@ class SplashContainer extends Component {
   }
   
   componentDidMount() {
-    const stopScroll = e => e.preventDefault();
-    window.scrollTo(0, 0);
-    window.addEventListener('keydown', this.handleKeydown);
-    window.addEventListener('wheel', stopScroll);
-    setTimeout(() => {
-      window.removeEventListener('wheel', stopScroll);
-      window.addEventListener('wheel', this.handleWheel);
-    }, 2000);
+    // const stopScroll = e => e.preventDefault();
+    // window.scrollTo(0, 0);
+    // window.addEventListener('keydown', this.handleKeydown);
+    // window.addEventListener('wheel', stopScroll);
+    // setTimeout(() => {
+    //   window.removeEventListener('wheel', stopScroll);
+    //   window.addEventListener('wheel', this.handleWheel);
+    //   removeDisabled();
+    // }, 2000);
 
-    this.peek();
+    // this.peek(0);
   }
 
   componentWillUnmount() {

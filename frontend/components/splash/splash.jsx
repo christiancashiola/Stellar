@@ -47,23 +47,23 @@ export default ({ handleClick, demoLogin, hideHeader, location }) => {
   return (
     <>
     <ul id="splash-links">
-      <button 
+      <button
         className="glow sm-circle" 
         onClick={() => handleClick(0)}>
       </button>
-      <button 
+      <button
         className="sm-circle"
         onClick={() => handleClick(1)}>
       </button>
-      <button 
+      <button
         className="sm-circle"
         onClick={() => handleClick(2)}>
       </button>
-      <button 
+      <button
         className="sm-circle" 
         onClick={() => handleClick(3)}>
       </button>
-      <button 
+      <button
         className="sm-circle" 
         onClick={() => handleClick(4)}>
       </button>
@@ -121,6 +121,13 @@ export default ({ handleClick, demoLogin, hideHeader, location }) => {
             <h5 id="logo-s">S</h5>
           </div>
         </div>
+        <h2 className="splash-page-text splash-page-header">
+          Simple. Stellar is intuitive and easy to use.
+        </h2>
+        <p className="splash-page-text splash-page-paragraph">
+          From sharing photos, exploring posts, leaving comments, or following others,
+          Stellar keeps it straightforward. The stars are yours to explore, without the rocket science.
+        </p>
       </article>
       <article className="splash-article" id="splash-2">
          <div className="splash-post-container">
@@ -178,19 +185,19 @@ export default ({ handleClick, demoLogin, hideHeader, location }) => {
         <div className="splash-medium-container">
           <div className="circle-column-1">
             <div className="circle-text">
-              <span class="circle-description">Text</span>
+              <span className="circle-description">Text</span>
               <div id="first-white-circle" className="white-circle">
                 <span id="aa">Aa</span>
               </div>
             </div>
             <div className="circle-text">
-              <span class="circle-description">Video</span>
+              <span className="circle-description">Video</span>
               <div className="white-circle">
                 <i className="fas fa-video"></i>
               </div>
             </div>
             <div className="circle-text">
-              <span class="circle-description">Photo</span>
+              <span className="circle-description">Photo</span>
               <div className="white-circle">
                 <i className="fas fa-camera-retro"></i>
               </div>
@@ -201,19 +208,19 @@ export default ({ handleClick, demoLogin, hideHeader, location }) => {
               <div className="white-circle">
                 <i className="fas fa-quote-left"></i>
               </div>
-              <span class="circle-description">Quote</span>
+              <span className="circle-description">Quote</span>
             </div>
             <div className="circle-text">
               <div className="white-circle">
                 <i className="fas fa-link"></i>
               </div>
-              <span class="circle-description">Link</span>
+              <span className="circle-description">Link</span>
             </div>
             <div className="circle-text">
               <div id="last-white-circle" className="white-circle">
                 <i className="fas fa-headphones-alt"></i>
               </div>
-              <span class="circle-description">Audio</span>
+              <span className="circle-description">Audio</span>
             </div>
           </div>
         </div>

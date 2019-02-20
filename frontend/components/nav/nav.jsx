@@ -32,7 +32,7 @@ const Nav = props => {
         clearTags={props.clearTags} />
     );
   }
-
+  
   return (
     <nav className="nav" id="top">
       <div className="logo-wrapper">

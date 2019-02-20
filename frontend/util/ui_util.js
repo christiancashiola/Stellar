@@ -57,6 +57,14 @@ export const setColors = modernColors => {
   }
 };
 
+export const removeDisabled = () => {
+  const buttons = document.querySelectorAll('.sm-circle');
+  debugger
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].disabled = false;
+  }
+  }
+
 export const updateAnimations = (page) => {
   const content1 = document.querySelector('.mid-content');
   const content2 = document.querySelector('.splash-content-container');
@@ -65,7 +73,7 @@ export const updateAnimations = (page) => {
   switch (page) {
     case 0:
       content1.style.display = 'flex'
-      content2.style.display = 'flex';
+      content2.style.display = 'none';
       content3.style.display = 'none';
       content4.style.display = 'none';
       break;
@@ -86,6 +94,12 @@ export const updateAnimations = (page) => {
       content2.style.display = 'none';
       content3.style.display = 'none';
       content4.style.display = 'flex';
+      break;
+    case 4:
+      content1.style.display = 'none'
+      content2.style.display = 'none';
+      content3.style.display = 'none';
+      content4.style.display = 'none';
       break;
   }
 }
