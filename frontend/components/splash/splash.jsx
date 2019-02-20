@@ -123,10 +123,100 @@ export default ({ handleClick, demoLogin, hideHeader, location }) => {
         </div>
       </article>
       <article className="splash-article" id="splash-2">
-
+         <div className="splash-post-container">
+            <img
+              src={`${window.splashPost1}`}
+              alt="post"
+              className="splash-post"
+              id="splash-post-1"
+            />
+            <img
+              src={`${window.splashPost2}`}
+              alt="post"
+              className="splash-post"
+              id="splash-post-2"
+            />
+            <img
+              src={`${window.splashPost3}`}
+              alt="post"
+              className="splash-post"
+              id="splash-post-3"
+            />
+            <img
+              src={`${window.splashPost4}`}
+              alt="post"
+              className="splash-post"
+              id="splash-post-4"
+            />
+            <img
+              src={`${window.splashPost5}`}
+              alt="post"
+              className="splash-post"
+              id="splash-post-5"
+            />
+            <img
+              src={`${window.splashPost6}`}
+              alt="post"
+              className="splash-post"
+              id="splash-post-6"
+            />
+            <img
+              src={`${window.splashPost1}`}
+              alt="post"
+              className="splash-post"
+              id="splash-post-7"
+            />
+            <img
+              src={`${window.splashPost2}`}
+              alt="post"
+              className="splash-post"
+              id="splash-post-8"
+            />
+         </div>
       </article>
       <article className="splash-article" id="splash-3">
-
+        <div className="splash-medium-container">
+          <div className="circle-column-1">
+            <div className="circle-text">
+              <span class="circle-description">Text</span>
+              <div id="first-white-circle" className="white-circle">
+                <span id="aa">Aa</span>
+              </div>
+            </div>
+            <div className="circle-text">
+              <span class="circle-description">Video</span>
+              <div className="white-circle">
+                <i className="fas fa-video"></i>
+              </div>
+            </div>
+            <div className="circle-text">
+              <span class="circle-description">Photo</span>
+              <div className="white-circle">
+                <i className="fas fa-camera-retro"></i>
+              </div>
+            </div>
+          </div>
+          <div className="circle-column-2">
+            <div className="circle-text">
+              <div className="white-circle">
+                <i className="fas fa-quote-left"></i>
+              </div>
+              <span class="circle-description">Quote</span>
+            </div>
+            <div className="circle-text">
+              <div className="white-circle">
+                <i className="fas fa-link"></i>
+              </div>
+              <span class="circle-description">Link</span>
+            </div>
+            <div className="circle-text">
+              <div id="last-white-circle" className="white-circle">
+                <i className="fas fa-headphones-alt"></i>
+              </div>
+              <span class="circle-description">Audio</span>
+            </div>
+          </div>
+        </div>
       </article>
       <article className="splash-article" id="splash-4" style={lastSplashStyle}>
         <div className="mid-content last-splash">

@@ -56,3 +56,36 @@ export const setColors = modernColors => {
     }
   }
 };
+
+export const updateAnimations = (page) => {
+  const content1 = document.querySelector('.mid-content');
+  const content2 = document.querySelector('.splash-content-container');
+  const content3 = document.querySelector('.splash-post-container');
+  const content4 = document.querySelector('.splash-medium-container');
+  switch (page) {
+    case 0:
+      content1.style.display = 'flex'
+      content2.style.display = 'flex';
+      content3.style.display = 'none';
+      content4.style.display = 'none';
+      break;
+    case 1:
+      content1.style.display = 'none'
+      content2.style.display = 'flex';
+      content3.style.display = 'none';
+      content4.style.display = 'none';
+      break;
+    case 2:
+      content1.style.display = 'none'
+      content2.style.display = 'none';
+      content3.style.display = 'block';
+      content4.style.display = 'none';
+      break;
+    case 3:
+      content1.style.display = 'none'
+      content2.style.display = 'none';
+      content3.style.display = 'none';
+      content4.style.display = 'flex';
+      break;
+  }
+}

@@ -42,11 +42,25 @@
 
 .mid-content {
   position: relative;
-  top: 23%;
   display: flex;
   align-items: center;
   flex-flow: column;
   text-align: center;
+  animation: slide-in 1s ease 1 forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+  max-height: 500px;
+}
+
+@keyframes slide-in {
+  0% { 
+    top: 30%;
+    opacity: 0;
+  }
+  100% { 
+    top: 23%;
+    opacity: 1;
+  }
 }
 
 .mid-content p {

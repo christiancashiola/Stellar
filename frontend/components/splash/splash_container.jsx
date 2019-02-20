@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Splash from './splash';
 import { connect } from 'react-redux';
 import { login } from '../../actions/session_actions';
+import { updateAnimations } from '../../util/ui_util';
 
 class SplashContainer extends Component {
   
@@ -81,12 +82,7 @@ class SplashContainer extends Component {
   }
 
   componentDidUpdate() {
-    const content = document.querySelector('.splash-content-container');
-    if (this.state.page === 1) {
-      content.style.display = 'flex';
-    } else if (this.state.page !== 1) {
-      content.style.display = 'none';
-    }
+    updateAnimations(this.state.page);
   }
   
   componentDidMount() {
