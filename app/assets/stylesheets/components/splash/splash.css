@@ -193,3 +193,7 @@
 #splash-4 h2 {
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.9)
 }
+
+.mobile-splash {
+  bottom: 10%;
+}

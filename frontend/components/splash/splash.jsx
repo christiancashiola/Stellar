@@ -69,7 +69,10 @@ export default ({ handleClick, demoLogin, location }) => {
       </button>
     </ul>
     <section className="splash-container">
-      <article className="splash-article" id="splash-0" style={mainSplashStyle}>
+      <article 
+        className="splash-article" 
+        id="splash-0" 
+        style={mainSplashStyle}>
         <div className="mid-content">
           <span id="main-header">
             <i className="far fa-star-half"></i>

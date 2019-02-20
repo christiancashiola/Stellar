@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Splash from './splash';
+import MobileSplash from './mobile_splash';
 import { connect } from 'react-redux';
 import { login } from '../../actions/session_actions';
 import {
@@ -18,13 +19,13 @@ class SplashContainer extends Component {
       scrolling: false,
     }
     this.firstScroll = true;
+    this.initialHeight = window.innerHeight;
     this.scrollUp = this.scrollUp.bind(this);
     this.scrollDown = this.scrollDown.bind(this);
     this.handleWheel = this.handleWheel.bind(this);
     this.handleKeydown = this.handleKeydown.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.checkSize = this.checkSize.bind(this);
-    this.disableScrolling = this.disableScrolling.bind(this);
+    this.handleResize = this.handleResize.bind(this);
   }
 
   scrollUp() {
@@ -79,24 +80,6 @@ class SplashContainer extends Component {
       }
     }
   }
-
-  checkSize(){
-    if (window.innerHeight < 720 || window.innerWidth < 920) {
-      window.scrollTo(0, 0);
-      document.querySelector('#splash-links').style.display = 'none';
-      const midContent = document.querySelector('.mid-content');
-      midContent.style.opacity = '1';
-      midContent.style.display = 'flex';
-      window.removeEventListener('wheel', this.handleWheel);
-      window.removeEventListener('keydown', this.handleKeydown);
-      window.removeEventListener('keydown', this.handleKeydown);
-      window.addEventListener('scroll', this.disableScrolling);
-    }
-  }
-  
-  disableScrolling(){
-    window.scrollTo(0, 0);
-  }
   
   peek() {
     setTimeout(() => {
@@ -108,23 +91,34 @@ class SplashContainer extends Component {
   }
 
   componentDidUpdate() {
-    updateAnimations(this.state.page);
+    if (window.innerHeight >= 720 && window.innerWidth >= 920) {
+      updateAnimations(this.state.page);
+    }
+  }
+
+  handleResize(e) {
+    // Temporary to handle screen break until mobile support
+    if (window.innerWidth < 920 ||
+        window.innerHeight !== this.initialHeight) {
+        window.location.reload();
+    }
   }
   
   componentDidMount() {
-    this.checkSize();
-    const stopScroll = e => e.preventDefault();
-    window.scrollTo(0, 0);
-    window.addEventListener('keydown', this.handleKeydown);
-    window.addEventListener('resize', this.checkSize);
-    window.addEventListener('wheel', stopScroll);
-    setTimeout(() => {
-      window.removeEventListener('wheel', this.stopScroll);
-      window.addEventListener('wheel', this.handleWheel);
-      removeDisabled();
-    }, 2000);
+    if (window.innerHeight >= 720 && window.innerWidth >= 920) {
+      const stopScroll = e => e.preventDefault();
+      window.scrollTo(0, 0);
+      window.addEventListener('keydown', this.handleKeydown);
+      window.addEventListener('resize', this.handleResize);
+      window.addEventListener('wheel', stopScroll);
+      setTimeout(() => {
+        window.removeEventListener('wheel', this.stopScroll);
+        window.addEventListener('wheel', this.handleWheel);
+        removeDisabled();
+      }, 2000);
 
-    this.peek();
+      this.peek();
+    }
   }
 
   componentWillUnmount() {
@@ -159,6 +153,11 @@ class SplashContainer extends Component {
 
   render() {
     return (
+      window.innerHeight < 720 || window.innerWidth < 920 ?
+      <MobileSplash 
+        demoLogin={this.props.demoLogin}
+        location={this.props.location}
+      /> :
       <Splash 
         demoLogin={this.props.demoLogin}
         handleClick={this.handleClick}

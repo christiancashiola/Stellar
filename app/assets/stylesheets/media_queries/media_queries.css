@@ -122,7 +122,7 @@
 }
 
 
-@media (min-width: 310px) and (max-width: 544px) {
+@media (min-width: 310px) and (max-width: 544px), (max-height: 700px) {
   /* SPLASH */
   .head-logo {
     font-size: 5em;
