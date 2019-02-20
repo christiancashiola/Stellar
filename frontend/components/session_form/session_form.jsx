@@ -32,20 +32,18 @@ class SessionForm extends Component {
     const { usernameField, formType, sessionErrors } = this.props;
     
     return (
-      <form className="session-form" onSubmit={this.handleSubmit}>
+      <form className="session-form" onSubmit={this.handleSubmit} autoComplete="off">
         <div className="input-wrapper">
           <label htmlFor="email"></label>
             <input
               onChange={this.update('email')}
               type="text" 
-              placeholder="Email"
-              id="email"/>
+              placeholder="Email"/>
             <label htmlFor="password"></label>
               <input
               onChange={this.update('password')}
               type="password"
-              placeholder="Password"
-              id="password"/> 
+              placeholder="Password"/> 
             {usernameField ? usernameField(this.update) : null}
         </div>
 

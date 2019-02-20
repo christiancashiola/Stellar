@@ -5,6 +5,7 @@
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
+    "@fullpage/react-fullpage": "^0.1.13",
     "babel-loader": "^8.0.5",
     "lodash": "^4.17.11",
     "react": "^16.7.0",

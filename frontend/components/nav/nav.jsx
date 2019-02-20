@@ -20,6 +20,7 @@ const Nav = props => {
       </div>
     );
   }
+
   if (currentUser) {
     setColors(currentUser.modernColors);
     display = (
@@ -32,12 +33,15 @@ const Nav = props => {
         clearTags={props.clearTags} />
     );
   }
-
+  
   return (
     <nav className="nav" id="top">
       <div className="logo-wrapper">
         <Link className="logo-link" to={currentUser ? '/dashboard' : '/'}>
-          <button className="logo"><i className="far fa-star-half"></i>S</button>
+          <button className="sm-logo">
+            <i className="far fa-star-half"></i>
+            <h5 id="logo-s">S</h5>
+          </button>
         </Link>
       </div>
 

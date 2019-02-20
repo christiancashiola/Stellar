@@ -9,6 +9,28 @@
   padding-right: 50px;
 }
 
+.sm-logo {
+  text-shadow: 0 0 2px #222;
+  color: #fff;
+  padding-top: 5px;
+  background-color: transparent;
+  font-size: 36px;
+  font-weight: 500;
+  font-family: 'Lobster', cursive;
+  display: flex;
+}
+
+.sm-logo i {
+  margin-right: -25px;
+  transform: rotate(3deg);
+  font-size: 34px;
+}
+
+#logo-s {
+  margin: 0;
+  z-index: 5;
+}
+
 .splash-nav-btns {
   position: absolute;
   right: 10%;

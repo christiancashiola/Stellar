@@ -8,7 +8,6 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
     crossorigin="anonymous">
-
     <link href="https://fonts.googleapis.com/css?family=Lobster|Sarabun:100,400|Noto+Serif+SC:500" rel="stylesheet">
 
     <%= favicon_link_tag '/favicon.ico' %>
@@ -29,9 +28,23 @@
       </script>
     <% end %>
 
-    <% img = image_url("bg#{(rand(5) + 1).to_s}.jpg") %>
-    <script>      
-      window.splashUrl = "<%= img %>";
+    <% img1 = image_url("stars-bg-#{(rand(3) + 1).to_s}.png") %>
+    <% img2 = image_url("stars-bg-4.png") %>
+    <% splash_post1 = image_url("splash-post-1.png") %>
+    <% splash_post2 = image_url("splash-post-2.png") %>
+    <% splash_post3 = image_url("splash-post-3.png") %>
+    <% splash_post4 = image_url("splash-post-4.png") %>
+    <% splash_post5 = image_url("splash-post-5.png") %>
+    <% splash_post6 = image_url("splash-post-6.png") %>
+    <script>
+      window.splashPost1 = "<%= splash_post1 %>"
+      window.splashPost2 = "<%= splash_post2 %>"
+      window.splashPost3 = "<%= splash_post3 %>"
+      window.splashPost4 = "<%= splash_post4 %>"
+      window.splashPost5 = "<%= splash_post5 %>"
+      window.splashPost6 = "<%= splash_post6 %>"
+      window.splashUrl1 = "<%= img1 %>";
+      window.splashUrl2 = "<%= img2 %>";
     </script>
   </head>
 

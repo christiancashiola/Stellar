@@ -5,7 +5,7 @@
   font-size: 36px;
   font-weight: 500;
   font-family: 'Lobster', cursive;
-  text-shadow: 0 2px #000;
+  text-shadow: -1px -3px #222;
   margin: 5px;
 }
 
@@ -42,23 +42,37 @@
 
 .mid-content {
   position: relative;
-  top: 20%;
   display: flex;
   align-items: center;
   flex-flow: column;
   text-align: center;
+  animation: slide-in 1s ease 1 forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+  max-height: 500px;
+}
+
+@keyframes slide-in {
+  0% { 
+    top: 30%;
+    opacity: 0;
+  }
+  100% { 
+    top: 5%;
+    opacity: 1;
+  }
 }
 
 .mid-content p {
   color: #fff;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 400;
-  margin: 0 0 15px;
+  margin: 0 0 5px;
   letter-spacing: 1px;
   line-height: 20px;
-  background-color: rgba(25, 25, 25, 0.5);
-  padding: 10px;
+  padding-bottom: 10px;
   border-radius: 3px;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5)
 }
 
 #main-header {
@@ -70,6 +84,7 @@
 .head-logo {
   font-size: 8em;
   z-index: 1;
+  text-shadow: -1px -3px #222;
 }
 
 #main-header i {
@@ -77,7 +92,7 @@
   color: #fff;
   font-size: 8em;
   margin-right: -95px;
-  text-shadow: 0 2px #000;
+  text-shadow: -1px -3px #222;
 }
 
 .lg-blue-btn {
@@ -121,19 +136,20 @@
 
 .footer {
   display: flex;
-  position: absolute;
-  bottom: 1%;
+  position: fixed;
+  bottom: 10px;
   padding-left: 10px;
 }
 
 .business-link {
-  font-size: 24px;
+  font-size: 30px;
   margin-right: 10px;
   text-decoration: none;
-  color: #aaa;
+  color: #ddd;
+  text-shadow: -1px -2px #222;
   display: flex;
   align-items: center;
-  transition: 0.1s;
+  transition: 0.1s ease-in-out;
 }
 
 .business-link:last-of-type {
@@ -141,5 +157,39 @@
 }
 
 .business-link:hover {
-  color: #fff;
+  color: #222;
+  text-shadow: -1px -3px #ddd;
+}
+
+/* SPLASH PAGES TEXT */
+.splash-page-text {
+  width: 400px;
+  font-weight: 200;
+  margin: 0;
+  width: 600px;
+  text-align: center;
+}
+
+.splash-page-header {
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 45px;
+  margin-bottom: 20px;
+}
+
+#splash-text-1 {
+  padding-top: 60vh;
+}
+
+.splash-page-paragraph {
+  font-size: 20px;
+}
+
+#splash-text-2 {
+  padding-right: 35vw;
+  padding-bottom: 65vh;
+}
+
+#splash-4 h2 {
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9)
 }
