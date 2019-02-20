@@ -5,8 +5,7 @@ import { login } from '../../actions/session_actions';
 import {
   updateAnimations,
   removeDisabled,
-  checkSize,
-  disableScrolling
+  hideHeader,
 } from '../../util/ui_util';
 
 class SplashContainer extends Component {
@@ -18,6 +17,7 @@ class SplashContainer extends Component {
       top: 0,
       scrolling: false,
     }
+    this.firstScroll = true;
     this.scrollUp = this.scrollUp.bind(this);
     this.scrollDown = this.scrollDown.bind(this);
     this.handleWheel = this.handleWheel.bind(this);
@@ -31,7 +31,6 @@ class SplashContainer extends Component {
     this.setState((prevState, _) => ({page: prevState.page -= 1}), () => {
       this.updateSplashLinks(this.state.page, this.state.page + 1);
       this.switchPage(this.state.page);
-      this.hideHeader();
     });
   }
 
@@ -39,7 +38,6 @@ class SplashContainer extends Component {
     this.setState((prevState, _) => ({page: prevState.page += 1}), () => {
       this.updateSplashLinks(this.state.page, this.state.page - 1);
       this.switchPage(this.state.page);
-      this.hideHeader();
     });
   }
 
@@ -80,13 +78,13 @@ class SplashContainer extends Component {
   }
 
   checkSize(){
-    if (window.innerHeight < 760 || window.innerWidth < 920) {
+    if (window.innerHeight < 720 || window.innerWidth < 920) {
       window.scrollTo(0, 0);
       document.querySelector('#splash-links').style.display = 'none';
       window.removeEventListener('wheel', this.handleWheel);
       window.removeEventListener('keydown', this.handleKeydown);
       window.removeEventListener('keydown', this.handleKeydown);
-      window.addEventListener('scroll', disableScrolling);
+      window.addEventListener('scroll', this.disableScrolling);
     }
   }
   
@@ -132,6 +130,10 @@ class SplashContainer extends Component {
   }
 
   switchPage() {
+    if (this.firstScroll) {
+      hideHeader();
+      this.firstScroll = false;
+    }
     window.scrollTo({ top: this.state.page * window.innerHeight, behavior: "smooth"});
     setTimeout(() => {
       this.setState({scrolling: false})
@@ -144,20 +146,14 @@ class SplashContainer extends Component {
       scrolling: true,
       page: page
     }, () => {
-      this.hideHeader();
       this.updateSplashLinks(this.state.page, prevPage);
       this.switchPage(this.state.page);
     });
   }
 
-  hideHeader() {
-    document.querySelector('#what-is-stellar').classList.add('hidden');
-  }
-  
   render() {
     return (
       <Splash 
-        hideHeader={this.hideHeader}
         demoLogin={this.props.demoLogin}
         handleClick={this.handleClick}
         location={this.props.location}

@@ -57,6 +57,10 @@ export const setColors = modernColors => {
   }
 };
 
+export const hideHeader = () => {
+  document.querySelector('#what-is-stellar').classList.add('hidden');
+}
+
 export const removeDisabled = () => {
   const buttons = document.querySelectorAll('.sm-circle');
   for (let i = 0; i < buttons.length; i++) {

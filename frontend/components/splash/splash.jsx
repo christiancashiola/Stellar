@@ -2,9 +2,9 @@ import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import SignUpFormContainer from '../session_form/signup_form_container';
 import LoginFormContainer from '../session_form/login_form_container';
+import { hideHeader } from '../../util/ui_util';
 
-
-export default ({ handleClick, demoLogin, hideHeader, location }) => {
+export default ({ handleClick, demoLogin, location }) => {
 
   
   let getStartedBtn = (
@@ -249,7 +249,7 @@ export default ({ handleClick, demoLogin, hideHeader, location }) => {
         </div>
       </article>
       <article className="splash-article" id="splash-4" style={lastSplashStyle}>
-        <div className="mid-content last-splash">
+        <div className="last-mid-content last-splash">
           <h2 className="splash-page-header">
             The final frontier<br />ins't so "final" afterall...
           </h2>
