@@ -1,11 +1,12 @@
 /* GENERAL SPLASH */
 #what-is-stellar {
+  position: absolute;
   cursor: pointer;
   width: 100%;
   text-align: center;
   margin: 0;
   color: #fff;
-  padding-top: 10px;
+  top: 10px;
   font-size: 18px;
 }
 
@@ -50,6 +51,7 @@
 }
 
 .splash-article {
+  position: relative;
   color: #fff;
   display: flex;
   flex-flow: column;
@@ -105,7 +107,7 @@
 
 .ornament {
   -webkit-text-fill-color: #1ab537;
-  -webkit-text-stroke-color: #2e5936;
+  -webkit-text-stroke-color: #168029;
   -webkit-text-stroke-width: 3px;
   position: absolute;
   transition: 1s;

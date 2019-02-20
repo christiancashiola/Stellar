@@ -86,17 +86,17 @@ class SplashContainer extends Component {
   }
   
   componentDidMount() {
-    // const stopScroll = e => e.preventDefault();
-    // window.scrollTo(0, 0);
-    // window.addEventListener('keydown', this.handleKeydown);
-    // window.addEventListener('wheel', stopScroll);
-    // setTimeout(() => {
-    //   window.removeEventListener('wheel', stopScroll);
-    //   window.addEventListener('wheel', this.handleWheel);
-    //   removeDisabled();
-    // }, 2000);
+    const stopScroll = e => e.preventDefault();
+    window.scrollTo(0, 0);
+    window.addEventListener('keydown', this.handleKeydown);
+    window.addEventListener('wheel', stopScroll);
+    setTimeout(() => {
+      window.removeEventListener('wheel', stopScroll);
+      window.addEventListener('wheel', this.handleWheel);
+      removeDisabled();
+    }, 2000);
 
-    // this.peek(0);
+    this.peek(0);
   }
 
   componentWillUnmount() {

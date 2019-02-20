@@ -121,15 +121,26 @@ export default ({ handleClick, demoLogin, hideHeader, location }) => {
             <h5 id="logo-s">S</h5>
           </div>
         </div>
-        <h2 className="splash-page-text splash-page-header">
+        <h2 id="splash-text-1" className="splash-page-text splash-page-header">
           Simple. Stellar is intuitive and easy to use.
         </h2>
         <p className="splash-page-text splash-page-paragraph">
-          From sharing photos, exploring posts, leaving comments, or following others,
-          Stellar keeps it straightforward. The stars are yours to explore, without the rocket science.
+          From sharing photos, exploring posts, leaving comments,
+          or following others, Stellar keeps it straightforward. 
+          The stars are yours to explore, without the rocket science.
         </p>
       </article>
       <article className="splash-article" id="splash-2">
+         <div id="splash-text-2">
+          <h2 className="splash-page-text splash-page-header">
+            Spontaneous.<br />A place where you can be you!
+          </h2>
+          <p className="splash-page-text splash-page-paragraph">
+            Stellar's community is diverse, respectful, and passionate.
+            Users can fearlessly enjoy sharing what matters to them. 
+            Check out the explore page to see what is trending.
+          </p>
+         </div>
          <div className="splash-post-container">
             <img
               src={`${window.splashPost1}`}
@@ -182,6 +193,11 @@ export default ({ handleClick, demoLogin, hideHeader, location }) => {
          </div>
       </article>
       <article className="splash-article" id="splash-3">
+        <div id="splash-text-3">
+          <h2 className="splash-page-text splash-page-header">
+            Choices, choices.
+          </h2>
+         </div>
         <div className="splash-medium-container">
           <div className="circle-column-1">
             <div className="circle-text">
@@ -223,6 +239,13 @@ export default ({ handleClick, demoLogin, hideHeader, location }) => {
               <span className="circle-description">Audio</span>
             </div>
           </div>
+        </div>
+        <div id="splash-text-4">
+          <p className="splash-page-text splash-page-paragraph">
+            With six different types of posting options, the sky is the limit.
+            Also, Stellar is responsive so you can share musings from your smart phone.
+            Give it try sometime!
+          </p>
         </div>
       </article>
       <article className="splash-article" id="splash-4" style={lastSplashStyle}>
