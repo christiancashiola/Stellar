@@ -84,6 +84,9 @@ class SplashContainer extends Component {
     if (window.innerHeight < 720 || window.innerWidth < 920) {
       window.scrollTo(0, 0);
       document.querySelector('#splash-links').style.display = 'none';
+      const midContent = document.querySelector('.mid-content');
+      midContent.style.opacity = '1';
+      midContent.style.display = 'flex';
       window.removeEventListener('wheel', this.handleWheel);
       window.removeEventListener('keydown', this.handleKeydown);
       window.removeEventListener('keydown', this.handleKeydown);
