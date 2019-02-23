@@ -9,10 +9,12 @@ class Api::PostsController < ApplicationController
         .order(created_at: :desc)
         .where(user_id: current_user.followee_ids.push(current_user.id))
         .page(params[:page]).per(20)
+
     elsif pathname[1] == 'explore'
       @posts = Post
         .order(likes_count: :desc)
         .page(params[:page]).per(30)
+        
     else
       tag = Tag.find_by(subject: "##{pathname[-1]}")
       @posts = tag.posts.order(created_at: :desc).page(params[:page]).per(30)
