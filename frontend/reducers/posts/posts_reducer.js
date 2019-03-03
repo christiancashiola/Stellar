@@ -2,9 +2,9 @@ import {
   RECEIVE_POSTS,
   RECEIVE_POST,
   REMOVE_POST,
-  CLEAR_POSTS,
- } from '../../actions/post_actions';
- import { merge } from 'lodash';
+  CLEAR_POSTS
+} from "../../actions/post_actions";
+import { merge } from "lodash";
 
 const postReducer = (state = {}, action) => {
   Object.freeze(state);

@@ -17,10 +17,16 @@ class Api::PostsController < ApplicationController
         
     else
       tag = Tag.find_by(subject: "##{pathname[-1]}")
-      @posts = tag.posts.order(created_at: :desc).page(params[:page]).per(30)
+      if tag
+        @posts = tag.posts.order(created_at: :desc).page(params[:page]).per(30)
+      end
     end
 
-    render 'api/posts/index'
+    if @posts
+      render 'api/posts/index'
+    else
+      render json: ['Oops. Something went wrong.'], status: 404
+    end
   end
 
   def show

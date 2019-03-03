@@ -87,7 +87,7 @@ class RecommendedRadar extends Component {
               <div className="radar-business-wrapper">
                 <a className="business-link" 
                    href="http://christiancashiola.me">
-                  <i class="fas fa-portrait"></i>
+                  <i className="fas fa-portrait"></i>
                 </a>
                 <a className="business-link" 
                    href="https://github.com/christiancashiola">

@@ -45,10 +45,22 @@ class PostsIndex extends Component {
       }
     });
     
+    let nonPostDisplay = null;
+    if (this.props.postErrors.length && 
+      (criterion === 'search' || criterion === 'explore')) {
+      nonPostDisplay = (
+        <h3 className="post-errors">Sorry, no posts match that criteria</h3>
+      );
+    } else if (loading) {
+      nonPostDisplay = (
+        <div className="loader"></div>
+      );
+    }
+    
     return (
       <section className={`${criterion}-posts`}>
         {posts}
-        {loading ? <div className="loader"></div> : null}
+        {nonPostDisplay}
         <Waypoint bottomOffset="-30%" onEnter={this.getPosts} />
       </section>
     );
