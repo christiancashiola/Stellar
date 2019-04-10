@@ -160,6 +160,7 @@ class SplashContainer extends Component {
 
   render() {
     return (
+      
       // Commented out logic because of Chrome's new passive events
       // window.innerHeight < 720 || window.innerWidth < 920 ?
       <MobileSplash 
