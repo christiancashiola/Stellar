@@ -91,15 +91,16 @@ class SplashContainer extends Component {
   }
 
   componentDidUpdate() {
-    if (window.innerHeight >= 720 && window.innerWidth >= 920) {
-      updateAnimations(this.state.page);
-    }
-    const nav = document.querySelector('.nav');
-    if (this.state.page !== 0 && this.state.page !== 4) {
-      nav.style.display = 'none';
-    } else {
-      nav.style.display = 'flex';
-    }
+    // Commented out logic because of Chrome's new passive events
+    // if (window.innerHeight >= 720 && window.innerWidth >= 920) {
+    //   updateAnimations(this.state.page);
+    // }
+    // const nav = document.querySelector('.nav');
+    // if (this.state.page !== 0 && this.state.page !== 4) {
+    //   nav.style.display = 'none';
+    // } else {
+    //   nav.style.display = 'flex';
+    // }
   }
 
   handleResize(e) {
@@ -111,20 +112,21 @@ class SplashContainer extends Component {
   }
   
   componentDidMount() {
-    if (window.innerHeight >= 720 && window.innerWidth >= 920) {
-      const stopScroll = e => e.preventDefault();
-      window.scrollTo(0, 0);
-      window.addEventListener('keydown', this.handleKeydown);
-      window.addEventListener('resize', this.handleResize);
-      window.addEventListener('wheel', stopScroll);
-      setTimeout(() => {
-        window.removeEventListener('wheel', stopScroll);
-        window.addEventListener('wheel', this.handleWheel);
-        removeDisabled();
-      }, 2000);
+    // Commented out logic because of Chrome's new passive events
+    // if (window.innerHeight >= 720 && window.innerWidth >= 920) {
+    //   const stopScroll = e => e.preventDefault();
+    //   window.scrollTo(0, 0);
+    //   window.addEventListener('keydown', this.handleKeydown);
+    //   window.addEventListener('resize', this.handleResize);
+    //   window.addEventListener('wheel', stopScroll);
+    //   setTimeout(() => {
+    //     window.removeEventListener('wheel', stopScroll);
+    //     window.addEventListener('wheel', this.handleWheel);
+    //     removeDisabled();
+    //   }, 2000);
 
-      this.peek();
-    }
+    //   this.peek();
+    // }
   }
 
   componentWillUnmount() {
@@ -158,16 +160,18 @@ class SplashContainer extends Component {
 
   render() {
     return (
-      window.innerHeight < 720 || window.innerWidth < 920 ?
+      // Commented out logic because of Chrome's new passive events
+      // window.innerHeight < 720 || window.innerWidth < 920 ?
       <MobileSplash 
         demoLogin={this.props.demoLogin}
         location={this.props.location}
-      /> :
-      <Splash 
-        demoLogin={this.props.demoLogin}
-        handleClick={this.handleClick}
-        location={this.props.location}
-      />
+      /> 
+      // :
+      // <Splash 
+      //   demoLogin={this.props.demoLogin}
+      //   handleClick={this.handleClick}
+      //   location={this.props.location}
+      // />
     );
   }
 };
